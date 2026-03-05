@@ -70,7 +70,7 @@ CREATE TABLE [dbo].[CourseModules] (
 CREATE INDEX [IX_CourseModules_CourseId] ON [dbo].[CourseModules] ([CourseId]);
 ```
 
-- [ ] **1d.** Add repository methods
+- [x] **1d.** Add repository methods
 
 In `src/App_Code/DataAccess/CourseRepository.vb`, add:
 - `GetModulesByCourseId(courseId As Integer) As List(Of CourseModule)`

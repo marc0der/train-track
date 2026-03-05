@@ -668,6 +668,161 @@ Namespace Defra.TrainTrack.DataAccess
             Return course
         End Function
 
+        ' ===== CourseModule Methods =====
+
+        Public Function GetModulesByCourseId(courseId As Integer) As List(Of CourseModule)
+            Dim modules As New List(Of CourseModule)()
+            Try
+                Dim sql As String = "SELECT * FROM CourseModules WHERE CourseId = @CourseId ORDER BY ModuleOrder"
+
+                Dim parameters As SqlParameter() = {
+                    DatabaseHelper.CreateParameter("@CourseId", SqlDbType.Int, courseId)
+                }
+
+                Using reader As SqlDataReader = _db.ExecuteReader(sql, parameters)
+                    While reader.Read()
+                        modules.Add(MapModuleFromReader(reader))
+                    End While
+                End Using
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error in GetModulesByCourseId ({courseId}): {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to retrieve modules for course {courseId}", ex)
+            Finally
+                _db.CloseConnection()
+            End Try
+            Return modules
+        End Function
+
+        Public Function CreateModule(courseModule As CourseModule) As Integer
+            Try
+                Dim sql As String = "INSERT INTO CourseModules " &
+                                    "(CourseId, ModuleOrder, Title, ModuleType, DurationMinutes, Description, " &
+                                    "CreatedDate, ModifiedDate) " &
+                                    "VALUES " &
+                                    "(@CourseId, @ModuleOrder, @Title, @ModuleType, @DurationMinutes, @Description, " &
+                                    "@CreatedDate, @ModifiedDate); " &
+                                    "SELECT SCOPE_IDENTITY();"
+
+                Dim parameters As SqlParameter() = {
+                    DatabaseHelper.CreateParameter("@CourseId", SqlDbType.Int, courseModule.CourseId),
+                    DatabaseHelper.CreateParameter("@ModuleOrder", SqlDbType.Int, courseModule.ModuleOrder),
+                    DatabaseHelper.CreateParameter("@Title", SqlDbType.NVarChar, 200, courseModule.Title),
+                    DatabaseHelper.CreateParameter("@ModuleType", SqlDbType.NVarChar, 50, courseModule.ModuleType),
+                    DatabaseHelper.CreateParameter("@DurationMinutes", SqlDbType.Int, courseModule.DurationMinutes),
+                    DatabaseHelper.CreateParameter("@Description", courseModule.Description),
+                    DatabaseHelper.CreateParameter("@CreatedDate", SqlDbType.DateTime, courseModule.CreatedDate),
+                    DatabaseHelper.CreateParameter("@ModifiedDate", SqlDbType.DateTime, courseModule.ModifiedDate)
+                }
+
+                Dim result As Object = _db.ExecuteScalar(sql, parameters)
+                If result IsNot Nothing AndAlso result IsNot DBNull.Value Then
+                    Return Convert.ToInt32(result)
+                End If
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error in CreateModule: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException("Unable to create course module", ex)
+            Finally
+                _db.CloseConnection()
+            End Try
+            Return 0
+        End Function
+
+        Public Function UpdateModule(courseModule As CourseModule) As Boolean
+            Try
+                Dim sql As String = "UPDATE CourseModules SET " &
+                                    "CourseId = @CourseId, " &
+                                    "ModuleOrder = @ModuleOrder, " &
+                                    "Title = @Title, " &
+                                    "ModuleType = @ModuleType, " &
+                                    "DurationMinutes = @DurationMinutes, " &
+                                    "Description = @Description, " &
+                                    "ModifiedDate = @ModifiedDate " &
+                                    "WHERE ModuleId = @ModuleId"
+
+                Dim parameters As SqlParameter() = {
+                    DatabaseHelper.CreateParameter("@ModuleId", SqlDbType.Int, courseModule.ModuleId),
+                    DatabaseHelper.CreateParameter("@CourseId", SqlDbType.Int, courseModule.CourseId),
+                    DatabaseHelper.CreateParameter("@ModuleOrder", SqlDbType.Int, courseModule.ModuleOrder),
+                    DatabaseHelper.CreateParameter("@Title", SqlDbType.NVarChar, 200, courseModule.Title),
+                    DatabaseHelper.CreateParameter("@ModuleType", SqlDbType.NVarChar, 50, courseModule.ModuleType),
+                    DatabaseHelper.CreateParameter("@DurationMinutes", SqlDbType.Int, courseModule.DurationMinutes),
+                    DatabaseHelper.CreateParameter("@Description", courseModule.Description),
+                    DatabaseHelper.CreateParameter("@ModifiedDate", SqlDbType.DateTime, courseModule.ModifiedDate)
+                }
+
+                Dim rowsAffected As Integer = _db.ExecuteNonQuery(sql, parameters)
+                Return rowsAffected > 0
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error in UpdateModule ({courseModule.ModuleId}): {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to update course module {courseModule.ModuleId}", ex)
+            Finally
+                _db.CloseConnection()
+            End Try
+        End Function
+
+        Public Function DeleteModule(moduleId As Integer) As Boolean
+            Try
+                Dim sql As String = "DELETE FROM CourseModules WHERE ModuleId = @ModuleId"
+
+                Dim parameters As SqlParameter() = {
+                    DatabaseHelper.CreateParameter("@ModuleId", SqlDbType.Int, moduleId)
+                }
+
+                Dim rowsAffected As Integer = _db.ExecuteNonQuery(sql, parameters)
+                Return rowsAffected > 0
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error in DeleteModule ({moduleId}): {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to delete course module {moduleId}", ex)
+            Finally
+                _db.CloseConnection()
+            End Try
+        End Function
+
+        Public Function ReorderModules(courseId As Integer, moduleIds As List(Of Integer)) As Boolean
+            Try
+                Dim transaction As SqlTransaction = _db.BeginTransaction()
+                Try
+                    For i As Integer = 0 To moduleIds.Count - 1
+                        Dim sql As String = "UPDATE CourseModules SET ModuleOrder = @ModuleOrder, ModifiedDate = @ModifiedDate " &
+                                            "WHERE ModuleId = @ModuleId AND CourseId = @CourseId"
+
+                        Using cmd As New SqlCommand(sql, _db.Connection, transaction)
+                            cmd.Parameters.Add(DatabaseHelper.CreateParameter("@ModuleOrder", SqlDbType.Int, i + 1))
+                            cmd.Parameters.Add(DatabaseHelper.CreateParameter("@ModifiedDate", SqlDbType.DateTime, DateTime.Now))
+                            cmd.Parameters.Add(DatabaseHelper.CreateParameter("@ModuleId", SqlDbType.Int, moduleIds(i)))
+                            cmd.Parameters.Add(DatabaseHelper.CreateParameter("@CourseId", SqlDbType.Int, courseId))
+                            cmd.ExecuteNonQuery()
+                        End Using
+                    Next
+
+                    transaction.Commit()
+                    Return True
+                Catch ex As Exception
+                    transaction.Rollback()
+                    Throw
+                End Try
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error in ReorderModules ({courseId}): {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to reorder modules for course {courseId}", ex)
+            Finally
+                _db.CloseConnection()
+            End Try
+        End Function
+
+        Private Function MapModuleFromReader(reader As SqlDataReader) As CourseModule
+            Dim courseModule As New CourseModule()
+            courseModule.ModuleId = DatabaseHelper.SafeGetInteger(reader, "ModuleId")
+            courseModule.CourseId = DatabaseHelper.SafeGetInteger(reader, "CourseId")
+            courseModule.ModuleOrder = DatabaseHelper.SafeGetInteger(reader, "ModuleOrder")
+            courseModule.Title = DatabaseHelper.SafeGetString(reader, "Title")
+            courseModule.ModuleType = DatabaseHelper.SafeGetString(reader, "ModuleType")
+            courseModule.DurationMinutes = DatabaseHelper.SafeGetInteger(reader, "DurationMinutes")
+            courseModule.Description = DatabaseHelper.SafeGetString(reader, "Description")
+            courseModule.CreatedDate = DatabaseHelper.SafeGetDateTime(reader, "CreatedDate")
+            courseModule.ModifiedDate = DatabaseHelper.SafeGetNullableDateTime(reader, "ModifiedDate")
+            Return courseModule
+        End Function
+
         Public Sub Dispose() Implements IDisposable.Dispose
             Try
                 If _db IsNot Nothing Then
