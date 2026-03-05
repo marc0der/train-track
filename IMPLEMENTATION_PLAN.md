@@ -325,7 +325,7 @@ In `html/06-training-schedule.html`:
 - Remove or comment out the Training Room Utilization section (lines 385-431)
 - This feature doesn't exist per the transcript
 
-- [ ] **4e.** Disable calendar integration in config
+- [x] **4e.** Disable calendar integration in config
 
 In `src/Web.config`:
 - Change line 36: `CalendarIntegrationEnabled` from `true` to `false`
