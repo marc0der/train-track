@@ -49,6 +49,10 @@ IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserPr
     DROP TABLE [dbo].[UserProfiles]
 GO
 
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[EmployeeNotes]') AND type in (N'U'))
+    DROP TABLE [dbo].[EmployeeNotes]
+GO
+
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Employees]') AND type in (N'U'))
     DROP TABLE [dbo].[Employees]
 GO
@@ -103,6 +107,26 @@ CREATE NONCLUSTERED INDEX [IX_Employees_Department] ON [dbo].[Employees] ([Depar
 GO
 
 CREATE NONCLUSTERED INDEX [IX_Employees_IsActive] ON [dbo].[Employees] ([IsActive] ASC)
+GO
+
+-- Create EmployeeNotes table
+CREATE TABLE [dbo].[EmployeeNotes] (
+    [NoteId] INT IDENTITY(1,1) NOT NULL,
+    [EmployeeId] INT NOT NULL,
+    [NoteText] NVARCHAR(MAX) NOT NULL,
+    [NoteType] NVARCHAR(50) NOT NULL DEFAULT 'General',
+    [CreatedDate] DATETIME NOT NULL DEFAULT GETDATE(),
+    [CreatedBy] NVARCHAR(100) NOT NULL,
+    [IsResolved] BIT NOT NULL DEFAULT 0,
+    [ResolvedDate] DATETIME NULL,
+    [ResolvedBy] NVARCHAR(100) NULL,
+    CONSTRAINT [PK_EmployeeNotes] PRIMARY KEY CLUSTERED ([NoteId] ASC),
+    CONSTRAINT [FK_EmployeeNotes_Employees] FOREIGN KEY ([EmployeeId])
+        REFERENCES [dbo].[Employees] ([EmployeeId])
+)
+GO
+
+CREATE NONCLUSTERED INDEX [IX_EmployeeNotes_EmployeeId] ON [dbo].[EmployeeNotes] ([EmployeeId] ASC)
 GO
 
 -- Create UserProfiles table
@@ -601,6 +625,7 @@ GRANT EXECUTE ON [dbo].[sp_GetDashboardMetrics] TO [TrainTrack_Users]
 
 -- Grant full permissions to admins
 GRANT SELECT, INSERT, UPDATE ON [dbo].[Employees] TO [TrainTrack_Admins]
+GRANT SELECT, INSERT, UPDATE ON [dbo].[EmployeeNotes] TO [TrainTrack_Admins]
 GRANT SELECT, INSERT, UPDATE ON [dbo].[Courses] TO [TrainTrack_Admins]
 GRANT SELECT, INSERT, UPDATE, DELETE ON [dbo].[CourseModules] TO [TrainTrack_Admins]
 GRANT SELECT, INSERT, UPDATE, DELETE ON [dbo].[TrainingSessions] TO [TrainTrack_Admins]
@@ -610,7 +635,7 @@ GRANT SELECT, INSERT, UPDATE ON [dbo].[SystemSettings] TO [TrainTrack_Admins]
 
 PRINT 'TrainTrack database schema created successfully.'
 PRINT 'Schema version: 2.1'
-PRINT 'Total tables created: 10'
+PRINT 'Total tables created: 11'
 PRINT 'Total views created: 2'
 PRINT 'Total stored procedures created: 2'
 GO

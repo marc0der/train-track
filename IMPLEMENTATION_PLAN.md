@@ -377,7 +377,7 @@ Fields:
 
 Follow the same VB.NET patterns as other models.
 
-- [ ] **5b.** Add `EmployeeNotes` table to schema
+- [x] **5b.** Add `EmployeeNotes` table to schema
 
 In `src/TrainTrack_Schema.sql`:
 
