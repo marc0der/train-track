@@ -690,7 +690,7 @@ Search all files for references to removed role names ("HR Manager", "Dept Manag
 as roles), removed HTML sections (room utilization, resource requirements), and ensure
 no dead links or references remain.
 
-- [ ] **9e.** Verify schema completeness
+- [x] **9e.** Verify schema completeness
 
 Ensure `TrainTrack_Schema.sql` contains CREATE TABLE statements for all tables referenced
 by all repository classes, including the new ones:
