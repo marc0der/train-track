@@ -172,7 +172,7 @@ A simple CSV parser:
 
 Keep it simple -- no third-party dependencies (consistent with the legacy codebase style).
 
-- [ ] **2d.** Add import repository methods
+- [x] **2d.** Add import repository methods
 
 In `src/App_Code/DataAccess/EmployeeRepository.vb`, add:
 - `BulkCreateEmployees(employees As List(Of Employee)) As Integer` -- returns count created

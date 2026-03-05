@@ -372,6 +372,147 @@ Namespace Defra.TrainTrack.DataAccess
             End Try
         End Function
 
+        Public Function BulkCreateEmployees(employees As List(Of Employee)) As Integer
+            Dim countCreated As Integer = 0
+            Dim transaction As SqlTransaction = Nothing
+            Try
+                transaction = _db.BeginTransaction()
+
+                Dim sql As String = "INSERT INTO Employees " &
+                                    "(EmployeeNumber, FirstName, LastName, Email, UserName, Department, " &
+                                    "Position, Location, ManagerId, ManagerName, HireDate, IsActive, " &
+                                    "PhoneNumber, LineManagerEmail, CostCentre, PayBand, ContractType, " &
+                                    "WorkingPattern, CreatedDate, CreatedBy) " &
+                                    "VALUES " &
+                                    "(@EmployeeNumber, @FirstName, @LastName, @Email, @UserName, @Department, " &
+                                    "@Position, @Location, @ManagerId, @ManagerName, @HireDate, @IsActive, " &
+                                    "@PhoneNumber, @LineManagerEmail, @CostCentre, @PayBand, @ContractType, " &
+                                    "@WorkingPattern, @CreatedDate, @CreatedBy)"
+
+                For Each employee As Employee In employees
+                    Using cmd As New SqlCommand(sql, _db.Connection, transaction)
+                        cmd.Parameters.AddRange(New SqlParameter() {
+                            DatabaseHelper.CreateParameter("@EmployeeNumber", SqlDbType.NVarChar, 20, employee.EmployeeNumber),
+                            DatabaseHelper.CreateParameter("@FirstName", SqlDbType.NVarChar, 50, employee.FirstName),
+                            DatabaseHelper.CreateParameter("@LastName", SqlDbType.NVarChar, 50, employee.LastName),
+                            DatabaseHelper.CreateParameter("@Email", SqlDbType.NVarChar, 100, employee.Email),
+                            DatabaseHelper.CreateParameter("@UserName", SqlDbType.NVarChar, 50, employee.UserName),
+                            DatabaseHelper.CreateParameter("@Department", SqlDbType.NVarChar, 100, employee.Department),
+                            DatabaseHelper.CreateParameter("@Position", SqlDbType.NVarChar, 100, employee.Position),
+                            DatabaseHelper.CreateParameter("@Location", SqlDbType.NVarChar, 100, employee.Location),
+                            DatabaseHelper.CreateParameter("@ManagerId", SqlDbType.Int, employee.ManagerId),
+                            DatabaseHelper.CreateParameter("@ManagerName", SqlDbType.NVarChar, 100, employee.ManagerName),
+                            DatabaseHelper.CreateParameter("@HireDate", SqlDbType.DateTime, employee.HireDate),
+                            DatabaseHelper.CreateParameter("@IsActive", SqlDbType.Bit, employee.IsActive),
+                            DatabaseHelper.CreateParameter("@PhoneNumber", SqlDbType.NVarChar, 20, employee.PhoneNumber),
+                            DatabaseHelper.CreateParameter("@LineManagerEmail", SqlDbType.NVarChar, 100, employee.LineManagerEmail),
+                            DatabaseHelper.CreateParameter("@CostCentre", SqlDbType.NVarChar, 20, employee.CostCentre),
+                            DatabaseHelper.CreateParameter("@PayBand", SqlDbType.NVarChar, 10, employee.PayBand),
+                            DatabaseHelper.CreateParameter("@ContractType", SqlDbType.NVarChar, 20, employee.ContractType),
+                            DatabaseHelper.CreateParameter("@WorkingPattern", SqlDbType.NVarChar, 50, employee.WorkingPattern),
+                            DatabaseHelper.CreateParameter("@CreatedDate", SqlDbType.DateTime, employee.CreatedDate),
+                            DatabaseHelper.CreateParameter("@CreatedBy", SqlDbType.NVarChar, 50, employee.CreatedBy)
+                        })
+                        cmd.ExecuteNonQuery()
+                        countCreated += 1
+                    End Using
+                Next
+
+                transaction.Commit()
+            Catch ex As Exception
+                If transaction IsNot Nothing Then
+                    Try
+                        transaction.Rollback()
+                    Catch rollbackEx As Exception
+                        EventLog.WriteEntry("TrainTrack", $"Error rolling back BulkCreateEmployees: {rollbackEx.Message}", EventLogEntryType.Error)
+                    End Try
+                End If
+                EventLog.WriteEntry("TrainTrack", $"Error in BulkCreateEmployees: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException("Unable to bulk create employees", ex)
+            Finally
+                _db.CloseConnection()
+            End Try
+            Return countCreated
+        End Function
+
+        Public Function BulkUpdateEmployees(employees As List(Of Employee)) As Integer
+            Dim countUpdated As Integer = 0
+            Dim transaction As SqlTransaction = Nothing
+            Try
+                transaction = _db.BeginTransaction()
+
+                Dim sql As String = "UPDATE Employees SET " &
+                                    "EmployeeNumber = @EmployeeNumber, " &
+                                    "FirstName = @FirstName, " &
+                                    "LastName = @LastName, " &
+                                    "Email = @Email, " &
+                                    "UserName = @UserName, " &
+                                    "Department = @Department, " &
+                                    "Position = @Position, " &
+                                    "Location = @Location, " &
+                                    "ManagerId = @ManagerId, " &
+                                    "ManagerName = @ManagerName, " &
+                                    "HireDate = @HireDate, " &
+                                    "IsActive = @IsActive, " &
+                                    "PhoneNumber = @PhoneNumber, " &
+                                    "LineManagerEmail = @LineManagerEmail, " &
+                                    "CostCentre = @CostCentre, " &
+                                    "PayBand = @PayBand, " &
+                                    "ContractType = @ContractType, " &
+                                    "WorkingPattern = @WorkingPattern, " &
+                                    "ModifiedDate = @ModifiedDate, " &
+                                    "ModifiedBy = @ModifiedBy " &
+                                    "WHERE EmployeeId = @EmployeeId"
+
+                For Each employee As Employee In employees
+                    Using cmd As New SqlCommand(sql, _db.Connection, transaction)
+                        cmd.Parameters.AddRange(New SqlParameter() {
+                            DatabaseHelper.CreateParameter("@EmployeeId", SqlDbType.Int, employee.EmployeeId),
+                            DatabaseHelper.CreateParameter("@EmployeeNumber", SqlDbType.NVarChar, 20, employee.EmployeeNumber),
+                            DatabaseHelper.CreateParameter("@FirstName", SqlDbType.NVarChar, 50, employee.FirstName),
+                            DatabaseHelper.CreateParameter("@LastName", SqlDbType.NVarChar, 50, employee.LastName),
+                            DatabaseHelper.CreateParameter("@Email", SqlDbType.NVarChar, 100, employee.Email),
+                            DatabaseHelper.CreateParameter("@UserName", SqlDbType.NVarChar, 50, employee.UserName),
+                            DatabaseHelper.CreateParameter("@Department", SqlDbType.NVarChar, 100, employee.Department),
+                            DatabaseHelper.CreateParameter("@Position", SqlDbType.NVarChar, 100, employee.Position),
+                            DatabaseHelper.CreateParameter("@Location", SqlDbType.NVarChar, 100, employee.Location),
+                            DatabaseHelper.CreateParameter("@ManagerId", SqlDbType.Int, employee.ManagerId),
+                            DatabaseHelper.CreateParameter("@ManagerName", SqlDbType.NVarChar, 100, employee.ManagerName),
+                            DatabaseHelper.CreateParameter("@HireDate", SqlDbType.DateTime, employee.HireDate),
+                            DatabaseHelper.CreateParameter("@IsActive", SqlDbType.Bit, employee.IsActive),
+                            DatabaseHelper.CreateParameter("@PhoneNumber", SqlDbType.NVarChar, 20, employee.PhoneNumber),
+                            DatabaseHelper.CreateParameter("@LineManagerEmail", SqlDbType.NVarChar, 100, employee.LineManagerEmail),
+                            DatabaseHelper.CreateParameter("@CostCentre", SqlDbType.NVarChar, 20, employee.CostCentre),
+                            DatabaseHelper.CreateParameter("@PayBand", SqlDbType.NVarChar, 10, employee.PayBand),
+                            DatabaseHelper.CreateParameter("@ContractType", SqlDbType.NVarChar, 20, employee.ContractType),
+                            DatabaseHelper.CreateParameter("@WorkingPattern", SqlDbType.NVarChar, 50, employee.WorkingPattern),
+                            DatabaseHelper.CreateParameter("@ModifiedDate", SqlDbType.DateTime, employee.ModifiedDate),
+                            DatabaseHelper.CreateParameter("@ModifiedBy", SqlDbType.NVarChar, 50, employee.ModifiedBy)
+                        })
+                        Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+                        If rowsAffected > 0 Then
+                            countUpdated += 1
+                        End If
+                    End Using
+                Next
+
+                transaction.Commit()
+            Catch ex As Exception
+                If transaction IsNot Nothing Then
+                    Try
+                        transaction.Rollback()
+                    Catch rollbackEx As Exception
+                        EventLog.WriteEntry("TrainTrack", $"Error rolling back BulkUpdateEmployees: {rollbackEx.Message}", EventLogEntryType.Error)
+                    End Try
+                End If
+                EventLog.WriteEntry("TrainTrack", $"Error in BulkUpdateEmployees: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException("Unable to bulk update employees", ex)
+            Finally
+                _db.CloseConnection()
+            End Try
+            Return countUpdated
+        End Function
+
         Public Function DeactivateEmployee(employeeId As Integer, modifiedBy As String) As Boolean
             Try
                 Dim sql As String = "UPDATE Employees SET IsActive = 0, ModifiedDate = @ModifiedDate, ModifiedBy = @ModifiedBy " &
