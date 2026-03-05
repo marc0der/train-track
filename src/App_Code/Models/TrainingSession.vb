@@ -27,7 +27,9 @@ Namespace Defra.TrainTrack.Models
         Private _createdBy As String
         Private _modifiedDate As DateTime?
         Private _modifiedBy As String
+        ' NOTE: Not used in current system. Costs tracked externally by Finance.
         Private _costPerParticipant As Decimal
+        ' NOTE: Not used in current system. Costs tracked externally by Finance.
         Private _totalCost As Decimal
         Private _approvedBy As String
         Private _approvedDate As DateTime?

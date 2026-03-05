@@ -20,6 +20,7 @@ Namespace Defra.TrainTrack.Models
         Private _assessmentMethod As String
         Private _certificateTemplate As String
         Private _validityPeriodMonths As Integer
+        ' NOTE: Field exists in schema but is not populated. Cost tracking is manual via Finance team.
         Private _costPerParticipant As Decimal
         Private _approvalRequired As Boolean
         Private _createdDate As DateTime
@@ -236,7 +237,7 @@ Namespace Defra.TrainTrack.Models
         Public ReadOnly Property CostText() As String
             Get
                 If _costPerParticipant = 0 Then
-                    Return "Free"
+                    Return "Not tracked"
                 Else
                     Return String.Format("£{0:N2}", _costPerParticipant)
                 End If

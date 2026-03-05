@@ -293,7 +293,7 @@ The transcript is the authoritative record of the actual system. The HTML mockup
 should represent what the system ACTUALLY does. Remove or neutralise the features the
 transcript says don't exist.
 
-- [ ] **4a.** Neutralise cost fields in the code
+- [x] **4a.** Neutralise cost fields in the code
 
 In `src/App_Code/Models/Course.vb`:
 - Keep the `CostPerParticipant` field (line 22) but add a comment:
