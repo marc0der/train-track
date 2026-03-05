@@ -684,7 +684,7 @@ Ensure that:
   is added) or at minimum in `TrainingManager.vb`
 - `ELearningSyncRecord` is referenced in system settings or admin code
 
-- [ ] **9d.** Check for orphaned references
+- [x] **9d.** Check for orphaned references
 
 Search all files for references to removed role names ("HR Manager", "Dept Manager"
 as roles), removed HTML sections (room utilization, resource requirements), and ensure
