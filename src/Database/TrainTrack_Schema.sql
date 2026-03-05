@@ -29,6 +29,10 @@ IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Traini
     DROP TABLE [dbo].[TrainingSessions]
 GO
 
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CourseModules]') AND type in (N'U'))
+    DROP TABLE [dbo].[CourseModules]
+GO
+
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CoursePrerequisites]') AND type in (N'U'))
     DROP TABLE [dbo].[CoursePrerequisites]
 GO
@@ -182,6 +186,26 @@ CREATE NONCLUSTERED INDEX [IX_Courses_Category] ON [dbo].[Courses] ([Category] A
 GO
 
 CREATE NONCLUSTERED INDEX [IX_Courses_IsActive] ON [dbo].[Courses] ([IsActive] ASC)
+GO
+
+-- Create CourseModules table
+CREATE TABLE [dbo].[CourseModules] (
+    [ModuleId] INT IDENTITY(1,1) NOT NULL,
+    [CourseId] INT NOT NULL,
+    [ModuleOrder] INT NOT NULL,
+    [Title] NVARCHAR(200) NOT NULL,
+    [ModuleType] NVARCHAR(50) NOT NULL,
+    [DurationMinutes] INT NOT NULL DEFAULT 0,
+    [Description] NVARCHAR(MAX) NULL,
+    [CreatedDate] DATETIME NOT NULL DEFAULT GETDATE(),
+    [ModifiedDate] DATETIME NULL,
+    CONSTRAINT [PK_CourseModules] PRIMARY KEY CLUSTERED ([ModuleId] ASC),
+    CONSTRAINT [FK_CourseModules_Courses] FOREIGN KEY ([CourseId])
+        REFERENCES [dbo].[Courses] ([CourseId])
+)
+GO
+
+CREATE NONCLUSTERED INDEX [IX_CourseModules_CourseId] ON [dbo].[CourseModules] ([CourseId] ASC)
 GO
 
 -- Create CoursePrerequisites table
@@ -578,6 +602,7 @@ GRANT EXECUTE ON [dbo].[sp_GetDashboardMetrics] TO [TrainTrack_Users]
 -- Grant full permissions to admins
 GRANT SELECT, INSERT, UPDATE ON [dbo].[Employees] TO [TrainTrack_Admins]
 GRANT SELECT, INSERT, UPDATE ON [dbo].[Courses] TO [TrainTrack_Admins]
+GRANT SELECT, INSERT, UPDATE, DELETE ON [dbo].[CourseModules] TO [TrainTrack_Admins]
 GRANT SELECT, INSERT, UPDATE, DELETE ON [dbo].[TrainingSessions] TO [TrainTrack_Admins]
 GRANT SELECT, INSERT, UPDATE ON [dbo].[TrainingRecords] TO [TrainTrack_Admins]
 GRANT SELECT ON [dbo].[AuditLog] TO [TrainTrack_Admins]
@@ -585,7 +610,7 @@ GRANT SELECT, INSERT, UPDATE ON [dbo].[SystemSettings] TO [TrainTrack_Admins]
 
 PRINT 'TrainTrack database schema created successfully.'
 PRINT 'Schema version: 2.1'
-PRINT 'Total tables created: 9'
+PRINT 'Total tables created: 10'
 PRINT 'Total views created: 2'
 PRINT 'Total stored procedures created: 2'
 GO

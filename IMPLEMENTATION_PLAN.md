@@ -48,7 +48,7 @@ In `src/App_Code/Models/Course.vb`:
 - Add a read-only `TotalModuleDuration` computed property that sums all module DurationMinutes
 - Keep the existing `CourseContent` field for backward compatibility (legacy data)
 
-- [ ] **1c.** Add `CourseModules` table to the database schema
+- [x] **1c.** Add `CourseModules` table to the database schema
 
 In `src/TrainTrack_Schema.sql`, add:
 
