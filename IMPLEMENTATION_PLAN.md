@@ -488,7 +488,7 @@ CREATE INDEX [IX_WaitingList_SessionId] ON [dbo].[WaitingList] ([SessionId]);
 CREATE INDEX [IX_WaitingList_EmployeeId] ON [dbo].[WaitingList] ([EmployeeId]);
 ```
 
-- [ ] **6c.** Add repository methods
+- [x] **6c.** Add repository methods
 
 Create a new file: `src/App_Code/DataAccess/WaitingListRepository.vb`
 
