@@ -439,7 +439,7 @@ list data model or management logic.
 
 ### What to Do
 
-- [ ] **6a.** Create `WaitingListEntry.vb` model
+- [x] **6a.** Create `WaitingListEntry.vb` model
 
 Create file: `src/App_Code/Models/WaitingListEntry.vb`
 
