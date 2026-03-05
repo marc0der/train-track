@@ -357,7 +357,7 @@ no Notes model -- only `SessionNotes` and `InstructorNotes` strings on `Training
 
 ### What to Do
 
-- [ ] **5a.** Create `EmployeeNote.vb` model
+- [x] **5a.** Create `EmployeeNote.vb` model
 
 Create file: `src/App_Code/Models/EmployeeNote.vb`
 
