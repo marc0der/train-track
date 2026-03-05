@@ -657,7 +657,7 @@ After all previous steps, do a final sweep to ensure no new inconsistencies were
 
 ### What to Do
 
-- [ ] **9a.** Verify navigation menus
+- [x] **9a.** Verify navigation menus
 
 Check that all 12 HTML files have consistent navigation menus listing the same pages.
 Ensure the nav items match what the code and transcript describe as available sections.
