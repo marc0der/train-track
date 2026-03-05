@@ -109,7 +109,7 @@ has no import functionality -- only individual CRUD via `EmployeeManager`.
 
 ### What to Do
 
-- [ ] **2a.** Create an `EmployeeImportResult.vb` model
+- [x] **2a.** Create an `EmployeeImportResult.vb` model
 
 Create file: `src/App_Code/Models/EmployeeImportResult.vb`
 
