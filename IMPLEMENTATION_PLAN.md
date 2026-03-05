@@ -15,7 +15,7 @@ The database schema has no modules table.
 
 ### What to Do
 
-- [ ] **1a.** Create a new `CourseModule.vb` model
+- [x] **1a.** Create a new `CourseModule.vb` model
 
 Create file: `src/App_Code/Models/CourseModule.vb`
 
