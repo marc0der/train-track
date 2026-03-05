@@ -594,7 +594,7 @@ CREATE TABLE [dbo].[ELearningSyncLog] (
 );
 ```
 
-- [ ] **7d.** Add to system settings HTML
+- [x] **7d.** Add to system settings HTML
 
 In `html/12-system-settings.html`, in the System Integration section, add an
 "E-Learning Platform" subsection showing:
