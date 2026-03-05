@@ -662,7 +662,7 @@ After all previous steps, do a final sweep to ensure no new inconsistencies were
 Check that all 12 HTML files have consistent navigation menus listing the same pages.
 Ensure the nav items match what the code and transcript describe as available sections.
 
-- [ ] **9b.** Verify data counts
+- [x] **9b.** Verify data counts
 
 Ensure these numbers are consistent across all artefacts:
 - 1,247 total employees
