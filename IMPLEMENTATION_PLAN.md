@@ -408,7 +408,7 @@ In `src/App_Code/DataAccess/EmployeeRepository.vb`, add:
 - `ResolveNote(noteId As Integer, resolvedBy As String) As Boolean`
 - `GetUnresolvedNotes() As List(Of EmployeeNote)` -- for Sarah's follow-up tracking
 
-- [ ] **5d.** Add business logic methods
+- [x] **5d.** Add business logic methods
 
 In `src/App_Code/BusinessLogic/EmployeeManager.vb`, add:
 - `GetEmployeeNotes(employeeId As Integer) As List(Of EmployeeNote)`

@@ -390,6 +390,99 @@ Namespace Defra.TrainTrack.BusinessLogic
             End Try
         End Function
 
+        ' ===== Employee Notes Methods =====
+
+        Private Shared ReadOnly ValidNoteTypes As String() = {"General", "Follow-up", "Compliance", "Training"}
+
+        Public Function GetEmployeeNotes(employeeId As Integer) As List(Of EmployeeNote)
+            Try
+                If employeeId <= 0 Then
+                    Throw New ArgumentException("Employee ID must be greater than 0", "employeeId")
+                End If
+
+                Return _repository.GetNotesByEmployeeId(employeeId)
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error getting notes for employee {employeeId}: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to retrieve notes for employee {employeeId}", ex)
+            End Try
+        End Function
+
+        Public Function AddEmployeeNote(employeeId As Integer, noteText As String, noteType As String, createdBy As String) As Integer
+            Try
+                If employeeId <= 0 Then
+                    Throw New ArgumentException("Employee ID must be greater than 0", "employeeId")
+                End If
+
+                If String.IsNullOrWhiteSpace(noteText) Then
+                    Throw New ArgumentException("Note text cannot be empty", "noteText")
+                End If
+
+                If String.IsNullOrWhiteSpace(noteType) Then
+                    Throw New ArgumentException("Note type cannot be empty", "noteType")
+                End If
+
+                If Not ValidNoteTypes.Contains(noteType) Then
+                    Throw New ArgumentException($"Note type must be one of: {String.Join(", ", ValidNoteTypes)}", "noteType")
+                End If
+
+                If String.IsNullOrWhiteSpace(createdBy) Then
+                    Throw New ArgumentException("Created by cannot be empty", "createdBy")
+                End If
+
+                ' Check if employee exists
+                Dim employee = _repository.GetEmployeeById(employeeId)
+                If employee Is Nothing Then
+                    Throw New InvalidOperationException($"Employee with ID {employeeId} does not exist")
+                End If
+
+                ' Create the note
+                Dim note As New EmployeeNote(noteText, noteType, createdBy)
+                note.EmployeeId = employeeId
+
+                Dim newNoteId As Integer = _repository.CreateNote(note)
+
+                ' Log the action
+                EventLog.WriteEntry("TrainTrack", $"Note added to employee {employeeId} by {createdBy} (type: {noteType})", EventLogEntryType.Information)
+
+                Return newNoteId
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error adding note to employee {employeeId}: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to add note to employee {employeeId}", ex)
+            End Try
+        End Function
+
+        Public Function ResolveEmployeeNote(noteId As Integer, resolvedBy As String) As Boolean
+            Try
+                If noteId <= 0 Then
+                    Throw New ArgumentException("Note ID must be greater than 0", "noteId")
+                End If
+
+                If String.IsNullOrWhiteSpace(resolvedBy) Then
+                    Throw New ArgumentException("Resolved by cannot be empty", "resolvedBy")
+                End If
+
+                Dim success As Boolean = _repository.ResolveNote(noteId, resolvedBy)
+
+                If success Then
+                    EventLog.WriteEntry("TrainTrack", $"Note {noteId} resolved by {resolvedBy}", EventLogEntryType.Information)
+                End If
+
+                Return success
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error resolving note {noteId}: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to resolve note {noteId}", ex)
+            End Try
+        End Function
+
+        Public Function GetAllUnresolvedNotes() As List(Of EmployeeNote)
+            Try
+                Return _repository.GetUnresolvedNotes()
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error getting unresolved notes: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException("Unable to retrieve unresolved notes", ex)
+            End Try
+        End Function
+
         Public Sub Dispose() Implements IDisposable.Dispose
             If _repository IsNot Nothing Then
                 _repository.Dispose()
