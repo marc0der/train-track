@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainTrack - Reports</title>
+    <link rel="stylesheet" href="shared-styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="app-title">TrainTrack Training Management System</div>
+            <div class="user-info">Welcome, Sarah Mitchell | Logout</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-menu">
+            <a href="#">Dashboard</a>
+            <a href="#">Search Employees</a>
+            <a href="#">Course Catalog</a>
+            <a href="#">Training Schedule</a>
+            <a href="#" class="current">Reports</a>
+            <a href="#">Administration</a>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="content-header">
+                <h1>Training Reports</h1>
+            </div>
+
+            <!-- Report Selection -->
+            <div class="form-section">
+                <h2>Generate Report</h2>
+                <div class="form-row">
+                    <label class="form-label">Report Type:</label>
+                    <div class="form-input">
+                        <select id="reportType" style="width: 300px;">
+                            <option value="">Select a report type...</option>
+                            <option value="COMPLIANCE" selected>Training Compliance Summary</option>
+                            <option value="COMPLETION">Course Completion Report</option>
+                            <option value="DEPARTMENT">Department Analysis</option>
+                            <option value="OVERDUE">Overdue Training Report</option>
+                            <option value="CERTIFICATES">Certificate Validation</option>
+                            <option value="UTILIZATION">Resource Utilization</option>
+                            <option value="EFFECTIVENESS">Training Effectiveness</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Date Range:</label>
+                    <div class="form-input">
+                        <input type="date" value="2019-01-01" style="width: 120px;" />
+                        <span style="margin: 0 10px;">to</span>
+                        <input type="date" value="2019-03-31" style="width: 120px;" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Filters:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 15px;">
+                            Department:
+                            <select style="width: 150px; margin-left: 5px;">
+                                <option value="">All Departments</option>
+                                <option value="HR">Human Resources</option>
+                                <option value="IT">Information Technology</option>
+                                <option value="FIN">Finance</option>
+                                <option value="OPS">Operations</option>
+                                <option value="LEG">Legal</option>
+                                <option value="FLD">Field Operations</option>
+                            </select>
+                        </label>
+                        <label style="width: auto; margin-right: 15px;">
+                            Location:
+                            <select style="width: 130px; margin-left: 5px;">
+                                <option value="">All Locations</option>
+                                <option value="LONDON">London</option>
+                                <option value="BRISTOL">Bristol</option>
+                                <option value="YORK">York</option>
+                                <option value="READING">Reading</option>
+                                <option value="NEWCASTLE">Newcastle</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Output Format:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="radio" name="format" value="HTML" checked> View Online
+                        </label>
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="radio" name="format" value="PDF"> PDF Export
+                        </label>
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="radio" name="format" value="EXCEL"> Excel Export
+                        </label>
+                        <label style="width: auto;">
+                            <input type="radio" name="format" value="CSV"> CSV Export
+                        </label>
+                    </div>
+                </div>
+                <div style="padding-top: 8px;">
+                    <input type="button" value="Generate Report" class="button button-primary" />
+                    <input type="button" value="Save Settings" class="button" />
+                    <input type="button" value="Load Saved Report" class="button" />
+                </div>
+            </div>
+
+            <!-- Sample Report Results -->
+            <div class="form-section">
+                <h2>Training Compliance Summary Report</h2>
+                <div style="padding-bottom: 8px; font-size: 11px; color: #666;">
+                    Generated: 05/03/2019 14:23 | Period: 01/01/2019 - 31/03/2019 | All Departments, All Locations
+                </div>
+
+                <!-- Executive Summary -->
+                <div style="background-color: #f0f0f0; padding: 10px; margin-bottom: 15px; border: 1px solid #cccccc;">
+                    <h3 style="margin: 0 0 8px 0; font-size: 12px;">Executive Summary</h3>
+                    <div style="float: left; width: 200px; margin-right: 20px;">
+                        <div><strong>Overall Compliance Rate:</strong> 87.3%</div>
+                        <div><strong>Total Employees:</strong> 1,247</div>
+                        <div><strong>Compliant Employees:</strong> 1,088</div>
+                        <div><strong>Non-Compliant:</strong> 159</div>
+                    </div>
+                    <div style="float: left; width: 200px; margin-right: 20px;">
+                        <div><strong>Training Completed:</strong> 3,456 sessions</div>
+                        <div><strong>Average Score:</strong> 91.2%</div>
+                        <div><strong>Pass Rate:</strong> 95.8%</div>
+                        <div><strong>Overdue Training:</strong> 23 employees</div>
+                    </div>
+                    <div style="float: left; width: 200px;">
+                        <div><strong>Most Common Course:</strong> Data Protection</div>
+                        <div><strong>Highest Scoring Course:</strong> Emergency Procedures</div>
+                        <div><strong>Lowest Compliance:</strong> Field Operations Dept (82.0%)</div>
+                        <div><strong>Best Compliance:</strong> Legal Dept (95.7%)</div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <!-- Compliance by Department -->
+                <h3 style="font-size: 12px; margin: 15px 0 8px 0;">Compliance by Department</h3>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Department</th>
+                            <th>Total Employees</th>
+                            <th>Compliant</th>
+                            <th>Non-Compliant</th>
+                            <th>Compliance Rate</th>
+                            <th>Overdue</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Legal</td>
+                            <td>23</td>
+                            <td>22</td>
+                            <td>1</td>
+                            <td class="status-complete">95.7%</td>
+                            <td>0</td>
+                            <td class="status-complete">Excellent</td>
+                        </tr>
+                        <tr>
+                            <td>Human Resources</td>
+                            <td>67</td>
+                            <td>63</td>
+                            <td>4</td>
+                            <td class="status-complete">94.0%</td>
+                            <td>1</td>
+                            <td class="status-complete">Excellent</td>
+                        </tr>
+                        <tr>
+                            <td>Information Technology</td>
+                            <td>145</td>
+                            <td>133</td>
+                            <td>12</td>
+                            <td class="status-complete">91.7%</td>
+                            <td>3</td>
+                            <td class="status-complete">Good</td>
+                        </tr>
+                        <tr>
+                            <td>Finance</td>
+                            <td>189</td>
+                            <td>168</td>
+                            <td>21</td>
+                            <td class="status-complete">88.9%</td>
+                            <td>5</td>
+                            <td class="status-complete">Good</td>
+                        </tr>
+                        <tr>
+                            <td>Operations</td>
+                            <td>456</td>
+                            <td>389</td>
+                            <td>67</td>
+                            <td class="status-pending">85.3%</td>
+                            <td>12</td>
+                            <td class="status-pending">Needs Improvement</td>
+                        </tr>
+                        <tr>
+                            <td>Field Operations</td>
+                            <td>367</td>
+                            <td>313</td>
+                            <td>54</td>
+                            <td class="status-overdue">85.3%</td>
+                            <td>2</td>
+                            <td class="status-pending">Needs Improvement</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Course Completion Statistics -->
+                <h3 style="font-size: 12px; margin: 15px 0 8px 0;">Course Completion Statistics</h3>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Total Enrolled</th>
+                            <th>Completed</th>
+                            <th>In Progress</th>
+                            <th>Not Started</th>
+                            <th>Completion Rate</th>
+                            <th>Average Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data Protection Fundamentals</td>
+                            <td>891</td>
+                            <td>834</td>
+                            <td>42</td>
+                            <td>15</td>
+                            <td class="status-complete">93.6%</td>
+                            <td>92.1%</td>
+                        </tr>
+                        <tr>
+                            <td>Health & Safety Fundamentals</td>
+                            <td>756</td>
+                            <td>698</td>
+                            <td>38</td>
+                            <td>20</td>
+                            <td class="status-complete">92.3%</td>
+                            <td>89.7%</td>
+                        </tr>
+                        <tr>
+                            <td>IT Security Awareness</td>
+                            <td>678</td>
+                            <td>612</td>
+                            <td>45</td>
+                            <td>21</td>
+                            <td class="status-complete">90.3%</td>
+                            <td>94.2%</td>
+                        </tr>
+                        <tr>
+                            <td>Emergency Procedures</td>
+                            <td>567</td>
+                            <td>498</td>
+                            <td>34</td>
+                            <td>35</td>
+                            <td class="status-pending">87.8%</td>
+                            <td>96.1%</td>
+                        </tr>
+                        <tr>
+                            <td>Customer Service Excellence</td>
+                            <td>445</td>
+                            <td>367</td>
+                            <td>28</td>
+                            <td>50</td>
+                            <td class="status-pending">82.5%</td>
+                            <td>88.9%</td>
+                        </tr>
+                        <tr>
+                            <td>Anti-Fraud Training</td>
+                            <td>389</td>
+                            <td>312</td>
+                            <td>31</td>
+                            <td>46</td>
+                            <td class="status-pending">80.2%</td>
+                            <td>91.4%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Trend Analysis -->
+                <h3 style="font-size: 12px; margin: 15px 0 8px 0;">Monthly Compliance Trend</h3>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Training Sessions</th>
+                            <th>Completions</th>
+                            <th>New Enrollments</th>
+                            <th>Compliance Rate</th>
+                            <th>Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>January 2019</td>
+                            <td>156</td>
+                            <td>1,234</td>
+                            <td>89</td>
+                            <td>84.2%</td>
+                            <td>↑ +2.1%</td>
+                        </tr>
+                        <tr>
+                            <td>February 2019</td>
+                            <td>142</td>
+                            <td>1,145</td>
+                            <td>76</td>
+                            <td>85.7%</td>
+                            <td>↑ +1.5%</td>
+                        </tr>
+                        <tr>
+                            <td>March 2019</td>
+                            <td>189</td>
+                            <td>1,456</td>
+                            <td>123</td>
+                            <td>87.3%</td>
+                            <td>↑ +1.6%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Report Actions -->
+            <div class="form-section">
+                <h2>Report Actions</h2>
+                <div style="padding: 8px;">
+                    <input type="button" value="Export to PDF" class="button button-primary" />
+                    <input type="button" value="Export to Excel" class="button" />
+                    <input type="button" value="Email Report" class="button" />
+                    <input type="button" value="Schedule Recurring" class="button" />
+                    <input type="button" value="Print Report" class="button" />
+                </div>
+            </div>
+
+            <!-- Quick Reports -->
+            <div class="form-section">
+                <h2>Quick Reports</h2>
+                <div style="padding: 8px;">
+                    <input type="button" value="Overdue Training List" class="button" />
+                    <input type="button" value="This Month's Completions" class="button" />
+                    <input type="button" value="Department Summary" class="button" />
+                    <input type="button" value="Certificate Expiry Report" class="button" />
+                    <input type="button" value="Training Calendar Export" class="button" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            TrainTrack Training Management System v2.1 | © 2019 Department for Environment, Food and Rural Affairs
+        </div>
+    </div>
+</body>
+</html>

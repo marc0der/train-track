@@ -1,0 +1,3157 @@
+TrainTrack System Demo - Defra Modernisation Committee-20190315_140030-Meeting Recording
+
+0:02
+Right, OK, so I think we're nearly all here.
+
+0:06
+Sarah, can you hear me OK?
+
+0:08
+Yes, fine, can you hear me?
+
+0:10
+Yeah, perfect.
+
+0:12
+OK so um, for those who haven't met everyone, I'm Mark Reynolds, I'm leading the IT Modernisation Programme for Defra.
+
+0:20
+And we've got a few people on the call today.
+
+0:23
+Sarah Mitchell is our Training Manager in HR, she's going to be walking us through the TrainTrack system today.
+
+0:30
+She's been using it for about three years now, is that right Sarah?
+
+0:34
+Yeah, just over three years. Since it went live in January 2016.
+
+0:39
+Right.
+
+0:40
+And then on the call we've also got David Chen, who's the Technical Architect from Atos, from the supplier side.
+
+0:48
+Hello everyone.
+
+0:49
+Rachel Thompson, Business Analyst.
+
+0:51
+Hi.
+
+0:52
+And Tom Ward from Finance.
+
+0:54
+Good afternoon.
+
+0:56
+Is that everyone? I think we might be waiting for... no, I think that's everyone.
+
+1:02
+Right. Sorry, one sec, I'm just going to close the door.
+
+1:08
+OK. So what we'd like to do today, Sarah, is if you could share your screen and just sort of walk us through the system.
+
+1:03
+How you use it day to day, what works, what doesn't.
+
+1:07
+And then the team will have questions as we go through.
+
+1:11
+And yeah, hopefully we'll be done within the hour or so.
+
+1:15
+Any questions before we get started?
+
+1:18
+No.
+
+1:19
+No, I think let's just see the demo and then we'll pick up questions as they come.
+
+1:24
+Yeah. Sounds good.
+
+1:26
+OK, Sarah, if you're happy to share your screen?
+
+1:30
+Yeah, let me just... one second. Can you see my screen?
+
+1:36
+No, not yet.
+
+1:38
+Hang on. Is it... I always forget how to do this in Teams.
+
+1:43
+Right, is that showing now?
+
+1:46
+Yeah, we can see it now.
+
+1:47
+Brilliant.
+
+1:49
+OK, so this is, sorry, let me just make it a bit bigger.
+
+1:53
+Can everyone see that alright or do I need to zoom in?
+
+1:57
+Yeah, that's fine from my end.
+
+1:59
+Could you zoom in just a tiny bit? The numbers are quite small on my screen.
+
+2:04
+Yeah, of course.
+
+2:07
+Is that better?
+
+2:09
+Yeah, much better. Thanks Sarah.
+
+2:11
+OK.
+
+2:12
+Right.
+
+2:13
+So this is the main dashboard.
+
+2:15
+This is what I see every morning when I log in.
+
+2:18
+The system uses Windows authentication, so it just picks up my network credentials automatically.
+
+2:24
+I don't have to type in a password or anything, it just knows it's me.
+
+2:29
+Which is actually quite nice because the last thing I need first thing in the morning is another password to remember.
+
+2:36
+So, um, the dashboard.
+
+2:39
+It gives me a sort of overview of where we are with everything.
+
+2:43
+You can see up the top there we've got the key numbers.
+
+2:47
+1,247 active employees in the system.
+
+2:51
+And our overall training compliance is sitting at 87.3%.
+
+2:57
+Which, I know, is not where we'd like it to be.
+
+3:01
+What's the target?
+
+3:03
+95%.
+
+3:05
+So we're about, what, nearly eight percentage points off.
+
+3:09
+Eight percentage points. And has that gap been persistent or is it getting better or worse?
+
+3:15
+It's been... I mean it was worse when I started.
+
+3:19
+It was sort of low eighties. We've brought it up gradually.
+
+3:23
+But getting above about 87, 88% has been really hard.
+
+3:28
+We seem to hit a ceiling there.
+
+3:31
+Where's the gap? Is it spread across all departments or is it concentrated?
+
+3:36
+It's mostly Field Operations, to be honest.
+
+3:39
+They're at 82% compliance, which drags the whole number down.
+
+3:44
+And the reason is their staff are out on site most of the time.
+
+3:48
+They're, you know, out inspecting things, visiting farms, whatever.
+
+3:52
+And it's really hard to get them in for training.
+
+3:56
+But we'll come to that in more detail when we look at the reports.
+
+4:00
+What does that compliance gap actually cost us?
+
+4:03
+I mean in terms of risk exposure, financial terms.
+
+4:07
+That's a good question, Tom.
+
+4:09
+I don't actually have a way to quantify that in the system.
+
+4:13
+There's no link between TrainTrack and any of the finance systems.
+
+4:17
+So I couldn't tell you, you know, what the cost of non-compliance is in pound terms.
+
+4:23
+I mean we know from a regulatory perspective it's a risk.
+
+4:27
+But in terms of actual pounds and pence, I'd have to do that manually.
+
+4:31
+And I've never... I've never been asked to do that specific calculation, to be fair.
+
+4:36
+Right. That's worth noting though.
+
+4:39
+Yeah. It's one of those things that's been on my list to investigate but I've just never had the data to do it properly.
+
+4:46
+Is the compliance target, the 95%, is that a Defra target or is it a wider civil service thing?
+
+4:52
+It's Defra-wide. The Permanent Secretary set it about two years ago.
+
+4:57
+And is there a consequence for not meeting it? I mean, beyond the obvious risk.
+
+5:02
+Not formally, no. But it comes up in every quarterly review. The Directors aren't happy about it.
+
+5:08
+And if someone had an accident and their Health and Safety training was out of date, that would be a serious issue from a liability perspective.
+
+5:16
+Yeah. I mean that's the nightmare scenario, isn't it. Someone gets injured on site and their training expired three months ago.
+
+5:24
+Exactly. Touch wood it hasn't happened. But.
+
+5:27
+But it's not impossible given the numbers you're showing us.
+
+5:30
+No. It's not.
+
+5:33
+OK.
+
+5:34
+Um, so the other numbers you can see on the dashboard.
+
+4:44
+Pending completions is 156. So that's people who are currently enrolled in training but haven't completed it yet.
+
+4:53
+They might be halfway through an e-learning module or they might be enrolled in a classroom session that hasn't happened yet.
+
+5:00
+Overdue is 23, and that's the scary number.
+
+5:04
+That means their mandatory training has actually expired and they haven't done the refresher.
+
+5:10
+So they're technically not compliant right now.
+
+5:13
+And then completed this month is 142, which is pretty typical for March.
+
+5:19
+We tend to get a bit of a rush early in the year because people's annual renewals come up.
+
+5:25
+And active courses is 45. That's the total number of courses in the catalogue.
+
+5:31
+45 feels like quite a lot for an organisation of this size.
+
+5:35
+Well it's a mix of things.
+
+5:37
+So some of those are mandatory, your Health and Safety, Data Protection, IT Security, that sort of thing.
+
+5:44
+And then there's optional stuff. Leadership courses, customer service, professional development.
+
+5:50
+And then there's some quite niche technical courses that only apply to specific roles.
+
+5:55
+The mandatory ones are really what keep me up at night because those are the ones with compliance implications.
+
+6:01
+How many of the 45 are mandatory?
+
+6:04
+Um, off the top of my head it's about... twelve?
+
+6:08
+Twelve or thirteen I think.
+
+6:10
+Let me... actually I'll show you the catalogue in a bit and we can see the exact number.
+
+6:16
+OK.
+
+6:17
+Right so you can also see the dashboard has this section down here with recent activity.
+
+6:23
+Who's completed what, upcoming sessions, that kind of thing.
+
+6:27
+It's useful for a quick glance in the morning but it's quite basic.
+
+6:31
+No charts or graphs or anything visual. Just lists.
+
+6:35
+If I want proper analytics I have to export to Excel and do it myself.
+
+6:40
+What format does the export come out in?
+
+6:43
+Just standard CSV. And then I open it in Excel and do pivot tables and charts and things.
+
+6:50
+It works but it's time consuming.
+
+6:53
+OK.
+
+6:55
+And just to be clear, there's no way to customise the dashboard? Like, I couldn't set it up to show me just my department?
+
+7:01
+No. It's the same view for everyone who has access. I see the same dashboard as, say, the IT Department Manager.
+
+7:08
+The only difference is that department managers can only drill down into their own people. But the top-level numbers are always the whole organisation.
+
+7:16
+Is there a landing page or a home page for employees? What do they see?
+
+7:21
+Employees just see their own training record. So they log in and they can see their courses, their compliance status, upcoming training.
+
+7:30
+But that's it. They can't search for other people, they can't see the schedule, they can't browse the course catalogue.
+
+7:38
+They can't book themselves onto things?
+
+7:40
+No. They have to contact me.
+
+7:42
+Right.
+
+7:44
+Which, you know, some employees find frustrating. They're used to being able to self-serve for things like this.
+
+7:50
+Especially the younger staff. They expect to be able to do everything online.
+
+7:55
+But TrainTrack is very much a system designed for administrators, not for end users.
+
+8:00
+Yeah. I can see that.
+
+8:02
+Right, shall I show you the employee search?
+
+6:58
+Because that's probably what I use most on a daily basis.
+
+7:01
+Yeah, please.
+
+7:03
+OK so I'll click on Employees up here in the navigation.
+
+7:08
+Just waiting for that to load. It can be a bit slow.
+
+7:14
+There we go.
+
+7:16
+So this is the employee search page.
+
+7:19
+And you can see we've got various filters across the top.
+
+7:23
+Name, employee number, department, location, status.
+
+7:28
+So if I was looking for someone specific, like, let me search for John Thompson.
+
+7:34
+He's one of our Environmental Officers in Bristol.
+
+7:38
+He's actually a good example because he's got overdue training, so he's relevant.
+
+7:43
+I'll just type Thompson in the name field.
+
+7:47
+And I can filter by location as well, so I'll select Bristol.
+
+7:52
+And hit search.
+
+7:55
+It's not the fastest thing in the world. Bear with me.
+
+8:01
+How many searches would you do in a typical day, Sarah?
+
+8:05
+Oh, loads. Maybe thirty? Forty on a busy day?
+
+8:10
+Because everything comes through me. If a manager phones up and says "when did so-and-so last do their Data Protection training?" I have to look it up.
+
+8:19
+If someone calls to book onto a course, I have to find their record first.
+
+8:23
+It's the starting point for pretty much everything I do.
+
+8:27
+Right, there he is. John Thompson.
+
+8:30
+Environmental Officer, Field Operations, based at Temple Quay House in Bristol.
+
+8:36
+And you can see immediately he's got a red indicator next to his name.
+
+8:40
+Which means he's got overdue training.
+
+8:43
+Is there any way to see all the overdue employees without searching for them individually?
+
+8:49
+Sort of. There's a report I can run which shows all overdue employees.
+
+8:53
+But I can't get to it from this search screen. I have to go to the Reports section separately.
+
+8:58
+There's no, you know, "show me all red" filter here.
+
+9:02
+That seems like a missing feature.
+
+9:04
+Yeah. It's one of those things you learn to work around.
+
+9:08
+Can I just ask, the search results here, can you sort them? Like by department or by compliance status?
+
+9:15
+Um, you can sort by name, by department, by location. But not by compliance status, no.
+
+9:22
+So I can't just say "show me all non-compliant employees." I have to go to a separate report for that.
+
+9:28
+And the search, does it do partial matching? Like if I typed "Thom" would it find Thompson?
+
+9:35
+Yeah, it does partial matching on name. So "Thom" would find Thompson, Thomas, anything with "Thom" in it.
+
+9:42
+But it doesn't do fuzzy matching. So if someone spells it wrong, like T-O-M-P-S-O-N instead of T-H-O-M-P-S-O-N, it wouldn't find it.
+
+9:51
+Which happens more often than you'd think because people phone up and spell names differently.
+
+9:56
+And there's no way to search across multiple fields at once? Like name AND department AND compliance status?
+
+10:03
+I can combine name and department and location. But not compliance status. Status isn't a search filter.
+
+10:10
+That's odd.
+
+10:11
+Yeah. I've asked for it to be added but, you know, it's never been prioritised.
+
+10:16
+Right. Can I ask about how the employee data gets into the system in the first place?
+
+9:14
+I was just going to ask that actually.
+
+9:16
+Yeah, so this is probably our single biggest pain point.
+
+9:21
+The employee data comes from the main HR system.
+
+9:24
+But it's not a live integration. It's a monthly CSV export.
+
+9:30
+Once a month?
+
+9:31
+Once a month.
+
+9:33
+So I get a CSV file emailed to me from the HR team, usually in the first week of the month.
+
+9:40
+And then I upload it through the admin panel and the system matches records on employee number.
+
+9:47
+If it finds a matching employee number, it updates the record.
+
+9:50
+If it doesn't find a match, it creates a new record.
+
+9:53
+So the data can be up to 30 days out of sync with reality.
+
+9:58
+Thirty days. That's quite a significant gap.
+
+10:01
+It is. And it means that if someone joins on, say, the second of the month, they might not appear in TrainTrack until the beginning of next month.
+
+10:12
+So for those first few weeks they're essentially invisible to us.
+
+10:16
+We can't enrol them in training, we can't track their compliance. Nothing.
+
+10:21
+And it works the other way too. If someone leaves, they might still show up as active in our system for weeks after they've gone.
+
+10:30
+Which skews the compliance percentages and creates ghost records.
+
+10:35
+Is the CSV import automated or is it a manual process?
+
+10:39
+It's, um, semi-manual I suppose.
+
+10:42
+I get the file emailed to me and then I go into the admin panel and upload it.
+
+10:48
+The system does the matching automatically on employee number.
+
+10:52
+But anything it can't match I have to sort out by hand.
+
+10:56
+And what about validation? Does it validate the data before importing?
+
+11:01
+Basic validation, yes.
+
+11:03
+It checks that employee numbers are in the right format, that department names match what's already in the system, that sort of thing.
+
+11:11
+But it doesn't check for logical errors.
+
+11:14
+Like it wouldn't flag if someone's start date has suddenly changed, or if a full-time employee has mysteriously become part-time.
+
+11:22
+It just overwrites whatever is there with whatever is in the CSV.
+
+11:26
+No questions asked.
+
+11:28
+Is there a staging area? Like a preview before it applies the changes?
+
+11:33
+No.
+
+11:34
+You just upload the file, it processes it, and that's it.
+
+11:38
+Done.
+
+11:39
+And there's no way to roll back if something goes wrong?
+
+11:43
+No. Once it's imported, it's done. There's no undo.
+
+11:48
+I always ask IT to take a backup of the database before I do the import now.
+
+11:53
+Which they usually do.
+
+11:55
+But sometimes they forget and then I'm nervous for the rest of the day.
+
+11:59
+Has something actually gone wrong with an import?
+
+12:02
+Oh yes.
+
+12:04
+We had one incident about eighteen months ago where someone in HR accidentally deleted a column in the CSV before it was sent to me.
+
+12:13
+I think it was the location column.
+
+12:16
+And when I imported it, it blanked out the location field for about 400 employees.
+
+12:22
+Everyone was suddenly showing as having no office location.
+
+12:26
+Took me two days to fix.
+
+12:28
+And you couldn't just reimport the corrected file?
+
+12:31
+No, because the import process doesn't know the difference between "this field is blank because it should be blank" and "this field is blank because something went wrong."
+
+12:41
+It just sets whatever the CSV says.
+
+12:44
+So I had to go through and manually fix 400 records.
+
+12:48
+That's... that's quite risky from a data integrity perspective.
+
+12:52
+Yeah. I know.
+
+12:54
+And the matching, is it deterministic? Like a strict one-to-one key match on employee number?
+
+13:00
+Yeah, it's just the employee number. If the number matches, it updates the record. If it doesn't match, it creates a new one.
+
+13:08
+But sometimes people get new employee numbers. If they change contract type or come back after a career break, HR might assign a new number.
+
+13:17
+And then the system just sees them as a completely new person.
+
+13:21
+So you end up with duplicates?
+
+13:23
+Yeah. And there's no automated duplicate detection.
+
+13:27
+I have to spot them manually and merge them, which is fiddly.
+
+13:31
+OK. That's really helpful context. Thank you.
+
+13:35
+Can I just add, the duplicate issue is actually quite common in these kinds of systems where you've got manual data feeds. It's not unique to TrainTrack.
+
+13:43
+But it's something that a modern system should handle automatically. De-duplication logic, fuzzy matching on name and date of birth, that sort of thing.
+
+13:52
+Yeah, that would save me a lot of time. Because at the moment I only find duplicates when something looks odd. Like if I search for someone and two records come up.
+
+14:01
+Or if a manager calls me and says "why does it say Jane started in 2019? She's been here since 2016."
+
+14:08
+And I look into it and realise there's two records for the same person.
+
+14:12
+How many duplicates would you estimate are in the system right now?
+
+14:16
+I did a cleanup about six months ago and found about thirty. But I'm sure there are more lurking in there.
+
+14:23
+It's hard to know because the system doesn't help you find them. I literally have to go through the records manually.
+
+14:30
+Right.
+
+14:31
+Can we look at John Thompson's full record? Can you click into him?
+
+13:40
+Yeah. Let me just click on his name.
+
+13:43
+It's just loading. This system runs on a Windows Server 2008 R2 box in our data centre and it can be a bit slow sometimes.
+
+13:52
+Especially in the afternoon for some reason. I think the server handles other things as well.
+
+13:58
+There we go.
+
+14:00
+So this is John's employee profile.
+
+14:03
+You can see his basic details at the top. Name, employee number, department, location, line manager, start date.
+
+14:12
+He joined in September 2017, so he's been with us about eighteen months.
+
+14:18
+His line manager is listed as Peter Walsh, who's the Field Operations Manager for the South West.
+
+14:25
+And you can see his current status is Non-Compliant, highlighted in red.
+
+14:30
+And then down here is his training history.
+
+14:33
+You can see the courses he's completed, when he completed them, and the expiry dates where applicable.
+
+14:40
+So he did his Data Protection back in October 2017, that's fine, that doesn't expire until October this year.
+
+14:49
+IT Security Awareness, he did that online in November 2017. Also fine.
+
+14:55
+But this red line here is his Health and Safety Fundamentals.
+
+15:00
+He completed it on the 28th of February 2018. It's got a twelve month validity.
+
+15:07
+So it expired on the 28th of February this year.
+
+15:11
+And he's now about two weeks overdue.
+
+15:14
+Can I just ask, that training history, does it show everything since he joined? Or is there a filter?
+
+15:20
+It shows everything since his record was created in TrainTrack. Which for John would be from when the CSV first picked him up, probably October 2017.
+
+15:30
+There's no pagination or anything. If someone's been here since 2016 and done lots of courses, you'd see all of them. Which can be quite a long list for some people.
+
+15:41
+Is there a way to see just the overdue items? Or just the mandatory ones?
+
+15:46
+Not from this screen, no. You see the full history and you just have to scroll through.
+
+15:51
+I've got some employees who've been here since the system launched in 2016 and their training history goes on for pages.
+
+15:58
+And there's no way to collapse it or filter it. You just scroll.
+
+16:02
+Right.
+
+16:03
+And the expiry dates, are they calculated automatically or do you set them manually?
+
+16:08
+They're automatic. When someone completes a course, the system looks at the validity period for that course and calculates the expiry date.
+
+16:16
+So for Health and Safety it's twelve months from completion. For Data Protection it's twelve months. Some courses don't have an expiry at all, like the optional ones.
+
+16:26
+That bit works well actually. I don't have to do anything manual for that.
+
+16:31
+OK.
+
+16:32
+And what happens when someone goes overdue? Is there an automated process?
+
+15:19
+Sort of.
+
+15:20
+The system sends out reminder emails before the expiry date.
+
+15:24
+It sends them at 90 days, 60 days, 30 days, and 7 days before expiry.
+
+15:30
+So in theory John would have been getting reminders since December.
+
+15:35
+In theory.
+
+15:37
+Yeah. The problem is the emails are... they're quite basic.
+
+15:42
+Just a plain text email from a generic system address.
+
+15:46
+And they often end up in people's spam folders.
+
+15:50
+Especially Outlook's junk mail filter seems to catch them for some reason.
+
+15:55
+So half the time people don't even see the reminders.
+
+15:59
+Do you have any way to know if the emails were delivered?
+
+16:03
+No. There's no delivery tracking, no read receipts, nothing.
+
+16:08
+I just have to hope they get through.
+
+16:11
+What's the from address?
+
+16:13
+It's traintrack-noreply@defra.gsi.gov.uk.
+
+16:19
+I think something about the SMTP configuration means the spam filters don't trust it.
+
+16:24
+IT have looked at it a couple of times but it's never been properly fixed.
+
+16:29
+So periodically I have to send out an all-staff email, ironically, telling people to check their junk folders for TrainTrack notifications.
+
+16:38
+And add the address to their safe senders list.
+
+16:41
+Which of course half of them don't do.
+
+16:44
+Yeah. That seems like something that should be fixable with proper SPF and DKIM configuration.
+
+16:50
+You'd think so. But apparently it needs someone from IT to look at the mail server, and it's never quite important enough to get prioritised against everything else they've got on.
+
+17:01
+Right.
+
+17:02
+So once someone is actually overdue, what happens then?
+
+17:07
+The system just flags them in red, like you can see here.
+
+17:11
+But there's no escalation workflow. No automatic notification to their line manager.
+
+17:16
+Nothing.
+
+17:17
+I have to manually chase them up.
+
+17:20
+So I'll send an email myself from my own Outlook. Or I'll call their line manager. Or sometimes, if it's a field worker, I have to try and track them down by phoning round the regional offices.
+
+17:33
+"Has anyone seen John Thompson lately?"
+
+17:35
+Yeah, pretty much.
+
+17:38
+How many of the 23 overdue are field workers?
+
+17:42
+Um, I'd say probably... fifteen? Maybe more.
+
+17:47
+The field staff are the hardest to get in because they're out on site most days.
+
+17:52
+And the system is only accessible from the office network.
+
+17:56
+There's no mobile access at all?
+
+17:58
+No.
+
+17:59
+It's a Web Forms application, it was built in 2016 but it's very much a desktop design.
+
+18:06
+The layout doesn't work on a phone screen at all, even if you could get to it.
+
+18:11
+And there's no VPN access?
+
+18:13
+No, it's all internal network only.
+
+18:16
+So if you're not at a desk in one of our offices, you can't get to it. Full stop.
+
+18:22
+How many of the 1,247 employees would you say are primarily field-based?
+
+18:28
+Field Operations alone is about 350 people.
+
+18:32
+And then you've got people in Environment who are out on site regularly, some of the Operations team who travel a lot.
+
+18:40
+I'd say probably 400, maybe 450 people who regularly need to access the system but can't because they're not at a desk.
+
+18:50
+That's over a third of the workforce.
+
+18:53
+Yeah.
+
+18:54
+And it creates this really frustrating situation where the people who arguably most need up to date Health and Safety training are the hardest ones for us to manage.
+
+19:04
+Because they can't see their own records or book themselves onto courses.
+
+19:08
+They have to phone me or email me and I do it for them.
+
+19:12
+Which is slow and creates a bottleneck.
+
+19:15
+Can I ask about the notes section? I noticed there's something there on John's record.
+
+19:21
+Oh yeah, good spot.
+
+19:23
+So we've got this notes feature. It's basically just a free text field where I can log communications or actions.
+
+19:30
+So you can see here I've noted that I called his line manager Peter Walsh on the 5th of March about his overdue Health and Safety.
+
+19:39
+And Peter said John's been on a field assignment in Somerset doing some site inspections and wouldn't be back in the office until mid-March.
+
+19:48
+So I made a note of that so I'd remember to chase it up.
+
+19:52
+Is there any way to set a follow-up reminder from within the system?
+
+19:56
+No. The notes are just text with a date. There's no workflow, no reminders, no assignment.
+
+20:03
+I basically live and die by Outlook reminders.
+
+20:06
+I'll make a note in TrainTrack and then set myself a separate reminder in Outlook to chase it up.
+
+20:12
+Which means I've got two systems to keep track of.
+
+20:16
+How many employees do you personally manage in terms of training coordination?
+
+20:21
+All of them.
+
+20:22
+All 1,247.
+
+20:24
+All of them?
+
+20:25
+Well, department managers are supposed to help, and some of them are good at it.
+
+20:30
+Finance are brilliant actually.
+
+20:32
+They're at 98% compliance because the Finance Director, I think she's quite fierce about it to be honest.
+
+20:39
+She chases her team directly.
+
+20:41
+But for a lot of departments I'm essentially doing all the coordination myself.
+
+20:46
+Chasing people, booking them onto courses, sending reminders.
+
+20:50
+It's a lot of admin.
+
+20:52
+Is it just you? Or do you have a team?
+
+20:55
+I've got one admin assistant, Gemma. She helps with certificate printing and some of the data entry.
+
+21:02
+But in terms of the training coordination and compliance management, it's basically just me.
+
+21:08
+For 1,247 people.
+
+21:10
+Yeah.
+
+21:11
+Right. OK.
+
+21:13
+Can I just ask one more thing about the employee side before we move on?
+
+21:17
+Yeah.
+
+21:18
+What happens when a new employee starts? The onboarding process.
+
+21:23
+Right. So when someone joins, as I said, they don't appear in TrainTrack until the monthly CSV import picks them up.
+
+21:31
+So there can be a delay of up to 30 days.
+
+21:35
+Once they're in the system, I then have to manually assign them to all the mandatory training for their role and department.
+
+21:42
+There's no automatic assignment based on their job title or department?
+
+21:46
+No. I have to do it manually for each new starter.
+
+21:50
+So I look at their department, work out what mandatory courses apply, and enrol them one by one.
+
+21:56
+For a typical new starter that's four mandatory courses at minimum. Sometimes more if their role has specific requirements.
+
+22:04
+And there's no onboarding checklist or template?
+
+22:07
+No. I've got a spreadsheet that I keep separately with a list of what training each department needs. But it's not in TrainTrack.
+
+22:16
+TrainTrack doesn't know that everyone in Field Operations needs Emergency Procedures, for example. That's just something I know.
+
+22:24
+So if you were hit by a bus, that knowledge would be lost?
+
+22:28
+Well, it's in my spreadsheet. But yes, it's not in the system.
+
+22:33
+And if someone got the assignment wrong, say they put a new Field Operations person into the wrong courses, the system wouldn't flag it?
+
+22:41
+No. The system trusts whatever I tell it. If I forget to assign a course, it doesn't know it should be there.
+
+22:48
+So it's entirely dependent on you remembering the right courses for the right roles.
+
+22:53
+Yeah. Which is fine when it's me because I've been doing it for three years and I know the requirements inside out.
+
+22:59
+But if I was away and someone else had to cover, they'd have to rely on my spreadsheet. And it might not be up to date.
+
+23:06
+That's a significant key person dependency.
+
+23:09
+I know. It is.
+
+23:11
+Right. OK. That's very helpful context. Thank you Sarah.
+
+23:16
+Should we look at the course catalogue next?
+
+21:19
+Yeah. Let me just navigate back.
+
+21:23
+So I'll click on Courses in the top navigation.
+
+21:27
+Just loading.
+
+21:32
+Come on.
+
+21:35
+Is it always this speed?
+
+21:37
+It varies. It's worse in the afternoon. And it's worse when IT are doing things on the server. I think there's other stuff running on the same box.
+
+21:46
+Right. There we go.
+
+21:48
+So this is the course catalogue.
+
+21:51
+All 45 courses listed here.
+
+21:54
+You can see the columns. Course code, course name, mandatory or optional, delivery method, duration, and validity period.
+
+22:04
+So the ones at the top here with the M in the mandatory column, those are the ones we track for compliance.
+
+22:11
+HS001, Health and Safety Fundamentals. Mandatory for everyone, twelve months, four hours, blended delivery.
+
+22:20
+DP001, Data Protection Essentials. Mandatory, twelve months, three hours, online.
+
+22:27
+IT001, IT Security Awareness. Mandatory, twelve months, two hours, fully online.
+
+22:34
+EP001, Emergency Procedures. Mandatory, twelve months, three hours, blended.
+
+22:40
+And then further down you can see the optional courses.
+
+22:44
+CS001, Customer Service Excellence. Six hours, classroom only.
+
+22:50
+LM001, Leadership Fundamentals. Eight hours, classroom.
+
+22:55
+And so on down the list.
+
+22:57
+Can you tell me about the different delivery methods? I can see blended, online, and classroom.
+
+23:03
+Yeah.
+
+23:04
+So blended means it's a combination of classroom and online learning.
+
+23:09
+For Health and Safety, for example, there's an online module they do first, that's about two hours, covers the theory, regulations, risk assessments.
+
+23:18
+And then they come in for a two-hour practical session where they do hands-on stuff with fire extinguishers, first aid mannequins, manual handling.
+
+23:28
+Online is fully online. They just do it at their desk whenever they want. Submit it when they're done.
+
+23:34
+And classroom is fully in person. Turn up, sit down, be taught.
+
+23:39
+The problem with the blended and classroom courses is the scheduling, which is a whole thing. I'll show you that in a minute.
+
+23:47
+Can I ask, the online courses, do employees access them through TrainTrack or through a separate system?
+
+23:53
+Separate system. We've got a third party e-learning platform.
+
+23:57
+So they get a link, they go to the e-learning platform, do the course there, and then the completion data has to come back into TrainTrack.
+
+24:05
+Which is another integration point.
+
+24:07
+Yeah. And it doesn't always work smoothly. But I'll come to that later.
+
+24:12
+Is there any tracking of how long people spend on the online courses? Like, do you know if someone actually read the material or just clicked through it quickly?
+
+24:21
+No. TrainTrack just gets a pass or fail result. It doesn't get any data about time spent or engagement.
+
+24:28
+So someone could theoretically click through a two-hour Data Protection course in twenty minutes and as long as they pass the quiz at the end, the system would show them as compliant.
+
+24:39
+That's not ideal from a learning quality perspective.
+
+24:42
+No. But it's the way it is. We don't have visibility into how people interact with the online content.
+
+24:48
+The e-learning platform might track that, but that data doesn't come back to TrainTrack.
+
+24:54
+OK.
+
+24:55
+What about the course content? Where is it actually maintained?
+
+23:52
+So this is a bit of a sore point if I'm honest.
+
+23:56
+The course content is developed and maintained by the training development team.
+
+24:01
+They work in Word documents.
+
+24:04
+And then I manually copy the descriptions and learning objectives into the fields in TrainTrack.
+
+24:10
+So there's no direct link between the source documents and what's in the system.
+
+24:15
+No version control. No automated update.
+
+24:19
+I just copy and paste.
+
+24:21
+So when someone updates a course document, how do you know?
+
+24:25
+That's the thing, I don't always know.
+
+24:28
+Sometimes someone updates a Word document and forgets to tell me.
+
+24:32
+And then the course description in TrainTrack is out of date.
+
+24:36
+We've had situations where an instructor is teaching from the latest version of the materials but the description in the system still reflects the old version.
+
+24:45
+And nobody notices for weeks.
+
+24:48
+Can you tell what version of the content is current from within the system?
+
+24:53
+No. There's no version history. There's no "last updated" date on the content.
+
+24:59
+I just... I have to trust that what's in the system is current.
+
+25:03
+And sometimes it isn't.
+
+25:06
+That's a significant governance gap.
+
+25:08
+For regulated training like Health and Safety, you need to be able to demonstrate which version of the content was current when someone was certified.
+
+25:17
+Yeah, I know. It's been raised before but there's no easy solution with the current system.
+
+25:23
+It would need development work.
+
+25:26
+Can I ask about the course data model? Is each course a single record or is there a separate structure for sessions, materials, assessments?
+
+25:35
+Um, I'm not sure about the technical database side.
+
+25:39
+What I can tell you from the user perspective is that each course is one record with a set of fields.
+
+25:46
+And then sessions are separate, they link to the course. So HS001 has multiple sessions over the year.
+
+25:53
+But materials aren't stored in the system at all.
+
+25:57
+They're links to files on a shared drive.
+
+26:00
+And the links break, don't they.
+
+26:02
+Yeah. Rachel's heard me complain about this more than once.
+
+26:07
+So the certificate PDFs and course materials are stored on a file share.
+
+26:12
+And whenever IT or someone reorganises the folder structure, all the links in TrainTrack break.
+
+26:18
+And then I have to go through and fix them all manually.
+
+26:22
+How often does that happen?
+
+26:24
+Maybe two or three times a year? It's not constant but when it happens it's a nightmare.
+
+26:30
+Because suddenly no one can access their certificates or download training materials.
+
+26:35
+And I don't even know the links are broken until someone tries to use one and tells me it doesn't work.
+
+26:41
+There's no health check or monitoring for broken links?
+
+26:44
+No. Nothing.
+
+26:46
+Right.
+
+26:48
+Is there a workaround for the broken links? Like do people just go directly to the file share and find things manually?
+
+26:55
+Yeah, basically. People who've been here a while know roughly where things are on the file share.
+
+27:01
+But new starters have no idea. And even experienced staff get confused when the folder structure changes.
+
+27:08
+I've got a Word document, believe it or not, with a map of where everything is on the file share. Which I update whenever things move.
+
+27:16
+A Word document to map your file share. Which is itself on the file share.
+
+27:21
+Yeah. I'm aware of the irony.
+
+27:24
+And occasionally that document itself gets moved and then no one can find the map.
+
+27:30
+Oh, that's happened twice actually. Yeah.
+
+27:34
+Right.
+
+27:36
+Shall we drill into a specific course? Maybe the Health and Safety one since that's the one John Thompson is overdue on.
+
+26:55
+Yeah, good idea.
+
+26:57
+Let me click on HS001.
+
+27:01
+Just loading.
+
+27:05
+There we go.
+
+27:07
+So this is the course detail page for Health and Safety Fundamentals.
+
+27:12
+HS001.
+
+27:14
+You can see the overview section at the top. Mandatory for all employees, twelve month validity, four hours total duration, blended delivery.
+
+27:25
+The course description is here, learning objectives, assessment criteria.
+
+27:31
+And then this section shows the prerequisites. For this one it's "None," which makes sense because it's designed to be the first safety course everyone takes.
+
+27:41
+Some of our other courses have prerequisites. Like the Advanced Health and Safety course requires you to have completed this one first.
+
+27:50
+And then down at the bottom you can see the upcoming sessions.
+
+27:55
+We've got one next Friday, the 21st of March, in Bristol at Temple Quay House.
+
+28:01
+Shows 18 out of 20 enrolled, so there's two spaces left.
+
+28:06
+And another one on the 28th in York at Foss House.
+
+28:10
+That one's got 14 out of 20.
+
+28:13
+The Bristol one would be perfect for John Thompson, wouldn't it.
+
+28:17
+Exactly. That's exactly what I'd do. Go to his record, enrol him in the Bristol session.
+
+28:23
+Can you show us how that works? The enrolment process?
+
+28:27
+Yeah, I'd normally do it from his employee record. Let me go back.
+
+28:33
+So I'd click into John's profile, and then there's an "Enrol in Course" button.
+
+28:39
+I select the course, HS001, and then it shows me available sessions.
+
+28:44
+I'd pick the Bristol one on the 21st.
+
+28:47
+And click Enrol.
+
+28:49
+And then the system sends him a confirmation email. Assuming it doesn't go to spam.
+
+28:55
+And the session capacity updates from 18 to 19 of 20.
+
+29:00
+What if the course is full?
+
+29:03
+Then I get an error message saying the session is at capacity.
+
+29:07
+And I have to manually find an alternative session. Or put them on a waiting list.
+
+29:12
+But the system doesn't suggest alternatives or anything helpful like that.
+
+29:17
+It just says "full" and that's it.
+
+29:20
+And the capacity, is it tracked in real time?
+
+29:23
+Sort of. It updates when I do an enrolment. But there's no real-time view that other people can see.
+
+29:30
+So if a department manager is looking at the course page, they might see "18 of 20" but by the time they ring me to enrol their person, it might already be full because someone else has booked the remaining spots.
+
+29:43
+There's no locking or reservation mechanism?
+
+29:46
+No. It's first come, first served, and "first come" means whoever contacts me first.
+
+29:52
+Right.
+
+29:54
+Can I ask about the enrolment process from the manager's perspective? So if a line manager wants to enrol their whole team in something, how does that work?
+
+30:03
+They have to contact me individually for each person. Or send me a list.
+
+30:08
+Sometimes a manager will email me with ten names and say "can you put all of these on the next Health and Safety session?"
+
+30:15
+And then I go through them one by one, check there's space, enrol each person individually.
+
+30:20
+There's no bulk enrolment feature?
+
+30:22
+There is, actually. But it's quite clunky.
+
+30:26
+I can select multiple employees and enrol them in the same session. But I have to search for and tick each one individually.
+
+30:33
+And if the session fills up halfway through my list, the rest fail and I have to find them another session.
+
+30:40
+So it's a bulk action but it's not really designed for large numbers.
+
+30:44
+If I had to enrol, say, an entire department of 300 people in something, I'd be there for hours.
+
+30:50
+Has that happened?
+
+30:52
+Last year when the GDPR training became mandatory, we had to enrol every single employee. All 1,200 or however many we had at the time.
+
+31:02
+That took me about three days. Just the enrolments. Not counting the scheduling and the chasing up.
+
+31:09
+Three days?
+
+31:10
+Yeah. It was not my favourite week.
+
+31:14
+Right.
+
+31:15
+Let me show you the scheduling side now, because that's where it gets really interesting.
+
+30:00
+Interesting in a frustrating way.
+
+30:03
+Yeah. Exactly.
+
+30:05
+So let me go into the schedule section.
+
+30:10
+Bear with me, it's a few clicks to get there.
+
+30:15
+Right, so this is where I create and manage training sessions.
+
+30:20
+If I wanted to add a new Health and Safety session, I'd click New Session.
+
+30:25
+And then I fill in the details. Course, date, time, location, instructor, capacity.
+
+30:33
+Now the system will check if the instructor I've selected is already assigned to another session on that date.
+
+30:40
+That's one thing it does well.
+
+30:42
+But it doesn't check anything else.
+
+30:45
+It doesn't check room availability. It doesn't look at people's Outlook calendars. Nothing.
+
+30:51
+For room bookings I have to go separately into Outlook and book the room.
+
+30:56
+And then hope no one else books it between me checking availability and sending the calendar invite.
+
+31:02
+Has that caused problems?
+
+31:04
+Oh yes.
+
+31:06
+We've had people turn up for a Health and Safety session and the room is double booked with a senior management team meeting.
+
+31:14
+Which, as you can imagine, doesn't go down well.
+
+31:18
+And the training rooms, do they all have the right equipment for every course type?
+
+31:23
+No. And the system doesn't track room equipment at all.
+
+31:27
+For Health and Safety practical sessions we need specific kit. Fire extinguishers, first aid mannequins, defibrillator trainers.
+
+31:35
+I have to arrange all of that separately.
+
+31:38
+And sometimes we turn up at a room that's been booked and realise it's not suitable. Too small, wrong layout, no equipment.
+
+31:46
+Is there any calendar integration at all? Any API?
+
+31:50
+No. Nothing. TrainTrack is completely standalone.
+
+31:54
+No integration with Outlook, no integration with SharePoint, nothing.
+
+31:59
+It's just an island.
+
+32:01
+I think that's going to be a key requirement for whatever comes next. Calendar integration seems pretty fundamental.
+
+32:08
+Absolutely. Yeah.
+
+32:10
+Shall I show you the training schedule view? The calendar overview?
+
+32:14
+Yes please.
+
+32:16
+OK.
+
+32:18
+So this is the schedule for March 2019. You can see the different sessions colour coded by category.
+
+32:26
+Red is mandatory compliance training. Blue is management and leadership development. Green is technical skills. And there's purple for health and safety specifically.
+
+32:38
+You can see we've got quite a lot on this month.
+
+32:41
+Health and Safety runs most weeks. Data Protection every other week.
+
+32:46
+And then ad hoc sessions for the optional courses.
+
+32:50
+Can I ask about waiting lists?
+
+32:52
+Yeah. Go ahead.
+
+32:54
+Who manages them?
+
+32:56
+Me.
+
+32:57
+Manually.
+
+32:59
+So when a course is full, people can request to go on a waiting list.
+
+33:04
+I keep a note of it. Usually in the system, there is a waiting list feature, but it doesn't really do anything automatically.
+
+33:12
+It just records who's waiting.
+
+33:15
+When someone drops out or when we add a new session, I have to go through the waiting list and contact each person individually.
+
+33:23
+No automatic promotion? Like if someone cancels, the next person on the list doesn't automatically get enrolled?
+
+33:30
+No. Nothing automatic.
+
+33:33
+I have to manually check the waiting list, work out who's been waiting longest, email them to ask if they still want the space, wait for them to reply.
+
+33:42
+And sometimes they've already done the training through another route, or they've changed roles, or they've left the organisation entirely.
+
+33:49
+But they're still on the waiting list because nobody told me.
+
+33:53
+How many people would typically be on a waiting list?
+
+33:57
+Varies. For the popular courses, maybe ten, fifteen people.
+
+34:02
+Health and Safety always has a waiting list because we can only run so many sessions with the instructors we've got.
+
+34:09
+Is there any visibility for managers into the waiting lists?
+
+34:13
+No. Only I can see them.
+
+34:16
+If a manager wants to know if their staff member is on a waiting list and what position they're in, they have to ask me.
+
+34:23
+Which is not ideal, I know.
+
+34:25
+And when I said only I can see the waiting lists, I should clarify. Even I can only see the waiting list for one course at a time.
+
+34:33
+There's no overview of all waiting lists across all courses. I can't see, you know, the total number of people waiting across the organisation.
+
+34:42
+I have to click into each course individually and check its waiting list.
+
+34:47
+That's why I maintain a separate spreadsheet. So I've got one place where I can see all the waiting lists together.
+
+34:54
+Another workaround.
+
+34:56
+Yeah. Another workaround.
+
+34:59
+Actually, that's a good example of what I was saying about the ecosystem of manual processes. Sarah's got spreadsheets for waiting lists, spreadsheets for department training requirements, spreadsheets for cost tracking.
+
+35:11
+Outlook reminders for follow-ups. A Word document for the file share map.
+
+35:16
+The system itself is really just the database of record. Everything around it is manual.
+
+35:22
+Yeah, that's a fair summary actually. TrainTrack stores the data. Everything else is me.
+
+35:28
+Right. Can you tell us about the instructor management?
+
+34:29
+Yeah. So we've got a pool of about fifteen internal trainers who are qualified to deliver different courses.
+
+34:37
+They're not full-time trainers. They've all got their day jobs. Training is something they do on top of their normal role.
+
+34:44
+And each course has specific qualification requirements for who can deliver it.
+
+34:49
+For Health and Safety, the instructor needs a current First Aid certificate and a Health and Safety qualification, NEBOSH or equivalent.
+
+34:59
+The system tracks which instructors are qualified for which courses.
+
+35:03
+But managing their availability is a nightmare because it doesn't integrate with their calendars.
+
+35:10
+So how do you find out if an instructor is available?
+
+35:14
+I email them. Or call them.
+
+35:17
+One by one?
+
+35:18
+One by one.
+
+35:20
+I'll work out which instructors are qualified for the course I need to schedule, and then I'll email each of them asking about their availability for a particular date.
+
+35:30
+And wait for them to reply. Which sometimes takes days.
+
+35:34
+And what about instructor reminders? For sessions they've agreed to do?
+
+35:39
+The system sends one confirmation email when they're assigned to a session.
+
+35:44
+That's it. No reminders the day before, no follow-up, nothing.
+
+35:49
+Has that caused problems?
+
+35:51
+We've had two sessions this year where the instructor didn't turn up.
+
+35:56
+Both times because they had something else come up and forgot about the training session.
+
+36:01
+I've started sending manual reminders from Outlook now.
+
+36:05
+A week before and the day before.
+
+36:07
+But that's just more admin for me.
+
+36:10
+And when the instructors' own qualifications expire, what happens?
+
+36:15
+The system flags it. That's one thing it does reasonably well.
+
+36:19
+It tracks instructor qualifications and their expiry dates. So I can see if someone's First Aid certificate is about to expire.
+
+36:27
+But again, there's no automated notification to the instructor. I have to check manually and then chase them.
+
+36:34
+And if their qualification lapses, do they automatically get removed from the instructor pool for that course?
+
+36:40
+No. The system would let me assign them to a session even if their qualification had expired.
+
+36:46
+It doesn't enforce that check. I have to do it manually.
+
+36:50
+So theoretically you could have an unqualified instructor delivering training?
+
+36:55
+Theoretically, yes. If I didn't notice their qualification had expired. But I do check. It's just that the system doesn't prevent it.
+
+37:04
+OK. That's a risk.
+
+37:06
+Yeah.
+
+37:08
+That's quite serious, isn't it. Twenty people turn up for training and there's no instructor.
+
+36:16
+Yeah. It's embarrassing. And it wastes everyone's time.
+
+36:20
+And there's a credibility issue because people start thinking training isn't taken seriously.
+
+36:26
+Right. Sorry, my phone is ringing. Give me one second.
+
+36:32
+No problem.
+
+36:40
+Sorry about that. Just had to decline that call.
+
+36:44
+Right. Where were we?
+
+36:46
+Instructors. No-show instructors.
+
+36:49
+Oh yes. So yeah, the instructor management is quite basic.
+
+36:53
+What about when an instructor is sick on the day?
+
+36:57
+That's all manual crisis management.
+
+37:00
+I have to quickly find another qualified instructor who's available that day.
+
+37:05
+Call them, beg them to cover, and if I can't find anyone I have to cancel the session entirely.
+
+37:12
+Which means individually contacting all twenty enrolled participants.
+
+37:16
+There's a send email button on the session but the email template is very basic.
+
+37:21
+And half the time it goes to spam anyway, as we've discussed.
+
+37:25
+So I usually end up phoning people.
+
+37:28
+How long does it take to sort out a cancellation?
+
+37:31
+A full day of work, easily, if a session with twenty people gets cancelled.
+
+37:36
+Between finding an alternative, rescheduling everyone, updating the waiting lists.
+
+37:41
+It's a whole day.
+
+37:43
+I was just going to say, the cancellation thing is also a problem from a compliance perspective.
+
+37:49
+Because if someone's training is about to expire and their session gets cancelled, they go overdue through no fault of their own.
+
+37:57
+And then they have to wait for the next available session, which might be weeks away.
+
+38:02
+And in the meantime they're non-compliant and technically shouldn't be doing certain activities.
+
+38:08
+Yeah. We've had that happen. Someone's Health and Safety was due to expire, we had them booked on a session, the session got cancelled, and by the time we could reschedule them they were three weeks overdue.
+
+38:21
+And then their manager calls me up and says "you told me John was booked on training, why is he showing as non-compliant?"
+
+38:28
+And I have to explain that the session was cancelled and we're waiting for the next one.
+
+38:33
+It's frustrating for everyone.
+
+38:36
+Yeah.
+
+38:37
+Right. I think we should look at the reports next. Tom, you had some specific questions about reporting?
+
+37:50
+Yeah. I'm particularly interested in how training costs are tracked and reported.
+
+37:55
+And whether there's any financial information I can get from the system.
+
+38:00
+OK, so let me go to the Reports section.
+
+38:04
+It's this tab up here.
+
+38:08
+Right. So the reports.
+
+38:11
+I should probably warn you, reports can be quite slow to generate.
+
+38:15
+Especially the ones that cover all employees across all departments.
+
+38:20
+The system is calculating everything in real time across the whole database, which goes back to 2016.
+
+38:27
+And nothing's ever been archived, so it's got three years of data to chew through.
+
+38:33
+OK, let me run the departmental compliance report.
+
+38:37
+I'll set it to all departments, current month.
+
+38:42
+And hit generate.
+
+38:46
+And now we wait.
+
+38:49
+How long does it usually take?
+
+38:52
+For this one, a minute or two.
+
+38:55
+The individual employee reports are quicker. But the ones that aggregate across the whole organisation are slow.
+
+39:02
+Is there any caching? Does it remember results?
+
+39:06
+No. It regenerates from scratch every time.
+
+39:10
+Even if I run exactly the same report five minutes later, it recalculates everything.
+
+39:16
+And there's no way to schedule reports to run overnight?
+
+39:20
+No. I have to sit here and wait.
+
+39:23
+Which means I usually run the big reports first thing in the morning when the system is marginally less slow.
+
+39:30
+Is it always this slow or has it got worse over time?
+
+39:34
+It's definitely got worse. When we first started in 2016 it was much quicker.
+
+39:39
+But every year there's more data and the same hardware, so.
+
+39:44
+Has anyone looked at why from a technical standpoint?
+
+39:48
+I think IT looked at it once. The answer was basically the server is old and the queries aren't optimised.
+
+39:55
+And it would need proper development work to fix, which hasn't been prioritised.
+
+40:00
+We've looked at the database as part of our initial assessment. The queries are doing full table scans across millions of rows. There's no indexing strategy to speak of.
+
+40:12
+Which explains the performance issues.
+
+40:15
+And that's on SQL Server 2012, right?
+
+40:18
+Yeah. SQL Server 2012 on Windows Server 2008 R2.
+
+40:23
+Both of which are end of life or approaching end of life.
+
+40:27
+Windows Server 2008 R2 went end of extended support in January.
+
+40:32
+So we're running on an unsupported platform.
+
+40:35
+Which is one of the drivers for this modernisation review.
+
+40:39
+And just to add to that, the fact that the reporting queries aren't optimised is probably fixable with better indexing and query tuning.
+
+40:48
+But the fundamental architecture of the application, Web Forms, VB.NET, it's not a platform that lends itself to easy enhancement.
+
+40:57
+Finding developers who know VB.NET Web Forms in 2019 is increasingly difficult.
+
+41:03
+Most modern development is in C# or, you know, JavaScript frameworks. React, Angular.
+
+41:09
+Yeah, I think the last time we needed a change made to TrainTrack it took weeks to find someone who could work on it. And even then they weren't really a VB.NET specialist.
+
+41:20
+Right.
+
+41:22
+Oh, the report's come back.
+
+40:42
+Oh good. There we go.
+
+40:44
+So this is the departmental compliance breakdown.
+
+40:48
+You can see Finance at the top at 98%. That's Tom's lot, well done.
+
+40:54
+Thanks. Our Director is quite strict about it.
+
+40:58
+Yeah, it shows.
+
+41:00
+HR is at 94%, which is partly because I can badger my own colleagues more easily.
+
+41:06
+IT is at 91%. Legal is at 90%.
+
+41:11
+Policy is at 89%. Operations is at 86%.
+
+41:16
+Environment is 85%.
+
+41:18
+And Field Operations is at the bottom at 82%.
+
+41:22
+So the pattern is pretty clear.
+
+41:24
+The office-based departments are generally above 90%.
+
+41:28
+The ones with field staff or lots of travel are struggling.
+
+41:33
+And you said nothing's been archived? All data since 2016?
+
+41:37
+Yeah. Every record, every completion, every enrolment, every certificate record. All still in the active database.
+
+41:45
+Is there a data retention policy?
+
+41:48
+Not that I'm aware of. I've never been asked to archive or delete anything.
+
+41:53
+And honestly I'd be nervous about deleting records anyway because we might need them for audits.
+
+41:58
+But there should be a way to archive without deleting. Move old records to a separate store but still be able to access them if needed.
+
+42:06
+Yeah, that's not something the system supports though. Records are either there or they're not.
+
+42:12
+Right.
+
+42:13
+Can you drill into Field Operations? I want to understand where the gaps are specifically.
+
+41:39
+Yeah. Let me click on it.
+
+41:42
+Just loading.
+
+41:47
+Bear with me.
+
+41:52
+There we go. Right, so Field Operations has 312 employees.
+
+41:58
+And you can see the individual compliance status here.
+
+42:02
+The ones in red are overdue. Amber means due within the next 30 days. Green is fully compliant.
+
+42:10
+That's a lot of amber.
+
+42:12
+Yeah. A lot of people about to become overdue.
+
+42:16
+And the red ones, what courses are they overdue on?
+
+42:20
+Mainly Health and Safety and Emergency Procedures.
+
+42:24
+Which are the courses that require in-person practical components.
+
+42:28
+So the field workers can't just do them online from wherever they are?
+
+42:33
+No. Well, they could do the online component for the blended courses.
+
+42:37
+But they still need to come in for the practical session.
+
+42:41
+And for someone who's out on a farm in Devon or doing site inspections in Cornwall, getting into an office in Bristol for half a day of training is a real logistical challenge.
+
+42:53
+They have to travel, possibly overnight, and they lose at least a full day of work.
+
+42:58
+And can they see their own records from the field? Like on a phone?
+
+43:02
+No. They'd have to phone me or email me.
+
+43:06
+And some of them are in areas with terrible mobile signal.
+
+43:10
+So even that's not always easy.
+
+43:13
+I get emails from field workers saying "I tried to call you but I've got no signal, can you tell me what training I need to do?"
+
+43:21
+And by the time they get back to somewhere with reception, the email chain has gone back and forth four times.
+
+43:28
+It sounds like mobile access would be genuinely transformative for that cohort.
+
+43:33
+It really would.
+
+43:35
+If they could just see on their phone what training is overdue and book onto available sessions, it would save me hours every week.
+
+43:44
+And it would probably improve compliance significantly because they could manage it themselves rather than relying on me as a bottleneck.
+
+43:52
+I've been asking for mobile access for two years.
+
+43:56
+Noted.
+
+43:58
+Actually can I just add something on that? The locations.
+
+44:02
+We've got five main office locations. London, Nobel House, that's the headquarters. Bristol, Temple Quay House. York, Foss House. Reading. And Newcastle.
+
+44:13
+And the training sessions are run at those five locations. So a field worker in, say, Exeter, their nearest office is Bristol.
+
+44:22
+But even Bristol might be an hour and a half drive for them.
+
+44:26
+And we run sessions most frequently in London because that's where the most staff are. But that's useless for the field teams.
+
+44:34
+We try to run at least one Health and Safety session a month in Bristol and one in York because those are the regional hubs.
+
+44:41
+But sometimes we can't because the instructors aren't available or the rooms are booked.
+
+44:46
+And then people have to travel even further. We had one field worker from Newcastle who had to come down to York for his Health and Safety practical because we didn't have a Newcastle session that month.
+
+44:58
+Which is only an hour on the train, but still. That's half a day gone for a two-hour training session.
+
+45:05
+Could you not run more sessions locally? Like at regional field offices?
+
+45:10
+The field offices don't have the right facilities. They're small offices, sometimes just a couple of rooms.
+
+45:16
+The Health and Safety practical needs specific equipment and space. You need room to, you know, practice with fire extinguishers, do CPR on mannequins.
+
+45:25
+You can't really do that in a broom cupboard.
+
+45:28
+No.
+
+45:30
+And the system doesn't help with that planning at all, does it. It can't tell you where the demand is versus where the sessions are.
+
+45:38
+No. That's all in my head. Or, well, in my spreadsheets.
+
+45:43
+I know roughly where the demand is because I've been doing this for three years. But if you asked me for data to support that, I'd have to manually pull it together.
+
+45:52
+Right.
+
+45:54
+OK. Tom, did you want to ask about the finance side of things?
+
+44:03
+Yeah.
+
+44:04
+Sarah, you mentioned earlier there's no integration with finance systems.
+
+44:09
+Can you tell me more about how training costs are currently tracked and reported?
+
+44:14
+So, honestly, costs aren't tracked in TrainTrack at all.
+
+44:19
+There's no cost field against courses. No budget tracking. No financial codes. Nothing.
+
+44:26
+What I do is I export the attendance data at the end of each month as a CSV.
+
+44:32
+And then I send it to someone in your team, Tom.
+
+44:36
+I think it's Rebecca.
+
+44:37
+She takes that and manually enters it into the finance system.
+
+44:41
+And then reconciles it against the training budget.
+
+44:44
+Yeah, that's Rebecca. And I know she finds it quite painful.
+
+44:48
+Because the data you send doesn't map neatly to our cost centres.
+
+44:53
+No, because TrainTrack uses departments and the finance system uses cost centres.
+
+44:58
+And they're not the same thing. There's some overlap but they don't map one to one.
+
+45:04
+So she has to manually work out which cost centre each training event should be charged to.
+
+45:10
+Right. So there's a manual mapping exercise every month.
+
+45:14
+Yeah. And if there are any discrepancies, which there usually are, she has to come back to me and we go through it line by line.
+
+45:23
+That reconciliation takes us half a day sometimes.
+
+45:27
+And there's no way to see within TrainTrack how much we're spending on training overall?
+
+45:33
+No. If someone asks me "how much did we spend on Health and Safety training last year," I can tell them how many people attended sessions.
+
+45:42
+But I can't tell them what it cost. Because the cost data lives entirely in the finance system.
+
+45:49
+That's quite a fundamental gap if you're trying to manage a training budget effectively.
+
+45:55
+I know. And it means I can't make cost-based decisions within the system.
+
+46:00
+Like if I need to decide between running an extra Health and Safety session or a Leadership Development course, I can't compare the costs.
+
+46:09
+I just have to estimate based on past experience and what I remember from previous conversations with Finance.
+
+46:16
+Has that ever resulted in overspends?
+
+46:19
+Yeah, a couple of times last year.
+
+46:22
+We overspent on the mandatory courses because we had to run extra sessions. And then we had to cancel a couple of the optional ones to stay within budget.
+
+46:31
+But I didn't find out we were over budget until after I'd already scheduled the optional sessions and enrolled people.
+
+46:38
+Which didn't go down well with the participants.
+
+46:41
+I can imagine.
+
+46:43
+And from an audit perspective, can we trace training spend back to specific activities?
+
+46:49
+Only by manually cross-referencing between TrainTrack and the finance system.
+
+46:54
+There's no automated link.
+
+46:56
+So if auditors ask "what was the cost of Health and Safety training in Q3," someone has to manually pull data from two different systems and reconcile it.
+
+47:06
+It's doable, but it takes time.
+
+47:09
+And external training costs? If we send someone on an external course?
+
+47:14
+Same thing. No tracking in TrainTrack. The invoice goes through the normal finance process and there's no link back to the individual's training record.
+
+47:24
+So I can record that someone attended an external course, but I can't see what it cost.
+
+47:30
+And Finance can see the cost but can't see who attended or what the course was about.
+
+47:36
+The two worlds just don't talk to each other.
+
+47:39
+That's a significant visibility gap. If the senior leadership asks "what's our total training spend per head per year," how do you answer that?
+
+47:48
+I can't. Not easily. Someone would have to pull the total training budget from Finance and divide it by the number of employees from TrainTrack.
+
+47:57
+And even that would be a rough estimate because the training budget includes things that aren't tracked in TrainTrack, like conference attendance and external qualifications.
+
+48:07
+Right. I think I've heard enough about the financial gaps. That's clearly a major requirement for any replacement system.
+
+48:15
+Agreed.
+
+47:19
+Sarah, can I go back to something? The certificate management. You mentioned earlier that certificates are stored on a file share.
+
+47:27
+Yeah.
+
+47:28
+Can you walk us through how that works?
+
+47:31
+OK so when someone completes a course, the system creates a certificate record in the database.
+
+47:38
+That's the metadata. Certificate number, employee name, course name, completion date, expiry date.
+
+47:46
+But the actual PDF certificate is generated separately.
+
+47:50
+My admin assistant Gemma generates them using a Word template.
+
+47:55
+She fills in the details, saves it as a PDF, and then saves it to a shared folder on the network file share.
+
+48:03
+And then she goes back into TrainTrack and pastes the file path into the certificate link field.
+
+48:10
+So the link is just a file path? Like a UNC path?
+
+48:14
+Yeah. Literally just the path to the file on the file share.
+
+48:18
+And what happens when folders get reorganised?
+
+48:21
+All the links break.
+
+48:23
+And I'd say at any given time maybe ten, fifteen percent of our certificate links are broken.
+
+48:30
+If an auditor asks to see someone's certificate and the link is broken, I have to go hunting through the file share to find it.
+
+48:38
+Which can take ages because the folder structure is a bit of a mess.
+
+48:43
+Different people over the years have created different structures.
+
+48:47
+Some folders are organised by year, some by department, some by course.
+
+48:52
+There's no consistent approach.
+
+48:55
+And there's no document management system?
+
+48:58
+No. Just a Windows file share.
+
+49:01
+That's quite high risk from an audit compliance perspective.
+
+49:05
+It is. I mean, the data in the database is solid.
+
+49:09
+If an auditor asks "did John Thompson complete Health and Safety training in February 2018," I can answer that from the database. The record is there.
+
+49:19
+But if they say "show me his certificate," that's when it gets dicey.
+
+49:24
+The certificate might be in the right folder with a working link. Or it might have been moved.
+
+49:30
+Or in some cases the PDF might never have been generated in the first place if Gemma was off that week and it fell through the cracks.
+
+49:38
+Does that happen often? Certificates not being generated?
+
+49:42
+Occasionally. If there's a backlog or if Gemma's away and nobody covers for her.
+
+49:48
+It's on my list of things that keep me awake.
+
+49:52
+Have you ever had an auditor ask for a certificate and you couldn't produce it?
+
+49:57
+Not yet. Touch wood. But there have been a few close calls where it took me an hour of searching to find the right PDF.
+
+50:05
+And the auditor was not impressed by the delay. But we found it in the end.
+
+50:10
+What would happen if you genuinely couldn't find it?
+
+50:14
+I'd have to get the employee to do the training again, I think. Or at least get confirmation from the original instructor that they attended and passed.
+
+50:22
+Which is difficult if the instructor has left the organisation or can't remember because it was two years ago.
+
+50:28
+That's a significant governance risk.
+
+50:31
+Yeah. It is.
+
+50:33
+Right.
+
+49:53
+Sarah, I want to ask about e-learning. You mentioned some courses are fully online.
+
+49:59
+Yeah.
+
+50:00
+How does that work with TrainTrack?
+
+50:03
+So courses like IT Security Awareness and Data Protection are fully online.
+
+50:09
+The employee gets a link to our e-learning platform, which is a separate system.
+
+50:14
+They do the course at their desk, and then the completion data has to come back into TrainTrack.
+
+50:21
+Is that transfer automatic?
+
+50:23
+Sort of. There's a batch process that runs overnight.
+
+50:27
+But it doesn't always work.
+
+50:29
+Sometimes completions don't come across for days and I have to chase IT to investigate.
+
+50:35
+And in the meantime, the employee can see in the e-learning platform that they've completed the course.
+
+50:41
+But it doesn't show up in TrainTrack yet.
+
+50:44
+So they email me thinking something's gone wrong.
+
+50:47
+How often does the batch process fail?
+
+50:50
+Maybe once or twice a month.
+
+50:53
+It's not catastrophic but it creates confusion. And extra work for me, chasing IT and then reassuring the employee that yes, their completion has been recorded, it just hasn't come through yet.
+
+51:05
+What protocol is the integration using? SCORM?
+
+51:09
+I honestly don't know, David. You'd have to ask IT.
+
+51:13
+I just know that sometimes it works and sometimes it doesn't.
+
+51:17
+OK. I'll make a note to look into that.
+
+51:21
+Can I just mention one more thing about the e-learning?
+
+51:25
+Yeah.
+
+51:26
+The e-learning courses are where the field workers actually do best. Because even though they can't access TrainTrack from the field, they can access the e-learning platform.
+
+51:36
+It's a cloud-based service and they can get to it from any device.
+
+51:41
+So if a field worker needs to do their IT Security Awareness training, they can actually do it from their phone or their laptop at home.
+
+51:49
+The problem is they can't see from TrainTrack that they need to do it. They have to be told by me or their manager.
+
+51:57
+And then the completion sometimes doesn't sync back for days.
+
+52:02
+So there's a real irony there. The one part of the system that could work for mobile users doesn't integrate reliably with TrainTrack.
+
+52:10
+Yeah. That's frustrating.
+
+52:12
+Very.
+
+52:14
+Right. Let me show you the admin settings quickly since we've mentioned them a few times.
+
+51:28
+So I'll go to the Settings page.
+
+51:33
+This is the admin area. User management, system configuration, email templates.
+
+51:39
+User management is fairly straightforward.
+
+51:42
+We've got four roles. Administrator, Training Manager, Department Manager, and Employee.
+
+51:50
+Employees can only see their own training records.
+
+51:53
+Department Managers can see everyone in their department but can't do enrolments.
+
+51:58
+Training Managers like me can see everyone and do enrolments.
+
+52:02
+And Administrators can change system settings on top of all that.
+
+52:07
+The permissions are quite rigid though.
+
+52:10
+There's no way to give someone temporary access to another department's data.
+
+52:15
+So if a manager is covering for a colleague in another department, I have to manually change their role.
+
+52:22
+And then remember to change it back afterwards.
+
+52:25
+Which I sometimes forget to do.
+
+52:27
+And the user list, how many active users does the system have?
+
+52:32
+Well, in theory all 1,247 employees plus the administrators. But in practice most employees never log in.
+
+52:40
+They don't need to because they can't really do anything in the system. They can see their own record but that's it.
+
+52:47
+The active users are really just me, Gemma, and maybe twenty or thirty department managers who log in occasionally to check on their staff.
+
+52:56
+So out of 1,247 accounts, maybe fifty are actually used?
+
+53:00
+Yeah, roughly. The rest are there because they have to be there for the training records to work. But the actual people don't use the system.
+
+53:09
+That's quite an unusual usage pattern for a system with over a thousand user accounts.
+
+53:14
+Yeah. I mean, it was designed as an admin tool, not as a self-service portal. The employees are subjects of the system, not users of it, if that makes sense.
+
+53:25
+Yeah, it does. And that's fundamentally different from how you'd design a modern system.
+
+53:30
+Where you'd want the employees to be active participants. Viewing their own records, booking their own training, acknowledging completions.
+
+53:38
+That would save me so much time.
+
+53:41
+I bet.
+
+53:42
+Is there an audit trail on permission changes?
+
+52:30
+There's a basic audit log, yes.
+
+52:33
+It records who changed what and when.
+
+52:36
+But the interface for viewing it is terrible. It's just a massive list with no filtering or search capability.
+
+52:43
+If auditors ask me to show them all changes made to a specific employee's record over the past year, I have to scroll through pages and pages of log entries.
+
+52:53
+Which is always fun during audit season.
+
+52:56
+I bet.
+
+52:58
+Right, and the email templates. Can you show us those?
+
+53:02
+Yeah, so these are the notification templates.
+
+53:06
+Enrolment confirmation. Reminder at 90 days. Reminder at 60 days. 30 days. 7 days.
+
+53:14
+And overdue notification.
+
+53:16
+They're all just plain text. No HTML, no formatting, no images, no branding.
+
+53:23
+And you can change the wording, but you can't change the from address.
+
+53:27
+You can't add attachments.
+
+53:29
+And you can't conditionally change the content based on the type of training or the employee's department or anything.
+
+53:36
+Everyone gets the same email regardless.
+
+53:39
+Can you set different reminder schedules for different courses?
+
+53:43
+No. It's a system-wide setting. One size fits all.
+
+53:47
+So a Health and Safety course, which really does need advance booking because people have to travel in for the practical, gets the same reminder schedule as an online IT Security course that takes two hours at your desk.
+
+53:59
+That doesn't make a lot of sense.
+
+54:01
+No. But that's what we've got.
+
+54:04
+Can I ask one more thing about the admin side?
+
+54:07
+Yeah, of course.
+
+54:08
+What about data protection? GDPR compliance. The system holds personal data. Employee names, addresses, training records.
+
+54:17
+How do you handle subject access requests?
+
+54:20
+Manually. If someone submits a subject access request, I have to go into their record, screen by screen, and pull together all the data we hold on them.
+
+54:31
+And that includes the notes, the training history, the certificate records.
+
+54:36
+There's no "export all data for this person" button?
+
+54:39
+No. I have to go through each section and copy the information out.
+
+54:44
+For someone who's been here since 2016, that can take an hour or more.
+
+54:49
+And how often do you get subject access requests?
+
+54:52
+Not often, to be fair. Maybe two or three a year. But each one is time consuming.
+
+54:58
+And there's no automated data retention or deletion?
+
+55:02
+No. Nothing. Records stay in the system forever unless I manually delete them.
+
+55:08
+Which I've never done because I'm afraid of losing something we might need for an audit.
+
+55:13
+You need a proper data retention policy and the technical capability to implement it.
+
+55:18
+Yeah. That's on the wish list.
+
+55:21
+Along with about fifty other things.
+
+55:24
+Right. I think we're getting close to the hour. Mark, shall we start wrapping up?
+
+54:10
+Yeah, I think so.
+
+54:12
+Sarah, this has been really, really helpful. Genuinely.
+
+54:16
+I want to just summarise the key things I've heard and then David, maybe you can talk about what you think a replacement system would need technically.
+
+54:25
+Yeah, of course.
+
+54:27
+So from what Sarah's shown us today, the key pain points as I see them are, and Sarah, correct me if I miss anything.
+
+54:36
+First, no mobile access. Something like a third of the workforce are field based and can't access the system at all.
+
+54:44
+And that's contributing directly to the compliance gap, especially in Field Operations.
+
+54:50
+Second, the HR integration is a monthly CSV import, so employee data can be 30 days out of sync.
+
+54:58
+No real-time feed. No validation to speak of. No rollback.
+
+55:03
+Third, no finance integration. Training costs aren't tracked in the system at all.
+
+55:09
+Budget management is done entirely separately through manual reconciliation.
+
+55:14
+Fourth, manual scheduling with no calendar integration.
+
+55:18
+No room booking, no instructor reminders, no automated waiting list management.
+
+55:24
+Everything is manual.
+
+55:26
+Fifth, certificate management is on a file share with UNC path links that break regularly.
+
+55:32
+No proper document management.
+
+55:34
+Sixth, email notifications end up in spam.
+
+55:38
+No delivery tracking, no customisation, no way to know if people received them.
+
+55:43
+Seventh, no version control for course content. Content is maintained in Word documents and manually copied in.
+
+55:51
+Eighth, reports are slow to generate and basic in format, requiring hours of manual Excel work to produce usable management information.
+
+55:59
+Have I missed anything major?
+
+56:02
+The duplicate detection issue on the CSV import. And the fact that there's no staging area or preview.
+
+56:09
+Right, yes.
+
+56:11
+And the rigid permissions model. No temporary access, no fine-grained controls.
+
+56:16
+Yeah. And the e-learning batch integration that keeps failing.
+
+56:20
+OK, noted.
+
+56:22
+David, from a technical perspective, what are your thoughts on what a replacement would need?
+
+56:29
+So the current architecture is a classic ASP.NET Web Forms application on a legacy stack.
+
+56:35
+VB.NET on Windows Server 2008 R2, which is end of extended support.
+
+56:41
+SQL Server 2012, which goes end of extended support next year.
+
+56:46
+So there's a platform risk just from running on unsupported infrastructure.
+
+56:51
+In terms of what a replacement would need, I think we're looking at several things.
+
+56:57
+A web application that's responsive for mobile. So field workers can use it on phones and tablets.
+
+57:04
+That's essential given what Sarah's described.
+
+57:07
+API-based integration with the HR system for real-time employee data sync. None of this monthly CSV business.
+
+57:16
+And similar API integration with the finance system for cost tracking.
+
+57:21
+Calendar integration, probably with Microsoft Graph API for Outlook.
+
+57:26
+Room bookings, instructor scheduling, all through the same calendar infrastructure.
+
+57:32
+A proper document management approach for certificates and course materials.
+
+57:37
+Not a file share. Something with versioning, access control, stable URLs.
+
+57:43
+And modern reporting and analytics. Ideally with dashboards that update in real time and don't require manual intervention.
+
+57:52
+And I'd add automated workflows.
+
+57:55
+Things like waiting list promotion, escalation for overdue training, onboarding checklists for new starters.
+
+58:02
+The manual admin burden that Sarah described is really significant and a lot of it could and should be automated.
+
+58:10
+Absolutely. And from a data perspective, we'd want proper validation on any data imports.
+
+58:17
+Staging areas, previews before applying changes, rollback capability.
+
+58:22
+Duplicate detection.
+
+58:24
+Yeah, duplicate detection.
+
+58:26
+And ideally live integration rather than batch. Whether that's the HR sync or the e-learning completion data.
+
+58:33
+What about the e-learning integration? The batch process that keeps failing?
+
+58:38
+Modern e-learning platforms support real-time completion notifications via APIs.
+
+58:43
+There's no reason it should be a batch process in 2019.
+
+58:47
+We'd want that to be event-driven. Someone completes a course, TrainTrack knows about it immediately.
+
+58:54
+And presumably whatever we build should have proper email deliverability. SPF, DKIM, all that.
+
+59:00
+Yeah, that's basic hygiene really.
+
+59:03
+Shouldn't be an issue with a modern platform.
+
+59:06
+The spam thing has genuinely been a real problem for me. I can't tell you how many times I've had to explain to someone's manager why their employee didn't know their training was overdue.
+
+59:17
+And the answer is "the reminder went to their junk folder."
+
+59:21
+It's not a great look.
+
+59:23
+No. No, I can see how frustrating that would be.
+
+59:28
+Right. So in terms of next steps, I think we need to take what we've learned today and feed it into the requirements document.
+
+59:36
+David, your team is working on the high-level design, so this should be useful input.
+
+59:42
+Very much so. And I might have some follow-up questions for Sarah if that's OK.
+
+59:47
+Of course. Happy to help.
+
+59:49
+I can also give you access to look at the system directly if that would be useful.
+
+59:54
+You'd need to be on the network or we'd need to arrange VPN, but we can sort that out.
+
+1:00:00
+That would be helpful actually. Being able to see the database schema and the application code firsthand would save a lot of back and forth.
+
+1:00:09
+I'll set that up with IT.
+
+1:00:11
+Rachel, anything else from a business analysis perspective?
+
+1:00:16
+Yeah. I think we've covered a lot today. Really good demo, Sarah.
+
+1:00:21
+The main thing I want to capture properly is the workarounds.
+
+1:00:25
+Sarah's described a whole ecosystem of manual processes that the business has built up around the system's limitations.
+
+1:00:33
+Outlook reminders, Excel spreadsheets, phone calls, notes to herself.
+
+1:00:38
+Any replacement needs to not just replicate the current functionality of TrainTrack.
+
+1:00:43
+It needs to actually address the reasons those workarounds exist.
+
+1:00:48
+Otherwise we'll just end up with a shiny new system and the same manual workarounds.
+
+1:00:53
+Exactly. And I'd like to spend some time with Sarah mapping those workarounds properly before we finalise the requirements.
+
+1:01:01
+That's a good idea. Sarah, would you be able to do that? Spend some time with Rachel?
+
+1:01:07
+Yeah, absolutely. I've got a whole list of things I do every day that the system should do for me but doesn't.
+
+1:01:14
+I could probably bore Rachel for hours on that topic.
+
+1:01:18
+Well, we won't make it hours. Maybe an hour next week?
+
+1:01:22
+Works for me.
+
+1:01:24
+Tom, anything else from the finance side?
+
+1:01:27
+No, I think the key point is clear.
+
+1:01:30
+Whatever we build needs to have financial tracking built in from the start. Not bolted on afterwards.
+
+1:01:37
+Training budget management shouldn't be a separate exercise from training management.
+
+1:01:42
+They should be the same thing.
+
+1:01:44
+Agreed.
+
+1:01:45
+Completely agreed.
+
+1:01:47
+Right. Well, I think that's everything.
+
+1:01:50
+Sarah, thank you so much for your time today and for being so open and honest about the system's limitations.
+
+1:01:57
+It's really valuable for us to hear the reality rather than just looking at screenshots.
+
+1:02:02
+Well, it does what it does. And we've made it work for three years.
+
+1:02:06
+We've got our workarounds and our processes and it ticks along.
+
+1:02:11
+But I'd be lying if I said I wasn't excited about the prospect of something better.
+
+1:02:17
+Especially the mobile access. If we could just get that one thing, it would transform how we manage training for the field teams.
+
+1:02:25
+Noted. I think mobile access is clearly going to be right at the top of the requirements.
+
+1:02:31
+Right. I'll get the recording stopped.
+
+1:02:34
+Thanks everyone for joining.
+
+1:02:36
+Thanks.
+
+1:02:37
+Thank you Sarah. Really useful.
+
+1:02:39
+Thanks all.
+
+1:02:40
+Cheers.
+
+1:02:41
+See you next week, Rachel.
+
+1:02:43
+Yeah, I'll send an invite over. Bye everyone.
+
+1:02:46
+Bye.
+
+1:02:47
+Bye bye.
+
+1:02:49
+Thanks. Bye.
+
+1:02:51
+Bye.

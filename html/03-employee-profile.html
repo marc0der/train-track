@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainTrack - Employee Profile</title>
+    <link rel="stylesheet" href="shared-styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="app-title">TrainTrack Training Management System</div>
+            <div class="user-info">Welcome, Sarah Mitchell | Logout</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-menu">
+            <a href="#">Dashboard</a>
+            <a href="#" class="current">Search Employees</a>
+            <a href="#">Course Catalog</a>
+            <a href="#">Training Schedule</a>
+            <a href="#">Reports</a>
+            <a href="#">Administration</a>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="content-header">
+                <h1>Employee Profile</h1>
+            </div>
+
+            <div style="margin-bottom: 10px;">
+                <a href="#" class="action-link">← Back to Search Results</a>
+            </div>
+
+            <!-- Employee Information -->
+            <div class="form-section">
+                <h2>Employee Information</h2>
+                <div class="form-row">
+                    <span class="form-label">Employee ID:</span>
+                    <div class="form-input"><strong>EMP001236</strong></div>
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Name:</span>
+                    <div class="form-input"><strong>Clark, Emma Jane</strong></div>
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Department:</span>
+                    <div class="form-input">Finance</div>
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Job Title:</span>
+                    <div class="form-input">Senior Financial Analyst</div>
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Location:</span>
+                    <div class="form-input">London Office</div>
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Manager:</span>
+                    <div class="form-input">Williams, David (Finance Director)</div>
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Start Date:</span>
+                    <div class="form-input">15/03/2018</div>
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Email:</span>
+                    <div class="form-input">emma.clark@defra.gov.uk</div>
+                </div>
+            </div>
+
+            <!-- Training Status Summary -->
+            <div class="form-section">
+                <h2>Training Status Summary</h2>
+                <div class="form-row">
+                    <span class="form-label">Overall Status:</span>
+                    <div class="form-input"><span class="status-overdue">OVERDUE TRAINING</span></div>
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Compliance Rate:</span>
+                    <div class="form-input">75.0% (6 of 8 required courses)</div>
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Last Training:</span>
+                    <div class="form-input">05/12/2018 - Data Protection Fundamentals</div>
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Next Due:</span>
+                    <div class="form-input"><span class="status-overdue">28/02/2019 - Health & Safety Refresher (OVERDUE)</span></div>
+                </div>
+                <div style="padding-top: 8px;">
+                    <input type="button" value="Schedule Training" class="button button-primary" />
+                    <input type="button" value="Send Reminder" class="button" />
+                    <input type="button" value="Mark Exempt" class="button" />
+                </div>
+            </div>
+
+            <!-- Training History -->
+            <div class="form-section">
+                <h2>Training History</h2>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Status</th>
+                            <th>Start Date</th>
+                            <th>Completion Date</th>
+                            <th>Score</th>
+                            <th>Certificate</th>
+                            <th>Valid Until</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data Protection Fundamentals</td>
+                            <td class="status-complete">Completed</td>
+                            <td>01/12/2018</td>
+                            <td>05/12/2018</td>
+                            <td>92%</td>
+                            <td><a href="#" class="action-link">View/Download</a></td>
+                            <td>05/12/2019</td>
+                            <td><a href="#" class="action-link">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Financial Regulations Update</td>
+                            <td class="status-complete">Completed</td>
+                            <td>15/10/2018</td>
+                            <td>18/10/2018</td>
+                            <td>88%</td>
+                            <td><a href="#" class="action-link">View/Download</a></td>
+                            <td>18/10/2019</td>
+                            <td><a href="#" class="action-link">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>IT Security Awareness</td>
+                            <td class="status-complete">Completed</td>
+                            <td>22/08/2018</td>
+                            <td>25/08/2018</td>
+                            <td>95%</td>
+                            <td><a href="#" class="action-link">View/Download</a></td>
+                            <td>25/08/2019</td>
+                            <td><a href="#" class="action-link">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Anti-Fraud Training</td>
+                            <td class="status-complete">Completed</td>
+                            <td>10/06/2018</td>
+                            <td>12/06/2018</td>
+                            <td>91%</td>
+                            <td><a href="#" class="action-link">View/Download</a></td>
+                            <td>12/06/2019</td>
+                            <td><a href="#" class="action-link">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Customer Service Excellence</td>
+                            <td class="status-complete">Completed</td>
+                            <td>05/04/2018</td>
+                            <td>08/04/2018</td>
+                            <td>87%</td>
+                            <td><a href="#" class="action-link">View/Download</a></td>
+                            <td>08/04/2019</td>
+                            <td><a href="#" class="action-link">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Emergency Procedures</td>
+                            <td class="status-complete">Completed</td>
+                            <td>15/02/2018</td>
+                            <td>16/02/2018</td>
+                            <td>96%</td>
+                            <td><a href="#" class="action-link">View/Download</a></td>
+                            <td>16/02/2019</td>
+                            <td><a href="#" class="action-link">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Health & Safety Refresher</td>
+                            <td class="status-overdue">Overdue</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Due: 28/02/2019</td>
+                            <td><a href="#" class="action-link">Schedule Now</a></td>
+                        </tr>
+                        <tr>
+                            <td>Professional Development</td>
+                            <td class="status-pending">Required</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Due: 15/04/2019</td>
+                            <td><a href="#" class="action-link">Schedule</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Upcoming Training -->
+            <div class="form-section">
+                <h2>Upcoming Scheduled Training</h2>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Scheduled Date</th>
+                            <th>Time</th>
+                            <th>Location</th>
+                            <th>Instructor</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6" style="text-align: center; font-style: italic; color: #666;">No upcoming training scheduled</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="padding-top: 8px;">
+                    <input type="button" value="Schedule New Training" class="button button-primary" />
+                </div>
+            </div>
+
+            <!-- Notes -->
+            <div class="form-section">
+                <h2>Training Notes</h2>
+                <div class="form-row">
+                    <span class="form-label">Latest Note:</span>
+                    <div class="form-input">
+                        <strong>01/03/2019 - Sarah Mitchell:</strong> Employee contacted regarding overdue Health & Safety refresher. Agreed to complete by end of week.
+                    </div>
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Add New Note:</span>
+                    <div class="form-input">
+                        <textarea placeholder="Enter training note..."></textarea>
+                    </div>
+                </div>
+                <div style="padding-top: 8px;">
+                    <input type="button" value="Add Note" class="button" />
+                    <input type="button" value="View All Notes" class="button" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            TrainTrack Training Management System v2.1 | © 2019 Department for Environment, Food and Rural Affairs
+        </div>
+    </div>
+</body>
+</html>

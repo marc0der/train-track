@@ -1,0 +1,1 @@
+&lt;%@ Application Codebehind="Global.asax.vb" Inherits="Defra.TrainTrack.Global" Language="VB" %&gt;

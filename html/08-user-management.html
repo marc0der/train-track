@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainTrack - User Management</title>
+    <link rel="stylesheet" href="shared-styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="app-title">TrainTrack Training Management System</div>
+            <div class="user-info">Welcome, Sarah Mitchell | Logout</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-menu">
+            <a href="#">Dashboard</a>
+            <a href="#">Search Employees</a>
+            <a href="#">Course Catalog</a>
+            <a href="#">Training Schedule</a>
+            <a href="#">Reports</a>
+            <a href="#" class="current">Administration</a>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="content-header">
+                <h1>User Management</h1>
+            </div>
+
+            <!-- User Search/Filter -->
+            <div class="filter-panel">
+                <div class="filter-row">
+                    <label class="form-label">Search Users:</label>
+                    <div class="form-input">
+                        <input type="text" placeholder="Search by name or username" style="width: 200px;" />
+                    </div>
+                    <label class="form-label" style="margin-left: 20px;">Role:</label>
+                    <div class="form-input">
+                        <select>
+                            <option value="">All Roles</option>
+                            <option value="ADMIN">System Administrator</option>
+                            <option value="TRAINER">Training Administrator</option>
+                            <option value="HR">HR Manager</option>
+                            <option value="MANAGER">Department Manager</option>
+                            <option value="USER">Standard User</option>
+                        </select>
+                    </div>
+                    <label class="form-label" style="margin-left: 20px;">Status:</label>
+                    <div class="form-input">
+                        <select>
+                            <option value="">All Statuses</option>
+                            <option value="ACTIVE">Active</option>
+                            <option value="INACTIVE">Inactive</option>
+                            <option value="LOCKED">Locked</option>
+                        </select>
+                    </div>
+                    <div class="form-input" style="margin-left: 10px;">
+                        <input type="button" value="Search" class="button button-primary" />
+                        <input type="button" value="Clear" class="button" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- User List -->
+            <div class="form-section">
+                <h2>System Users (23 users found)</h2>
+                <div style="padding-bottom: 8px;">
+                    <input type="button" value="Add New User" class="button button-primary" />
+                    <input type="button" value="Bulk Import Users" class="button" />
+                    <input type="button" value="Export User List" class="button" />
+                </div>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Full Name</th>
+                            <th>Role</th>
+                            <th>Department</th>
+                            <th>Email</th>
+                            <th>Last Login</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>smitchell</strong></td>
+                            <td>Mitchell, Sarah</td>
+                            <td>System Administrator</td>
+                            <td>Information Technology</td>
+                            <td>sarah.mitchell@defra.gov.uk</td>
+                            <td>15/03/2019 09:15</td>
+                            <td class="status-complete">Active</td>
+                            <td>
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Permissions</a> |
+                                <a href="#" class="action-link">Reset Password</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>mbrown</td>
+                            <td>Brown, Michael</td>
+                            <td>Training Administrator</td>
+                            <td>Human Resources</td>
+                            <td>michael.brown@defra.gov.uk</td>
+                            <td>15/03/2019 08:45</td>
+                            <td class="status-complete">Active</td>
+                            <td>
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Permissions</a> |
+                                <a href="#" class="action-link">Reset Password</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ewilliams</td>
+                            <td>Williams, Emma</td>
+                            <td>HR Manager</td>
+                            <td>Human Resources</td>
+                            <td>emma.williams@defra.gov.uk</td>
+                            <td>14/03/2019 16:30</td>
+                            <td class="status-complete">Active</td>
+                            <td>
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Permissions</a> |
+                                <a href="#" class="action-link">Reset Password</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ddavis</td>
+                            <td>Davis, David</td>
+                            <td>Department Manager</td>
+                            <td>Finance</td>
+                            <td>david.davis@defra.gov.uk</td>
+                            <td>13/03/2019 14:22</td>
+                            <td class="status-complete">Active</td>
+                            <td>
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Permissions</a> |
+                                <a href="#" class="action-link">Reset Password</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>lwilson</td>
+                            <td>Wilson, Lisa</td>
+                            <td>Training Administrator</td>
+                            <td>Human Resources</td>
+                            <td>lisa.wilson@defra.gov.uk</td>
+                            <td>11/03/2019 11:15</td>
+                            <td class="status-complete">Active</td>
+                            <td>
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Permissions</a> |
+                                <a href="#" class="action-link">Reset Password</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>jthomas</td>
+                            <td>Thomas, James</td>
+                            <td>Department Manager</td>
+                            <td>Operations</td>
+                            <td>james.thomas@defra.gov.uk</td>
+                            <td>28/02/2019 09:45</td>
+                            <td class="status-complete">Active</td>
+                            <td>
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Permissions</a> |
+                                <a href="#" class="action-link">Reset Password</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>rsmith</td>
+                            <td>Smith, Robert</td>
+                            <td>Standard User</td>
+                            <td>Legal</td>
+                            <td>robert.smith@defra.gov.uk</td>
+                            <td>15/02/2019 16:20</td>
+                            <td class="status-pending">Inactive</td>
+                            <td>
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Activate</a> |
+                                <a href="#" class="action-link">Reset Password</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>agarcia</td>
+                            <td>Garcia, Anna</td>
+                            <td>Training Administrator</td>
+                            <td>Human Resources</td>
+                            <td>anna.garcia@defra.gov.uk</td>
+                            <td>Never logged in</td>
+                            <td class="status-overdue">Locked</td>
+                            <td>
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Unlock</a> |
+                                <a href="#" class="action-link">Reset Password</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Role Permissions Matrix -->
+            <div class="form-section">
+                <h2>Role Permissions</h2>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>System Admin</th>
+                            <th>Training Admin</th>
+                            <th>HR Manager</th>
+                            <th>Dept Manager</th>
+                            <th>Standard User</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>View Dashboard</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Search All Employees</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-pending text-center">Dept Only</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <tr>
+                            <td>Manage Courses</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <tr>
+                            <td>Schedule Training</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-pending text-center">Dept Only</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <tr>
+                            <td>Generate Reports</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-pending text-center">Dept Only</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <tr>
+                            <td>User Management</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <tr>
+                            <td>System Configuration</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                            <td class="text-center">-</td>
+                        </tr>
+                        <tr>
+                            <td>View Own Training</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                            <td class="status-complete text-center">✓</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="padding-top: 8px;">
+                    <input type="button" value="Modify Permissions" class="button button-primary" />
+                    <input type="button" value="Create New Role" class="button" />
+                </div>
+            </div>
+
+            <!-- System Activity -->
+            <div class="form-section">
+                <h2>Recent User Activity</h2>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>User</th>
+                            <th>Action</th>
+                            <th>Details</th>
+                            <th>IP Address</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>15/03/2019 09:15:23</td>
+                            <td>smitchell</td>
+                            <td>Login</td>
+                            <td>Successful login</td>
+                            <td>192.168.1.45</td>
+                            <td class="status-complete">Success</td>
+                        </tr>
+                        <tr>
+                            <td>15/03/2019 08:45:12</td>
+                            <td>mbrown</td>
+                            <td>Course Creation</td>
+                            <td>Created course "Advanced Excel"</td>
+                            <td>192.168.1.23</td>
+                            <td class="status-complete">Success</td>
+                        </tr>
+                        <tr>
+                            <td>14/03/2019 16:30:45</td>
+                            <td>ewilliams</td>
+                            <td>Report Generation</td>
+                            <td>Generated compliance report</td>
+                            <td>192.168.1.67</td>
+                            <td class="status-complete">Success</td>
+                        </tr>
+                        <tr>
+                            <td>14/03/2019 14:22:10</td>
+                            <td>ddavis</td>
+                            <td>Training Enrollment</td>
+                            <td>Enrolled 15 Finance dept employees</td>
+                            <td>192.168.1.89</td>
+                            <td class="status-complete">Success</td>
+                        </tr>
+                        <tr>
+                            <td>13/03/2019 11:45:33</td>
+                            <td>unknown</td>
+                            <td>Failed Login</td>
+                            <td>Invalid password for user 'agarcia'</td>
+                            <td>192.168.1.156</td>
+                            <td class="status-overdue">Failed</td>
+                        </tr>
+                        <tr>
+                            <td>12/03/2019 09:12:45</td>
+                            <td>lwilson</td>
+                            <td>User Modification</td>
+                            <td>Updated permissions for user 'rsmith'</td>
+                            <td>192.168.1.34</td>
+                            <td class="status-complete">Success</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="padding-top: 8px;">
+                    <a href="#" class="action-link">View Full Activity Log</a> |
+                    <a href="#" class="action-link">Export Activity Report</a>
+                </div>
+            </div>
+
+            <!-- System Statistics -->
+            <div class="form-section">
+                <h2>User Statistics</h2>
+                <div style="float: left; width: 300px; margin-right: 20px;">
+                    <table class="data-grid">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Count</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total Users</td>
+                                <td>23</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>Active Users</td>
+                                <td>20</td>
+                                <td>87.0%</td>
+                            </tr>
+                            <tr>
+                                <td>Inactive Users</td>
+                                <td>2</td>
+                                <td>8.7%</td>
+                            </tr>
+                            <tr>
+                                <td>Locked Users</td>
+                                <td>1</td>
+                                <td>4.3%</td>
+                            </tr>
+                            <tr>
+                                <td>Never Logged In</td>
+                                <td>1</td>
+                                <td>4.3%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="float: left; width: 300px;">
+                    <h3 style="font-size: 12px; margin-top: 0;">Users by Role</h3>
+                    <table class="data-grid">
+                        <thead>
+                            <tr>
+                                <th>Role</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>System Administrator</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Training Administrator</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>HR Manager</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Department Manager</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>Standard User</td>
+                                <td>5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            TrainTrack Training Management System v2.1 | © 2019 Department for Environment, Food and Rural Affairs
+        </div>
+    </div>
+</body>
+</html>

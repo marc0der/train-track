@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainTrack - Training Records</title>
+    <link rel="stylesheet" href="shared-styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="app-title">TrainTrack Training Management System</div>
+            <div class="user-info">Welcome, Sarah Mitchell | Logout</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-menu">
+            <a href="#">Dashboard</a>
+            <a href="#">Search Employees</a>
+            <a href="#">Course Catalog</a>
+            <a href="#">Training Schedule</a>
+            <a href="#">Reports</a>
+            <a href="#" class="current">Training Records</a>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="content-header">
+                <h1>Training Records Management</h1>
+            </div>
+
+            <!-- Record Filters -->
+            <div class="filter-panel">
+                <div class="filter-row">
+                    <label class="form-label">Employee:</label>
+                    <div class="form-input">
+                        <input type="text" placeholder="Enter name or employee ID" style="width: 180px;" />
+                    </div>
+                    <label class="form-label" style="margin-left: 20px;">Course:</label>
+                    <div class="form-input">
+                        <select style="width: 200px;">
+                            <option value="">All Courses</option>
+                            <option value="HS001">Health & Safety Fundamentals</option>
+                            <option value="DP001">Data Protection Fundamentals</option>
+                            <option value="IT001">IT Security Awareness</option>
+                            <option value="CS001">Customer Service Excellence</option>
+                            <option value="EP001">Emergency Procedures</option>
+                            <option value="AF001">Anti-Fraud Training</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-row">
+                    <label class="form-label">Completion Status:</label>
+                    <div class="form-input">
+                        <select>
+                            <option value="">All Statuses</option>
+                            <option value="COMPLETED">Completed</option>
+                            <option value="IN_PROGRESS">In Progress</option>
+                            <option value="NOT_STARTED">Not Started</option>
+                            <option value="FAILED">Failed</option>
+                            <option value="EXPIRED">Expired</option>
+                        </select>
+                    </div>
+                    <label class="form-label" style="margin-left: 20px;">Date Range:</label>
+                    <div class="form-input">
+                        <input type="date" style="width: 120px;" value="2019-01-01" />
+                        <span style="margin: 0 5px;">to</span>
+                        <input type="date" style="width: 120px;" value="2019-03-31" />
+                    </div>
+                    <div class="form-input" style="margin-left: 20px;">
+                        <input type="button" value="Search" class="button button-primary" />
+                        <input type="button" value="Clear" class="button" />
+                        <input type="button" value="Export" class="button" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Training Records List -->
+            <div class="form-section">
+                <h2>Training Completion Records (1,456 records found)</h2>
+                <div style="padding-bottom: 8px;">
+                    <input type="button" value="Add Manual Record" class="button button-primary" />
+                    <input type="button" value="Bulk Import" class="button" />
+                    <input type="button" value="Generate Certificates" class="button" />
+                    <input type="button" value="Send Completion Emails" class="button" />
+                </div>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Record ID</th>
+                            <th>Employee</th>
+                            <th>Course</th>
+                            <th>Start Date</th>
+                            <th>Completion Date</th>
+                            <th>Score</th>
+                            <th>Status</th>
+                            <th>Certificate</th>
+                            <th>Valid Until</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TR190001</td>
+                            <td>Anderson, Sarah (EMP001234)</td>
+                            <td>Health & Safety Fundamentals</td>
+                            <td>01/03/2019</td>
+                            <td>05/03/2019</td>
+                            <td>94%</td>
+                            <td class="status-complete">Completed</td>
+                            <td><a href="#" class="action-link">Download</a></td>
+                            <td>05/03/2020</td>
+                            <td>
+                                <a href="#" class="action-link">View</a> |
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Resend Certificate</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TR190002</td>
+                            <td>Brown, Michael (EMP001235)</td>
+                            <td>IT Security Awareness</td>
+                            <td>28/02/2019</td>
+                            <td>02/03/2019</td>
+                            <td>87%</td>
+                            <td class="status-complete">Completed</td>
+                            <td><a href="#" class="action-link">Download</a></td>
+                            <td>02/03/2020</td>
+                            <td>
+                                <a href="#" class="action-link">View</a> |
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Resend Certificate</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TR190003</td>
+                            <td>Clark, Emma (EMP001236)</td>
+                            <td>Data Protection Fundamentals</td>
+                            <td>25/02/2019</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td class="status-pending">In Progress</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>
+                                <a href="#" class="action-link">View Progress</a> |
+                                <a href="#" class="action-link">Send Reminder</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TR190004</td>
+                            <td>Davis, James (EMP001237)</td>
+                            <td>Customer Service Excellence</td>
+                            <td>20/02/2019</td>
+                            <td>24/02/2019</td>
+                            <td>92%</td>
+                            <td class="status-complete">Completed</td>
+                            <td><a href="#" class="action-link">Download</a></td>
+                            <td>24/02/2020</td>
+                            <td>
+                                <a href="#" class="action-link">View</a> |
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Resend Certificate</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TR190005</td>
+                            <td>Evans, Lisa (EMP001238)</td>
+                            <td>Emergency Procedures</td>
+                            <td>15/02/2019</td>
+                            <td>-</td>
+                            <td>45%</td>
+                            <td class="status-overdue">Failed</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>
+                                <a href="#" class="action-link">View Details</a> |
+                                <a href="#" class="action-link">Schedule Retake</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TR190006</td>
+                            <td>Foster, David (EMP001239)</td>
+                            <td>Anti-Fraud Training</td>
+                            <td>12/02/2019</td>
+                            <td>16/02/2019</td>
+                            <td>96%</td>
+                            <td class="status-complete">Completed</td>
+                            <td><a href="#" class="action-link">Download</a></td>
+                            <td>16/02/2020</td>
+                            <td>
+                                <a href="#" class="action-link">View</a> |
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Resend Certificate</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TR170156</td>
+                            <td>Green, Sophie (EMP001240)</td>
+                            <td>Health & Safety Fundamentals</td>
+                            <td>15/01/2018</td>
+                            <td>18/01/2018</td>
+                            <td>89%</td>
+                            <td class="status-overdue">Expired</td>
+                            <td><a href="#" class="action-link">Download</a></td>
+                            <td>18/01/2019</td>
+                            <td>
+                                <a href="#" class="action-link">View</a> |
+                                <a href="#" class="action-link">Schedule Refresher</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TR190007</td>
+                            <td>Harris, Robert (EMP001241)</td>
+                            <td>Leadership Fundamentals</td>
+                            <td>08/02/2019</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td class="status-pending">Not Started</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>
+                                <a href="#" class="action-link">Send Reminder</a> |
+                                <a href="#" class="action-link">Reset Enrollment</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="padding-top: 8px; text-align: right;">
+                    <span>Showing 1-8 of 1,456 records</span> |
+                    <a href="#" class="action-link">Next page</a>
+                </div>
+            </div>
+
+            <!-- Record Details Panel -->
+            <div class="form-section">
+                <h2>Record Details - TR190001</h2>
+                <div style="background-color: #f9f9f9; padding: 10px; border: 1px solid #cccccc;">
+                    <div style="float: left; width: 45%; margin-right: 5%;">
+                        <h3 style="font-size: 12px; margin-top: 0;">Employee Information</h3>
+                        <div class="form-row">
+                            <span class="form-label">Employee ID:</span>
+                            <div class="form-input">EMP001234</div>
+                        </div>
+                        <div class="form-row">
+                            <span class="form-label">Name:</span>
+                            <div class="form-input">Anderson, Sarah</div>
+                        </div>
+                        <div class="form-row">
+                            <span class="form-label">Department:</span>
+                            <div class="form-input">Human Resources</div>
+                        </div>
+                        <div class="form-row">
+                            <span class="form-label">Email:</span>
+                            <div class="form-input">sarah.anderson@defra.gov.uk</div>
+                        </div>
+                    </div>
+                    <div style="float: left; width: 50%;">
+                        <h3 style="font-size: 12px; margin-top: 0;">Training Details</h3>
+                        <div class="form-row">
+                            <span class="form-label">Course:</span>
+                            <div class="form-input">HS001 - Health & Safety Fundamentals</div>
+                        </div>
+                        <div class="form-row">
+                            <span class="form-label">Instructor:</span>
+                            <div class="form-input">Brown, Michael</div>
+                        </div>
+                        <div class="form-row">
+                            <span class="form-label">Training Method:</span>
+                            <div class="form-input">Blended Learning</div>
+                        </div>
+                        <div class="form-row">
+                            <span class="form-label">Session ID:</span>
+                            <div class="form-input">TS20190305-HS001</div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <h3 style="font-size: 12px; margin: 15px 0 8px 0;">Assessment Results</h3>
+                    <table class="data-grid" style="margin-bottom: 15px;">
+                        <thead>
+                            <tr>
+                                <th>Assessment Component</th>
+                                <th>Score</th>
+                                <th>Pass Mark</th>
+                                <th>Result</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Module 1: Online Quiz</td>
+                                <td>92%</td>
+                                <td>80%</td>
+                                <td class="status-complete">Pass</td>
+                                <td>02/03/2019</td>
+                            </tr>
+                            <tr>
+                                <td>Module 2: Practical Assessment</td>
+                                <td>96%</td>
+                                <td>80%</td>
+                                <td class="status-complete">Pass</td>
+                                <td>05/03/2019</td>
+                            </tr>
+                            <tr>
+                                <td>Overall Score</td>
+                                <td><strong>94%</strong></td>
+                                <td>80%</td>
+                                <td class="status-complete"><strong>Pass</strong></td>
+                                <td>05/03/2019</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="font-size: 12px; margin: 15px 0 8px 0;">Certification Information</h3>
+                    <div class="form-row">
+                        <span class="form-label">Certificate Number:</span>
+                        <div class="form-input">CERT-HS001-20190305-001234</div>
+                    </div>
+                    <div class="form-row">
+                        <span class="form-label">Issue Date:</span>
+                        <div class="form-input">05/03/2019</div>
+                    </div>
+                    <div class="form-row">
+                        <span class="form-label">Valid Until:</span>
+                        <div class="form-input">05/03/2020</div>
+                    </div>
+                    <div class="form-row">
+                        <span class="form-label">Certificate Status:</span>
+                        <div class="form-input"><span class="status-complete">Active</span></div>
+                    </div>
+                </div>
+                <div style="padding-top: 8px;">
+                    <input type="button" value="Edit Record" class="button button-primary" />
+                    <input type="button" value="Download Certificate" class="button" />
+                    <input type="button" value="Resend Certificate" class="button" />
+                    <input type="button" value="Add Note" class="button" />
+                    <input type="button" value="Archive Record" class="button" />
+                </div>
+            </div>
+
+            <!-- Bulk Actions -->
+            <div class="form-section">
+                <h2>Bulk Record Operations</h2>
+                <div class="form-row">
+                    <label class="form-label">Select Records:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="checkbox"> All visible records
+                        </label>
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="checkbox"> Completed only
+                        </label>
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="checkbox"> Failed/Expired only
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Bulk Action:</label>
+                    <div class="form-input">
+                        <select style="width: 200px;">
+                            <option value="">Choose action...</option>
+                            <option value="certificates">Generate Certificates</option>
+                            <option value="email">Send Completion Emails</option>
+                            <option value="reminder">Send Reminders</option>
+                            <option value="archive">Archive Records</option>
+                            <option value="export">Export to Excel</option>
+                            <option value="extend">Extend Validity</option>
+                        </select>
+                        <input type="button" value="Execute" class="button" style="margin-left: 10px;" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Record Statistics -->
+            <div class="form-section">
+                <h2>Training Record Statistics</h2>
+                <div style="float: left; width: 300px; margin-right: 20px;">
+                    <table class="data-grid">
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>Count</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Completed</td>
+                                <td>1,289</td>
+                                <td>88.5%</td>
+                            </tr>
+                            <tr>
+                                <td>In Progress</td>
+                                <td>89</td>
+                                <td>6.1%</td>
+                            </tr>
+                            <tr>
+                                <td>Not Started</td>
+                                <td>45</td>
+                                <td>3.1%</td>
+                            </tr>
+                            <tr>
+                                <td>Failed</td>
+                                <td>23</td>
+                                <td>1.6%</td>
+                            </tr>
+                            <tr>
+                                <td>Expired</td>
+                                <td>10</td>
+                                <td>0.7%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="float: left; width: 300px;">
+                    <h3 style="font-size: 12px; margin-top: 0;">Average Scores by Course</h3>
+                    <table class="data-grid">
+                        <thead>
+                            <tr>
+                                <th>Course</th>
+                                <th>Avg Score</th>
+                                <th>Pass Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Emergency Procedures</td>
+                                <td>96.1%</td>
+                                <td>98.9%</td>
+                            </tr>
+                            <tr>
+                                <td>IT Security</td>
+                                <td>94.2%</td>
+                                <td>97.8%</td>
+                            </tr>
+                            <tr>
+                                <td>Data Protection</td>
+                                <td>92.1%</td>
+                                <td>96.3%</td>
+                            </tr>
+                            <tr>
+                                <td>Anti-Fraud</td>
+                                <td>91.4%</td>
+                                <td>95.7%</td>
+                            </tr>
+                            <tr>
+                                <td>Health & Safety</td>
+                                <td>89.7%</td>
+                                <td>94.2%</td>
+                            </tr>
+                            <tr>
+                                <td>Customer Service</td>
+                                <td>88.9%</td>
+                                <td>92.1%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            TrainTrack Training Management System v2.1 | © 2019 Department for Environment, Food and Rural Affairs
+        </div>
+    </div>
+</body>
+</html>

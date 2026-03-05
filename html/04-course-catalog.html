@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainTrack - Course Catalog</title>
+    <link rel="stylesheet" href="shared-styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="app-title">TrainTrack Training Management System</div>
+            <div class="user-info">Welcome, Sarah Mitchell | Logout</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-menu">
+            <a href="#">Dashboard</a>
+            <a href="#">Search Employees</a>
+            <a href="#" class="current">Course Catalog</a>
+            <a href="#">Training Schedule</a>
+            <a href="#">Reports</a>
+            <a href="#">Administration</a>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="content-header">
+                <h1>Course Catalog</h1>
+            </div>
+
+            <!-- Course Filters -->
+            <div class="filter-panel">
+                <div class="filter-row">
+                    <label class="form-label">Course Category:</label>
+                    <div class="form-input">
+                        <select>
+                            <option value="">All Categories</option>
+                            <option value="MANDATORY">Mandatory Training</option>
+                            <option value="COMPLIANCE">Compliance & Regulations</option>
+                            <option value="SAFETY">Health & Safety</option>
+                            <option value="IT">Information Technology</option>
+                            <option value="PROFESSIONAL">Professional Development</option>
+                            <option value="LEADERSHIP">Leadership & Management</option>
+                        </select>
+                    </div>
+                    <label class="form-label" style="margin-left: 20px;">Duration:</label>
+                    <div class="form-input">
+                        <select style="width: 150px;">
+                            <option value="">Any Duration</option>
+                            <option value="SHORT">Short (0-2 hours)</option>
+                            <option value="MEDIUM">Medium (2-8 hours)</option>
+                            <option value="LONG">Long (1+ days)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter-row">
+                    <label class="form-label">Delivery Method:</label>
+                    <div class="form-input">
+                        <select>
+                            <option value="">All Methods</option>
+                            <option value="ONLINE">Online/E-Learning</option>
+                            <option value="CLASSROOM">Classroom Training</option>
+                            <option value="BLENDED">Blended Learning</option>
+                            <option value="WORKSHOP">Workshop/Practical</option>
+                        </select>
+                    </div>
+                    <label class="form-label" style="margin-left: 20px;">Search:</label>
+                    <div class="form-input">
+                        <input type="text" placeholder="Search course name or description" style="width: 200px;" />
+                    </div>
+                    <div class="form-input" style="margin-left: 10px;">
+                        <input type="button" value="Search" class="button button-primary" />
+                        <input type="button" value="Clear" class="button" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course List -->
+            <div class="form-section">
+                <h2>Available Courses (45 courses found)</h2>
+                <div style="padding-bottom: 8px;">
+                    <input type="button" value="Add New Course" class="button button-primary" />
+                    <input type="button" value="Import Courses" class="button" />
+                    <input type="button" value="Export Catalog" class="button" />
+                </div>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Name</th>
+                            <th>Category</th>
+                            <th>Duration</th>
+                            <th>Delivery Method</th>
+                            <th>Status</th>
+                            <th>Enrolled</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HS001</td>
+                            <td>Health & Safety Fundamentals</td>
+                            <td>Health & Safety</td>
+                            <td>4 hours</td>
+                            <td>Blended Learning</td>
+                            <td class="status-complete">Active</td>
+                            <td>342</td>
+                            <td>
+                                <a href="#" class="action-link">View Details</a> |
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Schedule</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>DP001</td>
+                            <td>Data Protection Fundamentals</td>
+                            <td>Compliance & Regulations</td>
+                            <td>3 hours</td>
+                            <td>Online/E-Learning</td>
+                            <td class="status-complete">Active</td>
+                            <td>891</td>
+                            <td>
+                                <a href="#" class="action-link">View Details</a> |
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Schedule</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>IT001</td>
+                            <td>IT Security Awareness</td>
+                            <td>Information Technology</td>
+                            <td>2 hours</td>
+                            <td>Online/E-Learning</td>
+                            <td class="status-complete">Active</td>
+                            <td>756</td>
+                            <td>
+                                <a href="#" class="action-link">View Details</a> |
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Schedule</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CS001</td>
+                            <td>Customer Service Excellence</td>
+                            <td>Professional Development</td>
+                            <td>6 hours</td>
+                            <td>Classroom Training</td>
+                            <td class="status-complete">Active</td>
+                            <td>234</td>
+                            <td>
+                                <a href="#" class="action-link">View Details</a> |
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Schedule</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>EP001</td>
+                            <td>Emergency Procedures</td>
+                            <td>Health & Safety</td>
+                            <td>2 hours</td>
+                            <td>Workshop/Practical</td>
+                            <td class="status-complete">Active</td>
+                            <td>567</td>
+                            <td>
+                                <a href="#" class="action-link">View Details</a> |
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Schedule</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>AF001</td>
+                            <td>Anti-Fraud Training</td>
+                            <td>Compliance & Regulations</td>
+                            <td>3 hours</td>
+                            <td>Online/E-Learning</td>
+                            <td class="status-complete">Active</td>
+                            <td>445</td>
+                            <td>
+                                <a href="#" class="action-link">View Details</a> |
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Schedule</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>LM001</td>
+                            <td>Leadership Fundamentals</td>
+                            <td>Leadership & Management</td>
+                            <td>16 hours</td>
+                            <td>Classroom Training</td>
+                            <td class="status-complete">Active</td>
+                            <td>78</td>
+                            <td>
+                                <a href="#" class="action-link">View Details</a> |
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Schedule</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PD001</td>
+                            <td>Professional Development Planning</td>
+                            <td>Professional Development</td>
+                            <td>8 hours</td>
+                            <td>Blended Learning</td>
+                            <td class="status-complete">Active</td>
+                            <td>123</td>
+                            <td>
+                                <a href="#" class="action-link">View Details</a> |
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Schedule</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>FR001</td>
+                            <td>Financial Regulations Update</td>
+                            <td>Compliance & Regulations</td>
+                            <td>4 hours</td>
+                            <td>Online/E-Learning</td>
+                            <td class="status-complete">Active</td>
+                            <td>189</td>
+                            <td>
+                                <a href="#" class="action-link">View Details</a> |
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Schedule</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>DI001</td>
+                            <td>Diversity & Inclusion Workshop</td>
+                            <td>Professional Development</td>
+                            <td>4 hours</td>
+                            <td>Workshop/Practical</td>
+                            <td class="status-pending">Draft</td>
+                            <td>0</td>
+                            <td>
+                                <a href="#" class="action-link">View Details</a> |
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Activate</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="padding-top: 8px; text-align: right;">
+                    <span>Showing 1-10 of 45 results</span> |
+                    <a href="#" class="action-link">Next 10 results</a>
+                </div>
+            </div>
+
+            <!-- Course Statistics -->
+            <div class="form-section">
+                <h2>Course Statistics</h2>
+                <div class="clearfix">
+                    <div style="float: left; width: 300px; margin-right: 20px;">
+                        <table class="data-grid">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Courses</th>
+                                    <th>Enrollments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mandatory Training</td>
+                                    <td>8</td>
+                                    <td>2,347</td>
+                                </tr>
+                                <tr>
+                                    <td>Compliance & Regulations</td>
+                                    <td>12</td>
+                                    <td>1,923</td>
+                                </tr>
+                                <tr>
+                                    <td>Health & Safety</td>
+                                    <td>15</td>
+                                    <td>1,456</td>
+                                </tr>
+                                <tr>
+                                    <td>Information Technology</td>
+                                    <td>9</td>
+                                    <td>892</td>
+                                </tr>
+                                <tr>
+                                    <td>Professional Development</td>
+                                    <td>18</td>
+                                    <td>567</td>
+                                </tr>
+                                <tr>
+                                    <td>Leadership & Management</td>
+                                    <td>5</td>
+                                    <td>234</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="float: left; width: 300px;">
+                        <h3 style="font-size: 12px; margin-top: 0;">Most Popular Courses</h3>
+                        <table class="data-grid">
+                            <thead>
+                                <tr>
+                                    <th>Course Name</th>
+                                    <th>Enrollments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Data Protection Fundamentals</td>
+                                    <td>891</td>
+                                </tr>
+                                <tr>
+                                    <td>IT Security Awareness</td>
+                                    <td>756</td>
+                                </tr>
+                                <tr>
+                                    <td>Emergency Procedures</td>
+                                    <td>567</td>
+                                </tr>
+                                <tr>
+                                    <td>Anti-Fraud Training</td>
+                                    <td>445</td>
+                                </tr>
+                                <tr>
+                                    <td>Health & Safety Fundamentals</td>
+                                    <td>342</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            TrainTrack Training Management System v2.1 | © 2019 Department for Environment, Food and Rural Affairs
+        </div>
+    </div>
+</body>
+</html>

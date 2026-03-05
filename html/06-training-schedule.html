@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainTrack - Training Schedule</title>
+    <link rel="stylesheet" href="shared-styles.css">
+    <style>
+        .calendar-controls {
+            padding: 10px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .calendar-table th, .calendar-table td {
+            border: 1px solid #cccccc;
+            padding: 5px;
+            vertical-align: top;
+            height: 80px;
+            width: 14.28%;
+        }
+        .calendar-table th {
+            height: 25px;
+            background-color: #e8e8e8;
+            text-align: center;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+        .calendar-date {
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        .training-event {
+            background-color: #e6f2ff;
+            border: 1px solid #0066cc;
+            margin: 1px 0;
+            padding: 1px 3px;
+            font-size: 9px;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .training-event:hover {
+            background-color: #ccebff;
+        }
+        .event-time {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        .other-month {
+            color: #cccccc;
+            background-color: #f9f9f9;
+        }
+        .today {
+            background-color: #fff3cd;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="app-title">TrainTrack Training Management System</div>
+            <div class="user-info">Welcome, Sarah Mitchell | Logout</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-menu">
+            <a href="#">Dashboard</a>
+            <a href="#">Search Employees</a>
+            <a href="#">Course Catalog</a>
+            <a href="#" class="current">Training Schedule</a>
+            <a href="#">Reports</a>
+            <a href="#">Administration</a>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="content-header">
+                <h1>Training Schedule</h1>
+            </div>
+
+            <!-- Schedule Controls -->
+            <div class="filter-panel">
+                <div class="filter-row">
+                    <label class="form-label">View:</label>
+                    <div class="form-input">
+                        <select>
+                            <option value="MONTH" selected>Month View</option>
+                            <option value="WEEK">Week View</option>
+                            <option value="LIST">List View</option>
+                        </select>
+                    </div>
+                    <label class="form-label" style="margin-left: 20px;">Location:</label>
+                    <div class="form-input">
+                        <select>
+                            <option value="">All Locations</option>
+                            <option value="LONDON">London Office</option>
+                            <option value="BRISTOL">Bristol Office</option>
+                            <option value="YORK">York Office</option>
+                            <option value="READING">Reading Office</option>
+                            <option value="NEWCASTLE">Newcastle Office</option>
+                        </select>
+                    </div>
+                    <label class="form-label" style="margin-left: 20px;">Course Type:</label>
+                    <div class="form-input">
+                        <select>
+                            <option value="">All Courses</option>
+                            <option value="MANDATORY">Mandatory Training</option>
+                            <option value="COMPLIANCE">Compliance & Regulations</option>
+                            <option value="SAFETY">Health & Safety</option>
+                            <option value="IT">Information Technology</option>
+                            <option value="PROFESSIONAL">Professional Development</option>
+                        </select>
+                    </div>
+                    <div class="form-input" style="margin-left: 20px;">
+                        <input type="button" value="Apply Filters" class="button" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Navigation -->
+            <div class="calendar-controls">
+                <a href="#" class="action-link">&larr; Previous</a>
+                <span style="margin: 0 30px; font-size: 16px;">March 2019</span>
+                <a href="#" class="action-link">Next &rarr;</a>
+                <span style="margin-left: 30px;">
+                    <input type="button" value="Today" class="button" />
+                    <input type="button" value="Schedule New Training" class="button button-primary" />
+                </span>
+            </div>
+
+            <!-- Calendar -->
+            <div class="form-section">
+                <table class="calendar-table">
+                    <thead>
+                        <tr>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                            <th>Sunday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="other-month">
+                                <div class="calendar-date">25</div>
+                            </td>
+                            <td class="other-month">
+                                <div class="calendar-date">26</div>
+                            </td>
+                            <td class="other-month">
+                                <div class="calendar-date">27</div>
+                            </td>
+                            <td class="other-month">
+                                <div class="calendar-date">28</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">1</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">2</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">3</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="calendar-date">4</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">5</div>
+                                <div class="training-event">
+                                    <div class="event-time">09:00</div>
+                                    <div>Data Protection (DP001)</div>
+                                    <div>Training Room A</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">6</div>
+                                <div class="training-event">
+                                    <div class="event-time">14:00</div>
+                                    <div>IT Security (IT001)</div>
+                                    <div>Online Session</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">7</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">8</div>
+                                <div class="training-event">
+                                    <div class="event-time">09:00</div>
+                                    <div>Customer Service (CS001)</div>
+                                    <div>Training Room B</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">9</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">10</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="calendar-date">11</div>
+                                <div class="training-event">
+                                    <div class="event-time">10:00</div>
+                                    <div>Emergency Procedures (EP001)</div>
+                                    <div>Main Hall</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">12</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">13</div>
+                                <div class="training-event">
+                                    <div class="event-time">09:00</div>
+                                    <div>Anti-Fraud (AF001)</div>
+                                    <div>Online Session</div>
+                                </div>
+                                <div class="training-event">
+                                    <div class="event-time">14:00</div>
+                                    <div>Leadership (LM001)</div>
+                                    <div>Conference Room</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">14</div>
+                            </td>
+                            <td class="today">
+                                <div class="calendar-date">15</div>
+                                <div class="training-event">
+                                    <div class="event-time">09:00</div>
+                                    <div>Health & Safety (HS001)</div>
+                                    <div>Training Room A</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">16</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">17</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="calendar-date">18</div>
+                                <div class="training-event">
+                                    <div class="event-time">14:00</div>
+                                    <div>Professional Dev (PD001)</div>
+                                    <div>Training Room C</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">19</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">20</div>
+                                <div class="training-event">
+                                    <div class="event-time">09:00</div>
+                                    <div>Financial Regs (FR001)</div>
+                                    <div>Online Session</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">21</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">22</div>
+                                <div class="training-event">
+                                    <div class="event-time">14:00</div>
+                                    <div>Health & Safety (HS001)</div>
+                                    <div>Training Room B</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">23</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">24</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="calendar-date">25</div>
+                                <div class="training-event">
+                                    <div class="event-time">09:00</div>
+                                    <div>Diversity Workshop (DI001)</div>
+                                    <div>Main Hall</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">26</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">27</div>
+                                <div class="training-event">
+                                    <div class="event-time">10:00</div>
+                                    <div>IT Security (IT001)</div>
+                                    <div>Online Session</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">28</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">29</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">30</div>
+                            </td>
+                            <td>
+                                <div class="calendar-date">31</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Upcoming Training Summary -->
+            <div class="form-section">
+                <h2>This Week's Training Sessions</h2>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Course</th>
+                            <th>Instructor</th>
+                            <th>Location</th>
+                            <th>Enrolled</th>
+                            <th>Capacity</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>05/03/2019</td>
+                            <td>09:00 - 13:00</td>
+                            <td>Data Protection Fundamentals</td>
+                            <td>Mitchell, Sarah</td>
+                            <td>Training Room A</td>
+                            <td>18</td>
+                            <td>20</td>
+                            <td class="status-complete">Confirmed</td>
+                            <td><a href="#" class="action-link">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>06/03/2019</td>
+                            <td>14:00 - 16:00</td>
+                            <td>IT Security Awareness</td>
+                            <td>Brown, Michael</td>
+                            <td>Online Session</td>
+                            <td>25</td>
+                            <td>30</td>
+                            <td class="status-complete">Confirmed</td>
+                            <td><a href="#" class="action-link">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>08/03/2019</td>
+                            <td>09:00 - 15:00</td>
+                            <td>Customer Service Excellence</td>
+                            <td>Davis, Lisa</td>
+                            <td>Training Room B</td>
+                            <td>12</td>
+                            <td>15</td>
+                            <td class="status-pending">Open</td>
+                            <td><a href="#" class="action-link">View Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Resource Utilization -->
+            <div class="form-section">
+                <h2>Training Room Utilization</h2>
+                <div style="float: left; width: 300px; margin-right: 20px;">
+                    <table class="data-grid">
+                        <thead>
+                            <tr>
+                                <th>Room</th>
+                                <th>Capacity</th>
+                                <th>This Week</th>
+                                <th>Utilization</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Training Room A</td>
+                                <td>20</td>
+                                <td>3 sessions</td>
+                                <td>75%</td>
+                            </tr>
+                            <tr>
+                                <td>Training Room B</td>
+                                <td>15</td>
+                                <td>2 sessions</td>
+                                <td>50%</td>
+                            </tr>
+                            <tr>
+                                <td>Training Room C</td>
+                                <td>25</td>
+                                <td>1 session</td>
+                                <td>25%</td>
+                            </tr>
+                            <tr>
+                                <td>Conference Room</td>
+                                <td>30</td>
+                                <td>1 session</td>
+                                <td>25%</td>
+                            </tr>
+                            <tr>
+                                <td>Main Hall</td>
+                                <td>100</td>
+                                <td>2 sessions</td>
+                                <td>40%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="float: left; width: 300px;">
+                    <h3 style="font-size: 12px; margin-top: 0;">Instructor Schedule</h3>
+                    <table class="data-grid">
+                        <thead>
+                            <tr>
+                                <th>Instructor</th>
+                                <th>This Week</th>
+                                <th>Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mitchell, Sarah</td>
+                                <td>2 sessions</td>
+                                <td>8 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Brown, Michael</td>
+                                <td>3 sessions</td>
+                                <td>10 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Davis, Lisa</td>
+                                <td>1 session</td>
+                                <td>6 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Wilson, James</td>
+                                <td>2 sessions</td>
+                                <td>7 hours</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            TrainTrack Training Management System v2.1 | © 2019 Department for Environment, Food and Rural Affairs
+        </div>
+    </div>
+</body>
+</html>

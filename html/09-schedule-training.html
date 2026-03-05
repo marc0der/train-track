@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainTrack - Schedule Training</title>
+    <link rel="stylesheet" href="shared-styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="app-title">TrainTrack Training Management System</div>
+            <div class="user-info">Welcome, Sarah Mitchell | Logout</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-menu">
+            <a href="#">Dashboard</a>
+            <a href="#">Search Employees</a>
+            <a href="#">Course Catalog</a>
+            <a href="#" class="current">Training Schedule</a>
+            <a href="#">Reports</a>
+            <a href="#">Administration</a>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="content-header">
+                <h1>Schedule Training Session</h1>
+            </div>
+
+            <div style="margin-bottom: 10px;">
+                <a href="#" class="action-link">← Back to Training Schedule</a>
+            </div>
+
+            <!-- Course Selection -->
+            <div class="form-section">
+                <h2>Course Information</h2>
+                <div class="form-row">
+                    <label class="form-label"><span class="required">*</span> Select Course:</label>
+                    <div class="form-input">
+                        <select style="width: 300px;" onchange="updateCourseInfo()">
+                            <option value="">Choose a course...</option>
+                            <option value="HS001" selected>HS001 - Health & Safety Fundamentals</option>
+                            <option value="DP001">DP001 - Data Protection Fundamentals</option>
+                            <option value="IT001">IT001 - IT Security Awareness</option>
+                            <option value="CS001">CS001 - Customer Service Excellence</option>
+                            <option value="EP001">EP001 - Emergency Procedures</option>
+                            <option value="AF001">AF001 - Anti-Fraud Training</option>
+                            <option value="LM001">LM001 - Leadership Fundamentals</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Course Duration:</label>
+                    <div class="form-input">4 hours (2 hours online + 2 hours classroom)</div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Delivery Method:</label>
+                    <div class="form-input">Blended Learning</div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Prerequisites:</label>
+                    <div class="form-input">None</div>
+                </div>
+            </div>
+
+            <!-- Session Details -->
+            <div class="form-section">
+                <h2>Session Details</h2>
+                <div class="form-row">
+                    <label class="form-label"><span class="required">*</span> Session Date:</label>
+                    <div class="form-input">
+                        <input type="date" value="2019-03-22" style="width: 150px;" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label"><span class="required">*</span> Start Time:</label>
+                    <div class="form-input">
+                        <select style="width: 100px;">
+                            <option value="09:00" selected>09:00</option>
+                            <option value="09:30">09:30</option>
+                            <option value="10:00">10:00</option>
+                            <option value="10:30">10:30</option>
+                            <option value="11:00">11:00</option>
+                            <option value="11:30">11:30</option>
+                            <option value="12:00">12:00</option>
+                            <option value="12:30">12:30</option>
+                            <option value="13:00">13:00</option>
+                            <option value="13:30">13:30</option>
+                            <option value="14:00">14:00</option>
+                            <option value="14:30">14:30</option>
+                            <option value="15:00">15:00</option>
+                            <option value="15:30">15:30</option>
+                            <option value="16:00">16:00</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">End Time:</label>
+                    <div class="form-input">
+                        <select style="width: 100px;">
+                            <option value="13:00" selected>13:00</option>
+                            <option value="13:30">13:30</option>
+                            <option value="14:00">14:00</option>
+                            <option value="14:30">14:30</option>
+                            <option value="15:00">15:00</option>
+                            <option value="15:30">15:30</option>
+                            <option value="16:00">16:00</option>
+                            <option value="16:30">16:30</option>
+                            <option value="17:00">17:00</option>
+                            <option value="17:30">17:30</option>
+                            <option value="18:00">18:00</option>
+                        </select>
+                        <span style="margin-left: 10px; font-style: italic;">(Automatically calculated based on course duration)</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label"><span class="required">*</span> Location:</label>
+                    <div class="form-input">
+                        <select style="width: 200px;">
+                            <option value="">Select location...</option>
+                            <option value="ROOM_A" selected>Training Room A (Capacity: 20)</option>
+                            <option value="ROOM_B">Training Room B (Capacity: 15)</option>
+                            <option value="ROOM_C">Training Room C (Capacity: 25)</option>
+                            <option value="CONFERENCE">Conference Room (Capacity: 30)</option>
+                            <option value="MAIN_HALL">Main Hall (Capacity: 100)</option>
+                            <option value="ONLINE">Online Session</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Maximum Capacity:</label>
+                    <div class="form-input">
+                        <input type="number" value="20" min="1" max="100" style="width: 80px;" />
+                        <span style="margin-left: 10px; font-style: italic;">(Room capacity: 20)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructor Assignment -->
+            <div class="form-section">
+                <h2>Instructor Assignment</h2>
+                <div class="form-row">
+                    <label class="form-label"><span class="required">*</span> Primary Instructor:</label>
+                    <div class="form-input">
+                        <select style="width: 250px;">
+                            <option value="">Select instructor...</option>
+                            <option value="smitchell">Mitchell, Sarah (Health & Safety Certified)</option>
+                            <option value="mbrown" selected>Brown, Michael (Health & Safety, IT Security)</option>
+                            <option value="ldavis">Davis, Lisa (Customer Service, Leadership)</option>
+                            <option value="jwilson">Wilson, James (IT, Data Protection)</option>
+                            <option value="rsmith">Smith, Robert (All Courses Certified)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Secondary Instructor:</label>
+                    <div class="form-input">
+                        <select style="width: 250px;">
+                            <option value="">None required</option>
+                            <option value="smitchell">Mitchell, Sarah (Health & Safety Certified)</option>
+                            <option value="ldavis">Davis, Lisa (Customer Service, Leadership)</option>
+                            <option value="jwilson">Wilson, James (IT, Data Protection)</option>
+                            <option value="rsmith">Smith, Robert (All Courses Certified)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Instructor Notes:</label>
+                    <div class="form-input">
+                        <textarea placeholder="Special instructions or notes for the instructor..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Participant Selection -->
+            <div class="form-section">
+                <h2>Participant Selection</h2>
+                <div class="form-row">
+                    <label class="form-label">Selection Method:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="radio" name="selectionMethod" value="manual" checked> Manual Selection
+                        </label>
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="radio" name="selectionMethod" value="department"> By Department
+                        </label>
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="radio" name="selectionMethod" value="criteria"> By Criteria
+                        </label>
+                        <label style="width: auto;">
+                            <input type="radio" name="selectionMethod" value="waitlist"> From Waiting List
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Manual Selection Panel -->
+                <div id="manualSelection">
+                    <div class="form-row">
+                        <label class="form-label">Search Employees:</label>
+                        <div class="form-input">
+                            <input type="text" placeholder="Enter name or employee ID" style="width: 200px;" />
+                            <input type="button" value="Search" class="button" style="margin-left: 5px;" />
+                        </div>
+                    </div>
+
+                    <!-- Available Employees -->
+                    <div style="margin-top: 10px;">
+                        <div style="float: left; width: 45%;">
+                            <h3 style="font-size: 12px; margin: 0 0 5px 0;">Available Employees (15 found)</h3>
+                            <select multiple="multiple" size="8" style="width: 100%;">
+                                <option value="EMP001234">Anderson, Sarah (HR)</option>
+                                <option value="EMP001235">Brown, Michael (IT)</option>
+                                <option value="EMP001236">Clark, Emma (Finance)</option>
+                                <option value="EMP001237">Davis, James (Operations)</option>
+                                <option value="EMP001238">Evans, Lisa (Legal)</option>
+                                <option value="EMP001239">Foster, David (Field Ops)</option>
+                                <option value="EMP001240">Green, Sophie (HR)</option>
+                                <option value="EMP001241">Harris, Robert (IT)</option>
+                            </select>
+                        </div>
+
+                        <div style="float: left; width: 10%; text-align: center; padding-top: 50px;">
+                            <input type="button" value="Add >>" class="button" style="width: 70px; margin-bottom: 5px;" /><br>
+                            <input type="button" value="<< Remove" class="button" style="width: 70px;" />
+                        </div>
+
+                        <div style="float: left; width: 45%;">
+                            <h3 style="font-size: 12px; margin: 0 0 5px 0;">Selected Participants (3 selected)</h3>
+                            <select multiple="multiple" size="8" style="width: 100%;">
+                                <option value="EMP001245">Johnson, Mary (Finance)</option>
+                                <option value="EMP001246">Wilson, Tom (Operations)</option>
+                                <option value="EMP001247">Taylor, Kate (Legal)</option>
+                            </select>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Options -->
+            <div class="form-section">
+                <h2>Additional Options</h2>
+                <div class="form-row">
+                    <label class="form-label">Registration Deadline:</label>
+                    <div class="form-input">
+                        <input type="date" value="2019-03-17" />
+                        <span style="margin-left: 10px; font-style: italic;">(5 days before session)</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Send Notifications:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="checkbox" checked> Email invitations to participants
+                        </label>
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="checkbox" checked> Calendar invitations
+                        </label>
+                        <label style="width: auto;">
+                            <input type="checkbox"> SMS reminders
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Waiting List:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="checkbox" checked> Enable waiting list for oversubscribed sessions
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Prerequisites Check:</label>
+                    <div class="form-input">
+                        <label style="width: auto;">
+                            <input type="checkbox" checked> Automatically verify participant prerequisites
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Session Notes:</label>
+                    <div class="form-input">
+                        <textarea placeholder="Additional information about this session...">This is a mandatory Health & Safety refresher session for all new joiners in Q1 2019.</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resource Requirements -->
+            <div class="form-section">
+                <h2>Resource Requirements</h2>
+                <div class="form-row">
+                    <label class="form-label">Equipment Needed:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="checkbox" checked> Projector
+                        </label>
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="checkbox"> Laptops for participants
+                        </label>
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="checkbox" checked> Flip chart
+                        </label>
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="checkbox"> Video conference setup
+                        </label>
+                        <label style="width: auto;">
+                            <input type="checkbox" checked> First aid kit
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Catering:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="checkbox" checked> Coffee/tea breaks
+                        </label>
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="checkbox"> Lunch (full day training)
+                        </label>
+                        <label style="width: auto;">
+                            <input type="checkbox"> Dietary requirements form
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Materials:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="checkbox" checked> Printed handouts
+                        </label>
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="checkbox" checked> Digital materials (email/portal)
+                        </label>
+                        <label style="width: auto;">
+                            <input type="checkbox"> Certificates for completion
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Session Actions -->
+            <div class="form-section">
+                <h2>Schedule Session</h2>
+                <div style="padding: 8px;">
+                    <input type="button" value="Create Session" class="button button-primary" />
+                    <input type="button" value="Save as Draft" class="button" />
+                    <input type="button" value="Schedule Series" class="button" />
+                    <input type="button" value="Cancel" class="button" />
+                </div>
+                <div style="padding-top: 5px; font-size: 10px; color: #666;">
+                    <span class="required">*</span> Required fields must be completed before creating the session.
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            TrainTrack Training Management System v2.1 | © 2019 Department for Environment, Food and Rural Affairs
+        </div>
+    </div>
+</body>
+</html>

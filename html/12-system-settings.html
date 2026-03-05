@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainTrack - System Settings</title>
+    <link rel="stylesheet" href="shared-styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="app-title">TrainTrack Training Management System</div>
+            <div class="user-info">Welcome, Sarah Mitchell | Logout</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-menu">
+            <a href="#">Dashboard</a>
+            <a href="#">Search Employees</a>
+            <a href="#">Course Catalog</a>
+            <a href="#">Training Schedule</a>
+            <a href="#">Reports</a>
+            <a href="#" class="current">Administration</a>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="content-header">
+                <h1>System Settings</h1>
+            </div>
+
+            <!-- General Settings -->
+            <div class="form-section">
+                <h2>General Settings</h2>
+                <div class="form-row">
+                    <label class="form-label">System Name:</label>
+                    <div class="form-input">
+                        <input type="text" value="TrainTrack Training Management System" style="width: 350px;" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Organization Name:</label>
+                    <div class="form-input">
+                        <input type="text" value="Department for Environment, Food and Rural Affairs" style="width: 350px;" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">System Administrator Email:</label>
+                    <div class="form-input">
+                        <input type="email" value="traintrack-admin@defra.gov.uk" style="width: 300px;" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Support Contact:</label>
+                    <div class="form-input">
+                        <input type="text" value="IT Service Desk: 0800 123 4567" style="width: 300px;" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Default Time Zone:</label>
+                    <div class="form-input">
+                        <select style="width: 200px;">
+                            <option value="UTC" selected>UTC (Greenwich Mean Time)</option>
+                            <option value="BST">BST (British Summer Time)</option>
+                            <option value="EST">EST (Eastern Standard Time)</option>
+                            <option value="PST">PST (Pacific Standard Time)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Session Timeout:</label>
+                    <div class="form-input">
+                        <select style="width: 150px;">
+                            <option value="30">30 minutes</option>
+                            <option value="60" selected>60 minutes</option>
+                            <option value="120">2 hours</option>
+                            <option value="240">4 hours</option>
+                            <option value="480">8 hours</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Registration Settings -->
+            <div class="form-section">
+                <h2>User Registration & Authentication</h2>
+                <div class="form-row">
+                    <label class="form-label">User Registration:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="radio" name="userRegistration" value="admin" checked> Administrator approval required
+                        </label>
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="radio" name="userRegistration" value="auto"> Automatic registration
+                        </label>
+                        <label style="width: auto;">
+                            <input type="radio" name="userRegistration" value="disabled"> Registration disabled
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Password Policy:</label>
+                    <div class="form-input">
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Minimum 8 characters
+                        </label>
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Require uppercase letter
+                        </label>
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Require lowercase letter
+                        </label>
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Require number
+                        </label>
+                        <label style="width: auto; display: block;">
+                            <input type="checkbox"> Require special character
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Account Lockout:</label>
+                    <div class="form-input">
+                        <label style="margin-right: 10px;">Lock after</label>
+                        <select style="width: 80px;">
+                            <option value="3">3</option>
+                            <option value="5" selected>5</option>
+                            <option value="10">10</option>
+                        </select>
+                        <label style="margin: 0 10px;">failed login attempts</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Single Sign-On (SSO):</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="checkbox" checked> Enable LDAP integration
+                        </label>
+                        <label style="width: auto;">
+                            <input type="checkbox"> Enable SAML authentication
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Training Configuration -->
+            <div class="form-section">
+                <h2>Training Configuration</h2>
+                <div class="form-row">
+                    <label class="form-label">Default Course Duration:</label>
+                    <div class="form-input">
+                        <select style="width: 150px;">
+                            <option value="1">1 hour</option>
+                            <option value="2" selected>2 hours</option>
+                            <option value="4">4 hours</option>
+                            <option value="8">Full day (8 hours)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Default Pass Mark:</label>
+                    <div class="form-input">
+                        <input type="number" value="80" min="50" max="100" style="width: 60px;" />
+                        <span style="margin-left: 5px;">%</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Certificate Validity:</label>
+                    <div class="form-input">
+                        <input type="number" value="12" style="width: 60px;" />
+                        <select style="width: 100px;">
+                            <option value="MONTHS" selected>Months</option>
+                            <option value="YEARS">Years</option>
+                            <option value="PERMANENT">Permanent</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Compliance Grace Period:</label>
+                    <div class="form-input">
+                        <input type="number" value="30" style="width: 60px;" />
+                        <span style="margin-left: 5px;">days after expiry</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Auto-Enrollment:</label>
+                    <div class="form-input">
+                        <label style="width: auto;">
+                            <input type="checkbox" checked> Automatically enroll new employees in mandatory training
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Waiting List Settings:</label>
+                    <div class="form-input">
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Enable waiting lists for oversubscribed courses
+                        </label>
+                        <label style="width: auto; display: block;">
+                            <input type="checkbox" checked> Automatically enroll from waiting list when space becomes available
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notification Settings -->
+            <div class="form-section">
+                <h2>Notification Settings</h2>
+                <div class="form-row">
+                    <label class="form-label">Email Server:</label>
+                    <div class="form-input">
+                        <input type="text" value="smtp.defra.gov.uk" style="width: 200px;" />
+                        <label style="margin-left: 20px;">Port:</label>
+                        <input type="number" value="587" style="width: 80px; margin-left: 5px;" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">From Address:</label>
+                    <div class="form-input">
+                        <input type="email" value="noreply-traintrack@defra.gov.uk" style="width: 300px;" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Enrollment Notifications:</label>
+                    <div class="form-input">
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Send confirmation emails for course enrollment
+                        </label>
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Send calendar invitations
+                        </label>
+                        <label style="width: auto; display: block;">
+                            <input type="checkbox" checked> Send pre-course reminders (24 hours before)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Completion Notifications:</label>
+                    <div class="form-input">
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Send completion confirmation to employee
+                        </label>
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Send completion notification to manager
+                        </label>
+                        <label style="width: auto; display: block;">
+                            <input type="checkbox"> Send completion notification to HR
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Overdue Notifications:</label>
+                    <div class="form-input">
+                        <label style="margin-right: 10px;">Send reminders</label>
+                        <select style="width: 80px;">
+                            <option value="7" selected>7</option>
+                            <option value="14">14</option>
+                            <option value="30">30</option>
+                        </select>
+                        <label style="margin-left: 5px; margin-right: 20px;">days before expiry</label>
+                        <label style="width: auto;">
+                            <input type="checkbox" checked> Continue sending weekly reminders after expiry
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data & Security Settings -->
+            <div class="form-section">
+                <h2>Data & Security Settings</h2>
+                <div class="form-row">
+                    <label class="form-label">Data Retention:</label>
+                    <div class="form-input">
+                        <label>Keep training records for</label>
+                        <select style="width: 80px; margin: 0 5px;">
+                            <option value="5">5</option>
+                            <option value="7" selected>7</option>
+                            <option value="10">10</option>
+                        </select>
+                        <label>years after employee departure</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Audit Logging:</label>
+                    <div class="form-input">
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Log user access and actions
+                        </label>
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Log data modifications
+                        </label>
+                        <label style="width: auto; display: block;">
+                            <input type="checkbox" checked> Log failed login attempts
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Data Export:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="checkbox" checked> Allow PDF export
+                        </label>
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="checkbox" checked> Allow Excel export
+                        </label>
+                        <label style="width: auto;">
+                            <input type="checkbox"> Allow CSV export
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Backup Settings:</label>
+                    <div class="form-input">
+                        <label>Automatic backup</label>
+                        <select style="width: 100px; margin: 0 5px;">
+                            <option value="DAILY" selected>Daily</option>
+                            <option value="WEEKLY">Weekly</option>
+                            <option value="MONTHLY">Monthly</option>
+                        </select>
+                        <label>at 02:00 UTC</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">GDPR Compliance:</label>
+                    <div class="form-input">
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Enable data subject access request handling
+                        </label>
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Auto-anonymize data after retention period
+                        </label>
+                        <label style="width: auto; display: block;">
+                            <input type="checkbox" checked> Log consent for data processing
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integration Settings -->
+            <div class="form-section">
+                <h2>System Integration</h2>
+                <div class="form-row">
+                    <label class="form-label">HR System Integration:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="checkbox" checked> Enable HR system synchronization
+                        </label>
+                        <label>Sync frequency:</label>
+                        <select style="width: 100px; margin-left: 5px;">
+                            <option value="HOURLY">Hourly</option>
+                            <option value="DAILY" selected>Daily</option>
+                            <option value="WEEKLY">Weekly</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Calendar Integration:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="checkbox" checked> Microsoft Outlook integration
+                        </label>
+                        <label style="width: auto;">
+                            <input type="checkbox"> Google Calendar integration
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">LMS Integration:</label>
+                    <div class="form-input">
+                        <label>Learning Management System:</label>
+                        <select style="width: 200px; margin-left: 5px;">
+                            <option value="">None</option>
+                            <option value="MOODLE">Moodle</option>
+                            <option value="BLACKBOARD">Blackboard</option>
+                            <option value="CANVAS" selected>Canvas</option>
+                            <option value="CUSTOM">Custom API</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">API Access:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="checkbox" checked> Enable REST API
+                        </label>
+                        <label style="width: auto;">
+                            <input type="checkbox"> Require API authentication
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Maintenance -->
+            <div class="form-section">
+                <h2>System Maintenance</h2>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Last Run</th>
+                            <th>Status</th>
+                            <th>Next Scheduled</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Database Backup</td>
+                            <td>15/03/2019 02:00</td>
+                            <td class="status-complete">Success</td>
+                            <td>16/03/2019 02:00</td>
+                            <td><a href="#" class="action-link">Run Now</a></td>
+                        </tr>
+                        <tr>
+                            <td>Data Synchronization</td>
+                            <td>15/03/2019 01:00</td>
+                            <td class="status-complete">Success</td>
+                            <td>16/03/2019 01:00</td>
+                            <td><a href="#" class="action-link">Run Now</a></td>
+                        </tr>
+                        <tr>
+                            <td>Certificate Expiry Check</td>
+                            <td>15/03/2019 08:00</td>
+                            <td class="status-complete">Success</td>
+                            <td>16/03/2019 08:00</td>
+                            <td><a href="#" class="action-link">Run Now</a></td>
+                        </tr>
+                        <tr>
+                            <td>System Health Check</td>
+                            <td>15/03/2019 06:00</td>
+                            <td class="status-pending">Warning</td>
+                            <td>15/03/2019 18:00</td>
+                            <td><a href="#" class="action-link">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Log Cleanup</td>
+                            <td>01/03/2019 03:00</td>
+                            <td class="status-complete">Success</td>
+                            <td>01/04/2019 03:00</td>
+                            <td><a href="#" class="action-link">Run Now</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Settings Actions -->
+            <div class="form-section">
+                <h2>Configuration Management</h2>
+                <div style="padding: 8px;">
+                    <input type="button" value="Save All Settings" class="button button-primary" />
+                    <input type="button" value="Test Email Configuration" class="button" />
+                    <input type="button" value="Export Configuration" class="button" />
+                    <input type="button" value="Import Configuration" class="button" />
+                    <input type="button" value="Reset to Defaults" class="button" />
+                </div>
+                <div style="padding-top: 5px; font-size: 10px; color: #666;">
+                    Changes to some settings may require system restart to take effect.
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            TrainTrack Training Management System v2.1 | © 2019 Department for Environment, Food and Rural Affairs
+        </div>
+    </div>
+</body>
+</html>

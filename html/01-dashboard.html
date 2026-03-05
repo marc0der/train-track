@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainTrack - Dashboard</title>
+    <link rel="stylesheet" href="shared-styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="app-title">TrainTrack Training Management System</div>
+            <div class="user-info">Welcome, Sarah Mitchell | Logout</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-menu">
+            <a href="#" class="current">Dashboard</a>
+            <a href="#">Search Employees</a>
+            <a href="#">Course Catalog</a>
+            <a href="#">Training Schedule</a>
+            <a href="#">Reports</a>
+            <a href="#">Administration</a>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="content-header">
+                <h1>Training Dashboard</h1>
+            </div>
+
+            <!-- Dashboard Widgets Row 1 -->
+            <div class="clearfix">
+                <div class="dashboard-widget">
+                    <h3>Total Employees</h3>
+                    <div class="dashboard-content">
+                        <div class="stat-number">1,247</div>
+                        <div class="stat-label">Active employees in system</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-widget">
+                    <h3>Training Compliance</h3>
+                    <div class="dashboard-content">
+                        <div class="stat-number">87.3%</div>
+                        <div class="stat-label">Overall compliance rate</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-widget">
+                    <h3>Pending Completions</h3>
+                    <div class="dashboard-content">
+                        <div class="stat-number status-pending">156</div>
+                        <div class="stat-label">Training sessions to complete</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Widgets Row 2 -->
+            <div class="clearfix">
+                <div class="dashboard-widget">
+                    <h3>Overdue Training</h3>
+                    <div class="dashboard-content">
+                        <div class="stat-number status-overdue">23</div>
+                        <div class="stat-label">Employees with overdue training</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-widget">
+                    <h3>This Month</h3>
+                    <div class="dashboard-content">
+                        <div class="stat-number">142</div>
+                        <div class="stat-label">Training sessions completed</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-widget">
+                    <h3>Active Courses</h3>
+                    <div class="dashboard-content">
+                        <div class="stat-number">45</div>
+                        <div class="stat-label">Available training courses</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="form-section">
+                <h2>Recent Training Activity</h2>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Course</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Johnson, Michael</td>
+                            <td>Health & Safety Fundamentals</td>
+                            <td class="status-complete">Completed</td>
+                            <td>04/03/2019</td>
+                            <td><a href="#" class="action-link">View Certificate</a></td>
+                        </tr>
+                        <tr>
+                            <td>Williams, Emma</td>
+                            <td>Data Protection Training</td>
+                            <td class="status-complete">Completed</td>
+                            <td>04/03/2019</td>
+                            <td><a href="#" class="action-link">View Certificate</a></td>
+                        </tr>
+                        <tr>
+                            <td>Brown, David</td>
+                            <td>Emergency Procedures</td>
+                            <td class="status-pending">In Progress</td>
+                            <td>03/03/2019</td>
+                            <td><a href="#" class="action-link">View Progress</a></td>
+                        </tr>
+                        <tr>
+                            <td>Davis, Lisa</td>
+                            <td>Customer Service Excellence</td>
+                            <td class="status-overdue">Overdue</td>
+                            <td>28/02/2019</td>
+                            <td><a href="#" class="action-link">Send Reminder</a></td>
+                        </tr>
+                        <tr>
+                            <td>Wilson, James</td>
+                            <td>IT Security Awareness</td>
+                            <td class="status-complete">Completed</td>
+                            <td>01/03/2019</td>
+                            <td><a href="#" class="action-link">View Certificate</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="form-section">
+                <h2>Quick Actions</h2>
+                <div style="padding: 8px;">
+                    <input type="button" value="Schedule Training" class="button button-primary" />
+                    <input type="button" value="Add New Employee" class="button" />
+                    <input type="button" value="Create Course" class="button" />
+                    <input type="button" value="Generate Report" class="button" />
+                    <input type="button" value="Send Reminders" class="button" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            TrainTrack Training Management System v2.1 | © 2019 Department for Environment, Food and Rural Affairs
+        </div>
+    </div>
+</body>
+</html>

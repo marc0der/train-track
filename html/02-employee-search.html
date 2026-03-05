@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainTrack - Employee Search</title>
+    <link rel="stylesheet" href="shared-styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="app-title">TrainTrack Training Management System</div>
+            <div class="user-info">Welcome, Sarah Mitchell | Logout</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-menu">
+            <a href="#">Dashboard</a>
+            <a href="#" class="current">Search Employees</a>
+            <a href="#">Course Catalog</a>
+            <a href="#">Training Schedule</a>
+            <a href="#">Reports</a>
+            <a href="#">Administration</a>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="content-header">
+                <h1>Employee Search</h1>
+            </div>
+
+            <!-- Search Filters -->
+            <div class="filter-panel">
+                <div class="filter-row">
+                    <label class="form-label">Employee Name:</label>
+                    <div class="form-input">
+                        <input type="text" value="" placeholder="Enter surname or full name" />
+                    </div>
+                    <label class="form-label" style="margin-left: 20px;">Employee ID:</label>
+                    <div class="form-input">
+                        <input type="text" value="" placeholder="Enter employee ID" style="width: 120px;" />
+                    </div>
+                </div>
+
+                <div class="filter-row">
+                    <label class="form-label">Department:</label>
+                    <div class="form-input">
+                        <select>
+                            <option value="">All Departments</option>
+                            <option value="HR">Human Resources</option>
+                            <option value="IT">Information Technology</option>
+                            <option value="FIN">Finance</option>
+                            <option value="OPS">Operations</option>
+                            <option value="LEG">Legal</option>
+                            <option value="FLD">Field Operations</option>
+                        </select>
+                    </div>
+                    <label class="form-label" style="margin-left: 20px;">Location:</label>
+                    <div class="form-input">
+                        <select style="width: 150px;">
+                            <option value="">All Locations</option>
+                            <option value="LONDON">London Office</option>
+                            <option value="BRISTOL">Bristol Office</option>
+                            <option value="YORK">York Office</option>
+                            <option value="READING">Reading Office</option>
+                            <option value="NEWCASTLE">Newcastle Office</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter-row">
+                    <label class="form-label">Training Status:</label>
+                    <div class="form-input">
+                        <select>
+                            <option value="">All Statuses</option>
+                            <option value="COMPLIANT">Fully Compliant</option>
+                            <option value="PENDING">Pending Training</option>
+                            <option value="OVERDUE">Overdue Training</option>
+                            <option value="EXEMPT">Training Exempt</option>
+                        </select>
+                    </div>
+                    <div class="form-input" style="margin-left: 20px;">
+                        <input type="button" value="Search" class="button button-primary" />
+                        <input type="button" value="Clear" class="button" />
+                        <input type="button" value="Export Results" class="button" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Results -->
+            <div class="form-section">
+                <h2>Search Results (1,247 employees found)</h2>
+                <div style="padding-bottom: 8px;">
+                    <span>Showing 1-25 of 1,247 results</span>
+                    <span style="float: right;">
+                        <a href="#" class="action-link">Previous</a> |
+                        <span class="bold">1</span>
+                        <a href="#" class="action-link">2</a>
+                        <a href="#" class="action-link">3</a>
+                        <a href="#" class="action-link">4</a>
+                        <a href="#" class="action-link">5</a> |
+                        <a href="#" class="action-link">Next</a>
+                    </span>
+                </div>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Location</th>
+                            <th>Training Status</th>
+                            <th>Last Training</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>EMP001234</td>
+                            <td>Anderson, Sarah</td>
+                            <td>Human Resources</td>
+                            <td>London Office</td>
+                            <td class="status-complete">Compliant</td>
+                            <td>15/02/2019</td>
+                            <td>
+                                <a href="#" class="action-link">View Profile</a> |
+                                <a href="#" class="action-link">Schedule Training</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>EMP001235</td>
+                            <td>Brown, Michael</td>
+                            <td>Information Technology</td>
+                            <td>Bristol Office</td>
+                            <td class="status-pending">Pending</td>
+                            <td>10/01/2019</td>
+                            <td>
+                                <a href="#" class="action-link">View Profile</a> |
+                                <a href="#" class="action-link">Schedule Training</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>EMP001236</td>
+                            <td>Clark, Emma</td>
+                            <td>Finance</td>
+                            <td>London Office</td>
+                            <td class="status-overdue">Overdue</td>
+                            <td>05/12/2018</td>
+                            <td>
+                                <a href="#" class="action-link">View Profile</a> |
+                                <a href="#" class="action-link">Schedule Training</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>EMP001237</td>
+                            <td>Davis, James</td>
+                            <td>Operations</td>
+                            <td>York Office</td>
+                            <td class="status-complete">Compliant</td>
+                            <td>20/02/2019</td>
+                            <td>
+                                <a href="#" class="action-link">View Profile</a> |
+                                <a href="#" class="action-link">Schedule Training</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>EMP001238</td>
+                            <td>Evans, Lisa</td>
+                            <td>Legal</td>
+                            <td>Reading Office</td>
+                            <td class="status-complete">Compliant</td>
+                            <td>18/02/2019</td>
+                            <td>
+                                <a href="#" class="action-link">View Profile</a> |
+                                <a href="#" class="action-link">Schedule Training</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>EMP001239</td>
+                            <td>Foster, David</td>
+                            <td>Field Operations</td>
+                            <td>London Office</td>
+                            <td class="status-pending">Pending</td>
+                            <td>25/01/2019</td>
+                            <td>
+                                <a href="#" class="action-link">View Profile</a> |
+                                <a href="#" class="action-link">Schedule Training</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>EMP001240</td>
+                            <td>Green, Sophie</td>
+                            <td>Human Resources</td>
+                            <td>Bristol Office</td>
+                            <td class="status-complete">Compliant</td>
+                            <td>12/02/2019</td>
+                            <td>
+                                <a href="#" class="action-link">View Profile</a> |
+                                <a href="#" class="action-link">Schedule Training</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>EMP001241</td>
+                            <td>Harris, Robert</td>
+                            <td>Information Technology</td>
+                            <td>London Office</td>
+                            <td class="status-overdue">Overdue</td>
+                            <td>30/11/2018</td>
+                            <td>
+                                <a href="#" class="action-link">View Profile</a> |
+                                <a href="#" class="action-link">Schedule Training</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>EMP001242</td>
+                            <td>Jackson, Amy</td>
+                            <td>Finance</td>
+                            <td>York Office</td>
+                            <td class="status-complete">Compliant</td>
+                            <td>08/02/2019</td>
+                            <td>
+                                <a href="#" class="action-link">View Profile</a> |
+                                <a href="#" class="action-link">Schedule Training</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>EMP001243</td>
+                            <td>King, Thomas</td>
+                            <td>Operations</td>
+                            <td>Reading Office</td>
+                            <td class="status-pending">Pending</td>
+                            <td>22/01/2019</td>
+                            <td>
+                                <a href="#" class="action-link">View Profile</a> |
+                                <a href="#" class="action-link">Schedule Training</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="padding-top: 8px; text-align: right;">
+                    <span>Showing 1-10 of 1,247 results</span> |
+                    <a href="#" class="action-link">Next 10 results</a>
+                </div>
+            </div>
+
+            <!-- Bulk Actions -->
+            <div class="form-section">
+                <h2>Bulk Actions</h2>
+                <div style="padding: 8px;">
+                    <label>For selected employees:</label>
+                    <select style="margin-left: 10px; width: 200px;">
+                        <option value="">Choose an action...</option>
+                        <option value="schedule">Schedule Training</option>
+                        <option value="reminder">Send Reminder</option>
+                        <option value="exempt">Mark as Exempt</option>
+                        <option value="export">Export Details</option>
+                    </select>
+                    <input type="button" value="Execute" class="button" style="margin-left: 10px;" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            TrainTrack Training Management System v2.1 | © 2019 Department for Environment, Food and Rural Affairs
+        </div>
+    </div>
+</body>
+</html>

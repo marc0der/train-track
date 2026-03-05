@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainTrack - Course Creation</title>
+    <link rel="stylesheet" href="shared-styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="app-title">TrainTrack Training Management System</div>
+            <div class="user-info">Welcome, Sarah Mitchell | Logout</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-menu">
+            <a href="#">Dashboard</a>
+            <a href="#">Search Employees</a>
+            <a href="#" class="current">Course Catalog</a>
+            <a href="#">Training Schedule</a>
+            <a href="#">Reports</a>
+            <a href="#">Administration</a>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="content-header">
+                <h1>Create New Course</h1>
+            </div>
+
+            <div style="margin-bottom: 10px;">
+                <a href="#" class="action-link">← Back to Course Catalog</a>
+            </div>
+
+            <!-- Basic Information -->
+            <div class="form-section">
+                <h2>Basic Course Information</h2>
+                <div class="form-row">
+                    <label class="form-label"><span class="required">*</span> Course Code:</label>
+                    <div class="form-input">
+                        <input type="text" value="WHS002" style="width: 120px;" />
+                        <span style="margin-left: 10px; font-style: italic; color: #666;">Must be unique (auto-generated if left blank)</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label"><span class="required">*</span> Course Name:</label>
+                    <div class="form-input">
+                        <input type="text" value="Workplace Harassment & Discrimination Prevention" style="width: 400px;" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Short Name:</label>
+                    <div class="form-input">
+                        <input type="text" value="Harassment Prevention" style="width: 250px;" />
+                        <span style="margin-left: 10px; font-style: italic; color: #666;">For use in limited space displays</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label"><span class="required">*</span> Category:</label>
+                    <div class="form-input">
+                        <select style="width: 200px;">
+                            <option value="">Select category...</option>
+                            <option value="MANDATORY" selected>Mandatory Training</option>
+                            <option value="COMPLIANCE">Compliance & Regulations</option>
+                            <option value="SAFETY">Health & Safety</option>
+                            <option value="IT">Information Technology</option>
+                            <option value="PROFESSIONAL">Professional Development</option>
+                            <option value="LEADERSHIP">Leadership & Management</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label"><span class="required">*</span> Duration:</label>
+                    <div class="form-input">
+                        <input type="number" value="2" style="width: 60px;" min="0.5" max="40" step="0.5" />
+                        <select style="width: 80px; margin-left: 5px;">
+                            <option value="HOURS" selected>Hours</option>
+                            <option value="DAYS">Days</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label"><span class="required">*</span> Delivery Method:</label>
+                    <div class="form-input">
+                        <select style="width: 200px;">
+                            <option value="">Select method...</option>
+                            <option value="ONLINE" selected>Online/E-Learning</option>
+                            <option value="CLASSROOM">Classroom Training</option>
+                            <option value="BLENDED">Blended Learning</option>
+                            <option value="WORKSHOP">Workshop/Practical</option>
+                            <option value="WEBINAR">Live Webinar</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Priority Level:</label>
+                    <div class="form-input">
+                        <select style="width: 150px;">
+                            <option value="HIGH" selected>High (Mandatory)</option>
+                            <option value="MEDIUM">Medium (Required)</option>
+                            <option value="LOW">Low (Optional)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Description -->
+            <div class="form-section">
+                <h2>Course Description</h2>
+                <div class="form-row">
+                    <label class="form-label"><span class="required">*</span> Overview:</label>
+                    <div class="form-input">
+                        <textarea style="width: 500px; height: 80px;">This comprehensive course provides essential knowledge and practical guidance on preventing workplace harassment and discrimination. Participants will learn to recognize inappropriate behaviors, understand reporting procedures, and create an inclusive workplace environment for all employees.</textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Learning Objectives:</label>
+                    <div class="form-input">
+                        <textarea style="width: 500px; height: 100px;">By the end of this course, participants will be able to:
+• Define workplace harassment and discrimination in various forms
+• Identify behaviors that constitute harassment or discrimination
+• Understand the legal framework and organizational policies
+• Apply appropriate intervention strategies when witnessing inappropriate behavior
+• Follow correct reporting procedures and support mechanisms
+• Foster an inclusive and respectful workplace culture</textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Target Audience:</label>
+                    <div class="form-input">
+                        <textarea style="width: 500px; height: 60px;">All employees and contractors. Mandatory for managers and supervisors. Required for new starters within 30 days of employment. Annual refresher training required.</textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Prerequisites:</label>
+                    <div class="form-input">
+                        <textarea style="width: 500px; height: 40px;">None - suitable for all skill levels and job roles.</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Content/Modules -->
+            <div class="form-section">
+                <h2>Course Content & Modules</h2>
+                <div style="padding-bottom: 8px;">
+                    <input type="button" value="Add Module" class="button button-primary" />
+                    <input type="button" value="Import from Template" class="button" />
+                </div>
+                <table class="data-grid">
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Module Title</th>
+                            <th>Type</th>
+                            <th>Duration (mins)</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <input type="text" value="Introduction to Workplace Respect" style="width: 200px;" />
+                            </td>
+                            <td>
+                                <select style="width: 100px;">
+                                    <option value="VIDEO">Video</option>
+                                    <option value="READING" selected>Reading</option>
+                                    <option value="QUIZ">Quiz</option>
+                                    <option value="INTERACTIVE">Interactive</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" value="20" style="width: 60px;" />
+                            </td>
+                            <td>
+                                <input type="text" value="Overview of respect, dignity and inclusion principles" style="width: 250px;" />
+                            </td>
+                            <td>
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Remove</a> |
+                                <a href="#" class="action-link">↑Move Up</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>
+                                <input type="text" value="Recognizing Harassment & Discrimination" style="width: 200px;" />
+                            </td>
+                            <td>
+                                <select style="width: 100px;">
+                                    <option value="VIDEO" selected>Video</option>
+                                    <option value="READING">Reading</option>
+                                    <option value="QUIZ">Quiz</option>
+                                    <option value="INTERACTIVE">Interactive</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" value="30" style="width: 60px;" />
+                            </td>
+                            <td>
+                                <input type="text" value="Case studies and scenarios demonstrating inappropriate behaviors" style="width: 250px;" />
+                            </td>
+                            <td>
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Remove</a> |
+                                <a href="#" class="action-link">↑Move Up</a> |
+                                <a href="#" class="action-link">↓Move Down</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>
+                                <input type="text" value="Legal Framework & Policies" style="width: 200px;" />
+                            </td>
+                            <td>
+                                <select style="width: 100px;">
+                                    <option value="VIDEO">Video</option>
+                                    <option value="READING" selected>Reading</option>
+                                    <option value="QUIZ">Quiz</option>
+                                    <option value="INTERACTIVE">Interactive</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" value="25" style="width: 60px;" />
+                            </td>
+                            <td>
+                                <input type="text" value="Understanding legal requirements and organizational policies" style="width: 250px;" />
+                            </td>
+                            <td>
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Remove</a> |
+                                <a href="#" class="action-link">↑Move Up</a> |
+                                <a href="#" class="action-link">↓Move Down</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>
+                                <input type="text" value="Reporting & Support Procedures" style="width: 200px;" />
+                            </td>
+                            <td>
+                                <select style="width: 100px;">
+                                    <option value="VIDEO">Video</option>
+                                    <option value="READING">Reading</option>
+                                    <option value="QUIZ">Quiz</option>
+                                    <option value="INTERACTIVE" selected>Interactive</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" value="20" style="width: 60px;" />
+                            </td>
+                            <td>
+                                <input type="text" value="Step-by-step reporting process and support available" style="width: 250px;" />
+                            </td>
+                            <td>
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Remove</a> |
+                                <a href="#" class="action-link">↑Move Up</a> |
+                                <a href="#" class="action-link">↓Move Down</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>
+                                <input type="text" value="Knowledge Assessment" style="width: 200px;" />
+                            </td>
+                            <td>
+                                <select style="width: 100px;">
+                                    <option value="VIDEO">Video</option>
+                                    <option value="READING">Reading</option>
+                                    <option value="QUIZ" selected>Quiz</option>
+                                    <option value="INTERACTIVE">Interactive</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" value="25" style="width: 60px;" />
+                            </td>
+                            <td>
+                                <input type="text" value="Final assessment to test understanding of key concepts" style="width: 250px;" />
+                            </td>
+                            <td>
+                                <a href="#" class="action-link">Edit</a> |
+                                <a href="#" class="action-link">Remove</a> |
+                                <a href="#" class="action-link">↑Move Up</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="padding-top: 5px; font-size: 11px; color: #666;">
+                    Total Duration: 120 minutes (2 hours)
+                </div>
+            </div>
+
+            <!-- Assessment & Certification -->
+            <div class="form-section">
+                <h2>Assessment & Certification</h2>
+                <div class="form-row">
+                    <label class="form-label">Assessment Required:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="radio" name="assessmentRequired" value="true" checked> Yes
+                        </label>
+                        <label style="width: auto;">
+                            <input type="radio" name="assessmentRequired" value="false"> No
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Pass Mark (%):</label>
+                    <div class="form-input">
+                        <input type="number" value="80" min="50" max="100" style="width: 60px;" />
+                        <span style="margin-left: 10px; font-style: italic; color: #666;">Minimum score required to pass</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Retake Policy:</label>
+                    <div class="form-input">
+                        <select style="width: 200px;">
+                            <option value="UNLIMITED" selected>Unlimited retakes</option>
+                            <option value="LIMITED">Limited retakes (3 max)</option>
+                            <option value="MANAGER">Manager approval required</option>
+                            <option value="NONE">No retakes allowed</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Certificate Generated:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="checkbox" checked> Generate completion certificate
+                        </label>
+                        <label style="width: auto;">
+                            <input type="checkbox" checked> Email certificate automatically
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Certificate Validity:</label>
+                    <div class="form-input">
+                        <input type="number" value="12" style="width: 60px;" />
+                        <select style="width: 100px;">
+                            <option value="MONTHS" selected>Months</option>
+                            <option value="YEARS">Years</option>
+                            <option value="PERMANENT">Permanent</option>
+                        </select>
+                        <span style="margin-left: 10px; font-style: italic; color: #666;">How long the certificate remains valid</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Settings -->
+            <div class="form-section">
+                <h2>Course Settings</h2>
+                <div class="form-row">
+                    <label class="form-label">Course Status:</label>
+                    <div class="form-input">
+                        <select style="width: 150px;">
+                            <option value="DRAFT" selected>Draft</option>
+                            <option value="ACTIVE">Active</option>
+                            <option value="INACTIVE">Inactive</option>
+                            <option value="ARCHIVED">Archived</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Self-Enrollment:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 20px;">
+                            <input type="radio" name="selfEnrollment" value="true"> Allowed
+                        </label>
+                        <label style="width: auto;">
+                            <input type="radio" name="selfEnrollment" value="false" checked> Administrator only
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Waitlist Enabled:</label>
+                    <div class="form-input">
+                        <label style="width: auto;">
+                            <input type="checkbox" checked> Allow waiting list when sessions are full
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Mandatory For:</label>
+                    <div class="form-input">
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="checkbox" checked> All Employees
+                        </label>
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="checkbox" checked> Managers/Supervisors
+                        </label>
+                        <label style="width: auto; margin-right: 15px;">
+                            <input type="checkbox"> New Starters Only
+                        </label>
+                        <label style="width: auto;">
+                            <input type="checkbox"> Specific Departments
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Notification Settings:</label>
+                    <div class="form-input">
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Send enrollment confirmations
+                        </label>
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Send course reminders
+                        </label>
+                        <label style="width: auto; display: block; margin-bottom: 3px;">
+                            <input type="checkbox" checked> Send completion notifications
+                        </label>
+                        <label style="width: auto; display: block;">
+                            <input type="checkbox"> Send overdue notices
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Resources -->
+            <div class="form-section">
+                <h2>Course Resources</h2>
+                <div class="form-row">
+                    <label class="form-label">Instructor Resources:</label>
+                    <div class="form-input">
+                        <input type="file" multiple />
+                        <div style="margin-top: 5px; font-size: 10px; color: #666;">
+                            Upload instructor guides, presentation slides, answer keys, etc.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Student Materials:</label>
+                    <div class="form-input">
+                        <input type="file" multiple />
+                        <div style="margin-top: 5px; font-size: 10px; color: #666;">
+                            Upload handouts, reference materials, templates, etc.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">External Links:</label>
+                    <div class="form-input">
+                        <textarea style="width: 400px; height: 60px;" placeholder="Add any relevant external websites or resources (one per line)">https://www.acas.org.uk/equality-and-discrimination
+https://www.equalityhumanrights.com/</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-section">
+                <h2>Course Creation</h2>
+                <div style="padding: 8px;">
+                    <input type="button" value="Create Course" class="button button-primary" />
+                    <input type="button" value="Save as Draft" class="button" />
+                    <input type="button" value="Preview Course" class="button" />
+                    <input type="button" value="Import from Existing" class="button" />
+                    <input type="button" value="Cancel" class="button" />
+                </div>
+                <div style="padding-top: 5px; font-size: 10px; color: #666;">
+                    <span class="required">*</span> Required fields must be completed before creating the course.
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            TrainTrack Training Management System v2.1 | © 2019 Department for Environment, Food and Rural Affairs
+        </div>
+    </div>
+</body>
+</html>
