@@ -61,6 +61,10 @@ IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Employ
     DROP TABLE [dbo].[Employees]
 GO
 
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ELearningSyncLog]') AND type in (N'U'))
+    DROP TABLE [dbo].[ELearningSyncLog]
+GO
+
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AuditLog]') AND type in (N'U'))
     DROP TABLE [dbo].[AuditLog]
 GO
@@ -420,6 +424,21 @@ GO
 CREATE NONCLUSTERED INDEX [IX_AuditLog_UserName] ON [dbo].[AuditLog] ([UserName] ASC)
 GO
 
+-- Create ELearningSyncLog table
+CREATE TABLE [dbo].[ELearningSyncLog] (
+    [SyncId]           INT IDENTITY(1,1) PRIMARY KEY,
+    [SyncDate]         DATETIME NOT NULL DEFAULT GETDATE(),
+    [SyncStatus]       NVARCHAR(50) NOT NULL,
+    [TotalRecords]     INT NOT NULL DEFAULT 0,
+    [ProcessedRecords] INT NOT NULL DEFAULT 0,
+    [FailedRecords]    INT NOT NULL DEFAULT 0,
+    [ErrorDetails]     NVARCHAR(MAX) NULL,
+    [BatchFilePath]    NVARCHAR(500) NULL,
+    [StartTime]        DATETIME NOT NULL,
+    [EndTime]          DATETIME NULL
+)
+GO
+
 -- Create SystemSettings table
 CREATE TABLE [dbo].[SystemSettings] (
     [SettingId] INT IDENTITY(1,1) NOT NULL,
@@ -661,11 +680,12 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON [dbo].[TrainingSessions] TO [TrainTrack_
 GRANT SELECT, INSERT, UPDATE, DELETE ON [dbo].[WaitingList] TO [TrainTrack_Admins]
 GRANT SELECT, INSERT, UPDATE ON [dbo].[TrainingRecords] TO [TrainTrack_Admins]
 GRANT SELECT ON [dbo].[AuditLog] TO [TrainTrack_Admins]
+GRANT SELECT, INSERT, UPDATE ON [dbo].[ELearningSyncLog] TO [TrainTrack_Admins]
 GRANT SELECT, INSERT, UPDATE ON [dbo].[SystemSettings] TO [TrainTrack_Admins]
 
 PRINT 'TrainTrack database schema created successfully.'
 PRINT 'Schema version: 2.1'
-PRINT 'Total tables created: 12'
+PRINT 'Total tables created: 13'
 PRINT 'Total views created: 2'
 PRINT 'Total stored procedures created: 2'
 GO

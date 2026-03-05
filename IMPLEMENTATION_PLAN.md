@@ -575,7 +575,7 @@ This represents the overnight batch process. Methods:
   - Records from batch file that couldn't be matched to employees/courses
   - Addresses the reliability issues described in transcript
 
-- [ ] **7c.** Add sync log table to schema
+- [x] **7c.** Add sync log table to schema
 
 In `src/TrainTrack_Schema.sql`:
 
