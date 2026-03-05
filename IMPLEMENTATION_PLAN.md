@@ -502,7 +502,7 @@ Methods:
 - `GetAllActiveWaitingListEntries() As List(Of WaitingListEntry)` -- cross-session overview
 - `ReorderWaitingList(sessionId As Integer, entryIds As List(Of Integer)) As Boolean`
 
-- [ ] **6d.** Add business logic
+- [x] **6d.** Add business logic
 
 In `src/App_Code/BusinessLogic/TrainingManager.vb`, add:
 - `AddToWaitingList(sessionId As Integer, employeeId As Integer, createdBy As String) As Integer`

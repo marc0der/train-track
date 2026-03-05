@@ -9,9 +9,11 @@ Namespace Defra.TrainTrack.BusinessLogic
         Implements IDisposable
 
         Private _repository As TrainingRepository
+        Private _waitingListRepository As WaitingListRepository
 
         Public Sub New()
             _repository = New TrainingRepository()
+            _waitingListRepository = New WaitingListRepository()
         End Sub
 
         ' ===========================
@@ -1096,10 +1098,214 @@ Namespace Defra.TrainTrack.BusinessLogic
             End Try
         End Function
 
+        ' ===========================
+        ' Waiting List Methods
+        ' ===========================
+
+        Public Function AddToWaitingList(sessionId As Integer, employeeId As Integer, createdBy As String) As Integer
+            Try
+                If sessionId <= 0 Then
+                    Throw New ArgumentException("Session ID must be greater than 0", "sessionId")
+                End If
+
+                If employeeId <= 0 Then
+                    Throw New ArgumentException("Employee ID must be greater than 0", "employeeId")
+                End If
+
+                If String.IsNullOrWhiteSpace(createdBy) Then
+                    Throw New ArgumentException("Created by cannot be empty", "createdBy")
+                End If
+
+                ' Check session exists and is full
+                Dim session = _repository.GetTrainingSessionById(sessionId)
+                If session Is Nothing Then
+                    Throw New InvalidOperationException($"Training session with ID {sessionId} does not exist")
+                End If
+
+                If Not session.IsFullyBooked Then
+                    Throw New InvalidOperationException($"Training session {sessionId} is not full. Employee should be enrolled directly instead of added to waiting list.")
+                End If
+
+                ' Check employee exists and is active
+                Using employeeManager As New EmployeeManager()
+                    Dim employee = employeeManager.GetEmployeeById(employeeId)
+                    If employee Is Nothing Then
+                        Throw New InvalidOperationException($"Employee with ID {employeeId} does not exist")
+                    End If
+
+                    If Not employee.IsActive Then
+                        Throw New InvalidOperationException($"Employee with ID {employeeId} is not active")
+                    End If
+                End Using
+
+                ' Check employee is not already enrolled in this session
+                Dim existingRecords = _repository.GetTrainingRecordsBySession(sessionId)
+                For Each existingRecord In existingRecords
+                    If existingRecord.EmployeeId = employeeId AndAlso
+                       existingRecord.AttendanceStatus = "ENROLLED" Then
+                        Throw New InvalidOperationException($"Employee {employeeId} is already enrolled in session {sessionId}")
+                    End If
+                Next
+
+                ' Check employee is not already on the waiting list for this session
+                Dim waitingList = _waitingListRepository.GetWaitingListBySession(sessionId)
+                For Each entry In waitingList
+                    If entry.EmployeeId = employeeId AndAlso entry.IsActive Then
+                        Throw New InvalidOperationException($"Employee {employeeId} is already on the waiting list for session {sessionId}")
+                    End If
+                Next
+
+                ' Auto-calculate position as max(position) + 1 for that session
+                Dim nextPosition As Integer = 1
+                If waitingList.Count > 0 Then
+                    For Each entry In waitingList
+                        If entry.Position >= nextPosition Then
+                            nextPosition = entry.Position + 1
+                        End If
+                    Next
+                End If
+
+                ' Create waiting list entry
+                Dim newEntry As New WaitingListEntry(sessionId, employeeId, createdBy)
+                newEntry.Position = nextPosition
+
+                Dim entryId As Integer = _waitingListRepository.AddToWaitingList(newEntry)
+
+                If entryId > 0 Then
+                    EventLog.WriteEntry("TrainTrack", $"Employee {employeeId} added to waiting list for session {sessionId} at position {nextPosition} by {createdBy}", EventLogEntryType.Information)
+                End If
+
+                Return entryId
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error adding employee {employeeId} to waiting list for session {sessionId}: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to add employee {employeeId} to waiting list for session {sessionId}", ex)
+            End Try
+        End Function
+
+        Public Function RemoveFromWaitingList(entryId As Integer) As Boolean
+            Try
+                If entryId <= 0 Then
+                    Throw New ArgumentException("Entry ID must be greater than 0", "entryId")
+                End If
+
+                Dim success As Boolean = _waitingListRepository.RemoveFromWaitingList(entryId)
+
+                If success Then
+                    EventLog.WriteEntry("TrainTrack", $"Waiting list entry {entryId} removed", EventLogEntryType.Information)
+                End If
+
+                Return success
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error removing waiting list entry {entryId}: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to remove waiting list entry {entryId}", ex)
+            End Try
+        End Function
+
+        Public Function PromoteFromWaitingList(sessionId As Integer, promotedBy As String) As Boolean
+            Try
+                If sessionId <= 0 Then
+                    Throw New ArgumentException("Session ID must be greater than 0", "sessionId")
+                End If
+
+                If String.IsNullOrWhiteSpace(promotedBy) Then
+                    Throw New ArgumentException("Promoted by cannot be empty", "promotedBy")
+                End If
+
+                ' Check session exists
+                Dim session = _repository.GetTrainingSessionById(sessionId)
+                If session Is Nothing Then
+                    Throw New InvalidOperationException($"Training session with ID {sessionId} does not exist")
+                End If
+
+                ' Get next in line
+                Dim nextEntry As WaitingListEntry = _waitingListRepository.GetNextInLine(sessionId)
+                If nextEntry Is Nothing Then
+                    Throw New InvalidOperationException($"No one is waiting for session {sessionId}")
+                End If
+
+                ' Change status to "Offered" and set response deadline (3 business days)
+                nextEntry.Status = "Offered"
+                nextEntry.OfferedDate = DateTime.Now
+                nextEntry.ResponseDeadline = CalculateBusinessDayDeadline(DateTime.Now, 3)
+
+                Dim success As Boolean = _waitingListRepository.UpdateWaitingListEntry(nextEntry)
+
+                If success Then
+                    EventLog.WriteEntry("TrainTrack", $"Waiting list entry {nextEntry.EntryId} promoted (offered) for session {sessionId} by {promotedBy}. Employee {nextEntry.EmployeeId} has until {nextEntry.ResponseDeadline:dd/MM/yyyy} to respond.", EventLogEntryType.Information)
+                End If
+
+                Return success
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error promoting from waiting list for session {sessionId}: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to promote from waiting list for session {sessionId}", ex)
+            End Try
+        End Function
+
+        Public Function GetSessionWaitingList(sessionId As Integer) As List(Of WaitingListEntry)
+            Try
+                If sessionId <= 0 Then
+                    Throw New ArgumentException("Session ID must be greater than 0", "sessionId")
+                End If
+
+                Return _waitingListRepository.GetWaitingListBySession(sessionId)
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error getting waiting list for session {sessionId}: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to retrieve waiting list for session {sessionId}", ex)
+            End Try
+        End Function
+
+        Public Function GetAllWaitingListOverview() As List(Of WaitingListEntry)
+            Try
+                Return _waitingListRepository.GetAllActiveWaitingListEntries()
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error getting waiting list overview: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException("Unable to retrieve waiting list overview", ex)
+            End Try
+        End Function
+
+        Public Function GetWaitingListCountBySession(sessionId As Integer) As Integer
+            Try
+                If sessionId <= 0 Then
+                    Throw New ArgumentException("Session ID must be greater than 0", "sessionId")
+                End If
+
+                Dim waitingList = _waitingListRepository.GetWaitingListBySession(sessionId)
+                Dim activeCount As Integer = 0
+                For Each entry In waitingList
+                    If entry.IsActive Then
+                        activeCount += 1
+                    End If
+                Next
+                Return activeCount
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error getting waiting list count for session {sessionId}: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to retrieve waiting list count for session {sessionId}", ex)
+            End Try
+        End Function
+
+        Private Function CalculateBusinessDayDeadline(startDate As DateTime, businessDays As Integer) As DateTime
+            Dim currentDate As DateTime = startDate
+            Dim daysAdded As Integer = 0
+
+            While daysAdded < businessDays
+                currentDate = currentDate.AddDays(1)
+                If currentDate.DayOfWeek <> DayOfWeek.Saturday AndAlso
+                   currentDate.DayOfWeek <> DayOfWeek.Sunday Then
+                    daysAdded += 1
+                End If
+            End While
+
+            Return currentDate
+        End Function
+
         Public Sub Dispose() Implements IDisposable.Dispose
             If _repository IsNot Nothing Then
                 _repository.Dispose()
                 _repository = Nothing
+            End If
+            If _waitingListRepository IsNot Nothing Then
+                _waitingListRepository.Dispose()
+                _waitingListRepository = Nothing
             End If
         End Sub
 
