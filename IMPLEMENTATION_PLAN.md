@@ -462,7 +462,7 @@ Include:
 - Read-only `IsActive` property (Status = "Waiting" or "Offered")
 - Read-only `DaysWaiting` computed property
 
-- [ ] **6b.** Add `WaitingList` table to schema
+- [x] **6b.** Add `WaitingList` table to schema
 
 In `src/TrainTrack_Schema.sql`:
 

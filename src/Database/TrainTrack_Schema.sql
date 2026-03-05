@@ -21,6 +21,10 @@ IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Traini
     DROP TABLE [dbo].[TrainingRecords]
 GO
 
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[WaitingList]') AND type in (N'U'))
+    DROP TABLE [dbo].[WaitingList]
+GO
+
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SessionParticipants]') AND type in (N'U'))
     DROP TABLE [dbo].[SessionParticipants]
 GO
@@ -313,6 +317,31 @@ CREATE TABLE [dbo].[SessionParticipants] (
 GO
 
 CREATE UNIQUE NONCLUSTERED INDEX [IX_SessionParticipants_SessionEmployee] ON [dbo].[SessionParticipants] ([SessionId] ASC, [EmployeeId] ASC)
+GO
+
+-- Create WaitingList table
+CREATE TABLE [dbo].[WaitingList] (
+    [EntryId]           INT IDENTITY(1,1) PRIMARY KEY,
+    [SessionId]         INT NOT NULL,
+    [EmployeeId]        INT NOT NULL,
+    [RequestDate]       DATETIME NOT NULL DEFAULT GETDATE(),
+    [Position]          INT NOT NULL,
+    [Status]            NVARCHAR(50) NOT NULL DEFAULT 'Waiting',
+    [OfferedDate]       DATETIME NULL,
+    [ResponseDeadline]  DATETIME NULL,
+    [Notes]             NVARCHAR(MAX) NULL,
+    [CreatedBy]         NVARCHAR(100) NOT NULL,
+    CONSTRAINT [FK_WaitingList_Sessions] FOREIGN KEY ([SessionId])
+        REFERENCES [dbo].[TrainingSessions] ([SessionId]),
+    CONSTRAINT [FK_WaitingList_Employees] FOREIGN KEY ([EmployeeId])
+        REFERENCES [dbo].[Employees] ([EmployeeId])
+)
+GO
+
+CREATE NONCLUSTERED INDEX [IX_WaitingList_SessionId] ON [dbo].[WaitingList] ([SessionId] ASC)
+GO
+
+CREATE NONCLUSTERED INDEX [IX_WaitingList_EmployeeId] ON [dbo].[WaitingList] ([EmployeeId] ASC)
 GO
 
 -- Create TrainingRecords table
@@ -629,13 +658,14 @@ GRANT SELECT, INSERT, UPDATE ON [dbo].[EmployeeNotes] TO [TrainTrack_Admins]
 GRANT SELECT, INSERT, UPDATE ON [dbo].[Courses] TO [TrainTrack_Admins]
 GRANT SELECT, INSERT, UPDATE, DELETE ON [dbo].[CourseModules] TO [TrainTrack_Admins]
 GRANT SELECT, INSERT, UPDATE, DELETE ON [dbo].[TrainingSessions] TO [TrainTrack_Admins]
+GRANT SELECT, INSERT, UPDATE, DELETE ON [dbo].[WaitingList] TO [TrainTrack_Admins]
 GRANT SELECT, INSERT, UPDATE ON [dbo].[TrainingRecords] TO [TrainTrack_Admins]
 GRANT SELECT ON [dbo].[AuditLog] TO [TrainTrack_Admins]
 GRANT SELECT, INSERT, UPDATE ON [dbo].[SystemSettings] TO [TrainTrack_Admins]
 
 PRINT 'TrainTrack database schema created successfully.'
 PRINT 'Schema version: 2.1'
-PRINT 'Total tables created: 11'
+PRINT 'Total tables created: 12'
 PRINT 'Total views created: 2'
 PRINT 'Total stored procedures created: 2'
 GO
