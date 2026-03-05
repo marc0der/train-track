@@ -331,7 +331,7 @@ In `src/Web.config`:
 - Change line 36: `CalendarIntegrationEnabled` from `true` to `false`
 - Add XML comment: `<!-- Calendar integration not yet implemented. Rooms and calendars managed via Outlook manually. -->`
 
-- [ ] **4f.** Update the transcript to acknowledge schema fields
+- [x] **4f.** Update the transcript to acknowledge schema fields
 
 In `transcripts/traintrack_demo.txt`, where cost tracking and room booking are discussed,
 add parenthetical notes clarifying that while database fields exist for these features,

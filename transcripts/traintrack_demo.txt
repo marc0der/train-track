@@ -1594,7 +1594,7 @@ But it doesn't check anything else.
 It doesn't check room availability. It doesn't look at people's Outlook calendars. Nothing.
 
 30:51
-For room bookings I have to go separately into Outlook and book the room.
+For room bookings I have to go separately into Outlook and book the room. (Note: the database has a RoomBooked field on training sessions, but it was never connected to any booking system and is not used. Room booking remains an entirely manual Outlook-based process.)
 
 30:56
 And then hope no one else books it between me checking availability and sending the calendar invite.
@@ -1615,7 +1615,7 @@ Which, as you can imagine, doesn't go down well.
 And the training rooms, do they all have the right equipment for every course type?
 
 31:23
-No. And the system doesn't track room equipment at all.
+No. And the system doesn't track room equipment at all. (Note: the database schema includes EquipmentRequired and CateringRequired fields on training sessions, but these were added during development and never wired into the UI or populated with data. Equipment and catering arrangements are managed entirely outside the system.)
 
 31:27
 For Health and Safety practical sessions we need specific kit. Fire extinguishers, first aid mannequins, defibrillator trainers.
@@ -2302,7 +2302,7 @@ Can you tell me more about how training costs are currently tracked and reported
 So, honestly, costs aren't tracked in TrainTrack at all.
 
 44:19
-There's no cost field against courses. No budget tracking. No financial codes. Nothing.
+There's no cost field against courses. No budget tracking. No financial codes. Nothing. (Note: the database schema does include cost-per-participant fields on courses and sessions, but these were added during initial development and have never been populated or wired into the application. All cost tracking remains a manual process through the finance system.)
 
 44:26
 What I do is I export the attendance data at the end of each month as a CSV.
@@ -2869,7 +2869,7 @@ Budget management is done entirely separately through manual reconciliation.
 Fourth, manual scheduling with no calendar integration.
 
 55:18
-No room booking, no instructor reminders, no automated waiting list management.
+No room booking, no instructor reminders, no automated waiting list management. (Note: although the database schema contains fields for room booking, equipment, and catering on training sessions, these were never implemented in the application and remain unpopulated.)
 
 55:24
 Everything is manual.
