@@ -319,7 +319,7 @@ In `html/09-schedule-training.html`:
 - Replace with a simple note: "Equipment, catering, and room booking are managed
   outside this system."
 
-- [ ] **4d.** Remove Room Utilization section from HTML
+- [x] **4d.** Remove Room Utilization section from HTML
 
 In `html/06-training-schedule.html`:
 - Remove or comment out the Training Room Utilization section (lines 385-431)
