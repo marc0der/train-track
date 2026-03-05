@@ -399,7 +399,7 @@ CREATE TABLE [dbo].[EmployeeNotes] (
 CREATE INDEX [IX_EmployeeNotes_EmployeeId] ON [dbo].[EmployeeNotes] ([EmployeeId]);
 ```
 
-- [ ] **5c.** Add repository methods
+- [x] **5c.** Add repository methods
 
 In `src/App_Code/DataAccess/EmployeeRepository.vb`, add:
 - `GetNotesByEmployeeId(employeeId As Integer) As List(Of EmployeeNote)`

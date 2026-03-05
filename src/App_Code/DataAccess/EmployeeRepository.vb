@@ -833,6 +833,147 @@ Namespace Defra.TrainTrack.DataAccess
             Return False
         End Function
 
+        ' ===== EmployeeNote Methods =====
+
+        Public Function GetNotesByEmployeeId(employeeId As Integer) As List(Of EmployeeNote)
+            Dim notes As New List(Of EmployeeNote)()
+            Try
+                Dim sql As String = "SELECT * FROM EmployeeNotes WHERE EmployeeId = @EmployeeId ORDER BY CreatedDate DESC"
+
+                Dim parameters As SqlParameter() = {
+                    DatabaseHelper.CreateParameter("@EmployeeId", SqlDbType.Int, employeeId)
+                }
+
+                Using reader As SqlDataReader = _db.ExecuteReader(sql, parameters)
+                    While reader.Read()
+                        notes.Add(MapNoteFromReader(reader))
+                    End While
+                End Using
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error in GetNotesByEmployeeId ({employeeId}): {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to retrieve notes for employee {employeeId}", ex)
+            Finally
+                _db.CloseConnection()
+            End Try
+            Return notes
+        End Function
+
+        Public Function CreateNote(note As EmployeeNote) As Integer
+            Try
+                Dim sql As String = "INSERT INTO EmployeeNotes " &
+                                    "(EmployeeId, NoteText, NoteType, CreatedDate, CreatedBy, IsResolved) " &
+                                    "VALUES " &
+                                    "(@EmployeeId, @NoteText, @NoteType, @CreatedDate, @CreatedBy, @IsResolved); " &
+                                    "SELECT SCOPE_IDENTITY();"
+
+                Dim parameters As SqlParameter() = {
+                    DatabaseHelper.CreateParameter("@EmployeeId", SqlDbType.Int, note.EmployeeId),
+                    DatabaseHelper.CreateParameter("@NoteText", note.NoteText),
+                    DatabaseHelper.CreateParameter("@NoteType", SqlDbType.NVarChar, 50, note.NoteType),
+                    DatabaseHelper.CreateParameter("@CreatedDate", SqlDbType.DateTime, note.CreatedDate),
+                    DatabaseHelper.CreateParameter("@CreatedBy", SqlDbType.NVarChar, 100, note.CreatedBy),
+                    DatabaseHelper.CreateParameter("@IsResolved", SqlDbType.Bit, note.IsResolved)
+                }
+
+                Dim result As Object = _db.ExecuteScalar(sql, parameters)
+                If result IsNot Nothing AndAlso result IsNot DBNull.Value Then
+                    Return Convert.ToInt32(result)
+                End If
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error in CreateNote: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException("Unable to create employee note", ex)
+            Finally
+                _db.CloseConnection()
+            End Try
+            Return 0
+        End Function
+
+        Public Function UpdateNote(note As EmployeeNote) As Boolean
+            Try
+                Dim sql As String = "UPDATE EmployeeNotes SET " &
+                                    "NoteText = @NoteText, " &
+                                    "NoteType = @NoteType, " &
+                                    "IsResolved = @IsResolved, " &
+                                    "ResolvedDate = @ResolvedDate, " &
+                                    "ResolvedBy = @ResolvedBy " &
+                                    "WHERE NoteId = @NoteId"
+
+                Dim parameters As SqlParameter() = {
+                    DatabaseHelper.CreateParameter("@NoteId", SqlDbType.Int, note.NoteId),
+                    DatabaseHelper.CreateParameter("@NoteText", note.NoteText),
+                    DatabaseHelper.CreateParameter("@NoteType", SqlDbType.NVarChar, 50, note.NoteType),
+                    DatabaseHelper.CreateParameter("@IsResolved", SqlDbType.Bit, note.IsResolved),
+                    DatabaseHelper.CreateParameter("@ResolvedDate", SqlDbType.DateTime, If(note.ResolvedDate.HasValue, CObj(note.ResolvedDate.Value), DBNull.Value)),
+                    DatabaseHelper.CreateParameter("@ResolvedBy", SqlDbType.NVarChar, 100, If(note.ResolvedBy, CObj(DBNull.Value)))
+                }
+
+                Dim rowsAffected As Integer = _db.ExecuteNonQuery(sql, parameters)
+                Return rowsAffected > 0
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error in UpdateNote ({note.NoteId}): {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to update employee note {note.NoteId}", ex)
+            Finally
+                _db.CloseConnection()
+            End Try
+        End Function
+
+        Public Function ResolveNote(noteId As Integer, resolvedBy As String) As Boolean
+            Try
+                Dim sql As String = "UPDATE EmployeeNotes SET " &
+                                    "IsResolved = 1, " &
+                                    "ResolvedDate = @ResolvedDate, " &
+                                    "ResolvedBy = @ResolvedBy " &
+                                    "WHERE NoteId = @NoteId"
+
+                Dim parameters As SqlParameter() = {
+                    DatabaseHelper.CreateParameter("@NoteId", SqlDbType.Int, noteId),
+                    DatabaseHelper.CreateParameter("@ResolvedDate", SqlDbType.DateTime, DateTime.Now),
+                    DatabaseHelper.CreateParameter("@ResolvedBy", SqlDbType.NVarChar, 100, resolvedBy)
+                }
+
+                Dim rowsAffected As Integer = _db.ExecuteNonQuery(sql, parameters)
+                Return rowsAffected > 0
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error in ResolveNote ({noteId}): {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to resolve employee note {noteId}", ex)
+            Finally
+                _db.CloseConnection()
+            End Try
+        End Function
+
+        Public Function GetUnresolvedNotes() As List(Of EmployeeNote)
+            Dim notes As New List(Of EmployeeNote)()
+            Try
+                Dim sql As String = "SELECT * FROM EmployeeNotes WHERE IsResolved = 0 ORDER BY CreatedDate ASC"
+
+                Using reader As SqlDataReader = _db.ExecuteReader(sql, Nothing)
+                    While reader.Read()
+                        notes.Add(MapNoteFromReader(reader))
+                    End While
+                End Using
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error in GetUnresolvedNotes: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException("Unable to retrieve unresolved employee notes", ex)
+            Finally
+                _db.CloseConnection()
+            End Try
+            Return notes
+        End Function
+
+        Private Function MapNoteFromReader(reader As SqlDataReader) As EmployeeNote
+            Dim note As New EmployeeNote()
+            note.NoteId = DatabaseHelper.SafeGetInteger(reader, "NoteId")
+            note.EmployeeId = DatabaseHelper.SafeGetInteger(reader, "EmployeeId")
+            note.NoteText = DatabaseHelper.SafeGetString(reader, "NoteText")
+            note.NoteType = DatabaseHelper.SafeGetString(reader, "NoteType")
+            note.CreatedDate = DatabaseHelper.SafeGetDateTime(reader, "CreatedDate")
+            note.CreatedBy = DatabaseHelper.SafeGetString(reader, "CreatedBy")
+            note.IsResolved = DatabaseHelper.SafeGetBoolean(reader, "IsResolved")
+            note.ResolvedDate = DatabaseHelper.SafeGetNullableDateTime(reader, "ResolvedDate")
+            note.ResolvedBy = DatabaseHelper.SafeGetString(reader, "ResolvedBy")
+            Return note
+        End Function
+
         Private Function MapEmployee(reader As SqlDataReader) As Employee
             Dim employee As New Employee()
             employee.EmployeeId = DatabaseHelper.SafeGetInteger(reader, "EmployeeId")
