@@ -454,6 +454,175 @@ Namespace Defra.TrainTrack.BusinessLogic
             End Try
         End Function
 
+        ' ===== CourseModule Business Logic =====
+
+        Public Function GetCourseModules(courseId As Integer) As List(Of CourseModule)
+            Try
+                If courseId <= 0 Then
+                    Throw New ArgumentException("Course ID must be greater than 0", "courseId")
+                End If
+
+                Return _repository.GetModulesByCourseId(courseId)
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error getting course modules for course {courseId}: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to retrieve modules for course {courseId}", ex)
+            End Try
+        End Function
+
+        Public Function AddModuleToCourse(courseId As Integer, courseModule As CourseModule, createdBy As String) As Integer
+            Try
+                If courseId <= 0 Then
+                    Throw New ArgumentException("Course ID must be greater than 0", "courseId")
+                End If
+
+                If courseModule Is Nothing Then
+                    Throw New ArgumentNullException("courseModule", "Course module cannot be null")
+                End If
+
+                If String.IsNullOrWhiteSpace(createdBy) Then
+                    Throw New ArgumentException("Created by cannot be empty", "createdBy")
+                End If
+
+                ' Validate module title is required
+                If String.IsNullOrWhiteSpace(courseModule.Title) Then
+                    Throw New ArgumentException("Module title is required")
+                End If
+
+                ' Validate DurationMinutes >= 0
+                If courseModule.DurationMinutes < 0 Then
+                    Throw New ArgumentException("Duration minutes must be 0 or greater")
+                End If
+
+                ' Validate CourseId must exist
+                Dim course = _repository.GetCourseById(courseId)
+                If course Is Nothing Then
+                    Throw New InvalidOperationException($"Course with ID {courseId} does not exist")
+                End If
+
+                ' Set the CourseId and audit fields
+                courseModule.CourseId = courseId
+                courseModule.CreatedDate = DateTime.Now
+
+                ' Create module
+                Dim newModuleId As Integer = _repository.CreateModule(courseModule)
+
+                ' Log the action
+                EventLog.WriteEntry("TrainTrack", $"Module added to course {courseId}: {courseModule.Title} by {createdBy}", EventLogEntryType.Information)
+
+                Return newModuleId
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error adding module to course {courseId}: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to add module to course {courseId}", ex)
+            End Try
+        End Function
+
+        Public Function UpdateCourseModule(courseModule As CourseModule, modifiedBy As String) As Boolean
+            Try
+                If courseModule Is Nothing Then
+                    Throw New ArgumentNullException("courseModule", "Course module cannot be null")
+                End If
+
+                If courseModule.ModuleId <= 0 Then
+                    Throw New ArgumentException("Module ID must be greater than 0", "courseModule")
+                End If
+
+                If String.IsNullOrWhiteSpace(modifiedBy) Then
+                    Throw New ArgumentException("Modified by cannot be empty", "modifiedBy")
+                End If
+
+                ' Validate module title is required
+                If String.IsNullOrWhiteSpace(courseModule.Title) Then
+                    Throw New ArgumentException("Module title is required")
+                End If
+
+                ' Validate DurationMinutes >= 0
+                If courseModule.DurationMinutes < 0 Then
+                    Throw New ArgumentException("Duration minutes must be 0 or greater")
+                End If
+
+                ' Validate CourseId must exist
+                If courseModule.CourseId > 0 Then
+                    Dim course = _repository.GetCourseById(courseModule.CourseId)
+                    If course Is Nothing Then
+                        Throw New InvalidOperationException($"Course with ID {courseModule.CourseId} does not exist")
+                    End If
+                End If
+
+                ' Set audit fields
+                courseModule.ModifiedDate = DateTime.Now
+
+                ' Update module
+                Dim success As Boolean = _repository.UpdateModule(courseModule)
+
+                If success Then
+                    EventLog.WriteEntry("TrainTrack", $"Module updated: {courseModule.ModuleId} by {modifiedBy}", EventLogEntryType.Information)
+                End If
+
+                Return success
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error updating module {courseModule.ModuleId}: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to update module {courseModule.ModuleId}", ex)
+            End Try
+        End Function
+
+        Public Function RemoveCourseModule(moduleId As Integer, modifiedBy As String) As Boolean
+            Try
+                If moduleId <= 0 Then
+                    Throw New ArgumentException("Module ID must be greater than 0", "moduleId")
+                End If
+
+                If String.IsNullOrWhiteSpace(modifiedBy) Then
+                    Throw New ArgumentException("Modified by cannot be empty", "modifiedBy")
+                End If
+
+                ' Delete module
+                Dim success As Boolean = _repository.DeleteModule(moduleId)
+
+                If success Then
+                    EventLog.WriteEntry("TrainTrack", $"Module removed: {moduleId} by {modifiedBy}", EventLogEntryType.Information)
+                End If
+
+                Return success
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error removing module {moduleId}: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to remove module {moduleId}", ex)
+            End Try
+        End Function
+
+        Public Function ReorderCourseModules(courseId As Integer, moduleIds As List(Of Integer), modifiedBy As String) As Boolean
+            Try
+                If courseId <= 0 Then
+                    Throw New ArgumentException("Course ID must be greater than 0", "courseId")
+                End If
+
+                If moduleIds Is Nothing OrElse moduleIds.Count = 0 Then
+                    Throw New ArgumentException("Module IDs list cannot be empty", "moduleIds")
+                End If
+
+                If String.IsNullOrWhiteSpace(modifiedBy) Then
+                    Throw New ArgumentException("Modified by cannot be empty", "modifiedBy")
+                End If
+
+                ' Validate CourseId must exist
+                Dim course = _repository.GetCourseById(courseId)
+                If course Is Nothing Then
+                    Throw New InvalidOperationException($"Course with ID {courseId} does not exist")
+                End If
+
+                ' Reorder modules
+                Dim success As Boolean = _repository.ReorderModules(courseId, moduleIds)
+
+                If success Then
+                    EventLog.WriteEntry("TrainTrack", $"Modules reordered for course {courseId} by {modifiedBy}", EventLogEntryType.Information)
+                End If
+
+                Return success
+            Catch ex As Exception
+                EventLog.WriteEntry("TrainTrack", $"Error reordering modules for course {courseId}: {ex.Message}", EventLogEntryType.Error)
+                Throw New ApplicationException($"Unable to reorder modules for course {courseId}", ex)
+            End Try
+        End Function
+
         Public Sub Dispose() Implements IDisposable.Dispose
             If _repository IsNot Nothing Then
                 _repository.Dispose()

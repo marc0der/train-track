@@ -82,7 +82,7 @@ In `src/App_Code/DataAccess/CourseRepository.vb`, add:
 Follow the same patterns as existing repository methods (use `DatabaseHelper`, parameterised
 queries, `MapModuleFromReader` helper).
 
-- [ ] **1e.** Add business logic methods
+- [x] **1e.** Add business logic methods
 
 In `src/App_Code/BusinessLogic/CourseManager.vb`, add:
 - `GetCourseModules(courseId As Integer) As List(Of CourseModule)`
