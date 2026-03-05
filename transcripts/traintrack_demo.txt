@@ -358,10 +358,10 @@ OK.
 And just to be clear, there's no way to customise the dashboard? Like, I couldn't set it up to show me just my department?
 
 7:01
-No. It's the same view for everyone who has access. I see the same dashboard as, say, the IT Department Manager.
+No. It's the same view for everyone who has access. I see the same dashboard as, say, a manager in the IT department.
 
 7:08
-The only difference is that department managers can only drill down into their own people. But the top-level numbers are always the whole organisation.
+The only difference is what you can drill down into. Standard Users can only see their own records. But the top-level numbers are always the whole organisation.
 
 7:16
 Is there a landing page or a home page for employees? What do they see?
@@ -2647,19 +2647,22 @@ This is the admin area. User management, system configuration, email templates.
 User management is fairly straightforward.
 
 51:42
-We've got four roles. Administrator, Training Manager, Department Manager, and Employee.
+We've got five roles. System Administrator, Training Manager, Instructor, Reports User, and Standard User.
 
 51:50
-Employees can only see their own training records.
+Standard Users can only see their own training records.
 
 51:53
-Department Managers can see everyone in their department but can't do enrolments.
+Instructors can manage the sessions they're delivering and mark completions.
 
-51:58
+51:56
+Reports Users can run reports across the organisation but can't make changes.
+
+51:59
 Training Managers like me can see everyone and do enrolments.
 
-52:02
-And Administrators can change system settings on top of all that.
+52:03
+And System Administrators can change system settings on top of all that.
 
 52:07
 The permissions are quite rigid though.

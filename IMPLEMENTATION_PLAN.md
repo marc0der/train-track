@@ -255,7 +255,7 @@ In `html/08-user-management.html`:
 
 - Remove "HR Manager" and "Department Manager" -- these don't exist as AD groups
 
-- [ ] **3c.** Update the transcript
+- [x] **3c.** Update the transcript
 
 In `transcripts/traintrack_demo.txt`, search for the role descriptions around lines 2650-2671
 and update "Administrator, Training Manager, Department Manager, and Employee" to match
