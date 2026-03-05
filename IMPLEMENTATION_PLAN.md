@@ -533,7 +533,7 @@ code in the codebase.
 
 ### What to Do
 
-- [ ] **7a.** Create `ELearningSyncRecord.vb` model
+- [x] **7a.** Create `ELearningSyncRecord.vb` model
 
 Create file: `src/App_Code/Models/ELearningSyncRecord.vb`
 
