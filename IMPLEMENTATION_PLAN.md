@@ -639,7 +639,7 @@ The added content should describe:
 Keep the writing style consistent with the rest of the transcript (conversational,
 demo-walkthrough tone with questions from other attendees).
 
-- [ ] **8b.** Cross-reference from other transcript sections
+- [x] **8b.** Cross-reference from other transcript sections
 
 Where the transcript discusses certificate management and training completions, add brief
 references to "the Training Records page" to establish it as part of the system's navigation.

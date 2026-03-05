@@ -367,7 +367,7 @@ The only difference is what you can drill down into. Standard Users can only see
 Is there a landing page or a home page for employees? What do they see?
 
 7:21
-Employees just see their own training record. So they log in and they can see their courses, their compliance status, upcoming training.
+Employees just see their own training record. So they log in and they can see their courses, their compliance status, upcoming training. But they can't access the full Training Records page -- that's admin only.
 
 7:30
 But that's it. They can't search for other people, they can't see the schedule, they can't browse the course catalogue.
@@ -1048,7 +1048,7 @@ It's a lot of admin.
 Is it just you? Or do you have a team?
 
 20:55
-I've got one admin assistant, Gemma. She helps with certificate printing and some of the data entry.
+I've got one admin assistant, Gemma. She helps with certificate printing -- she uses the Training Records page to look up completions -- and some of the data entry.
 
 21:02
 But in terms of the training coordination and compliance management, it's basically just me.
@@ -2125,7 +2125,7 @@ The ones with field staff or lots of travel are struggling.
 And you said nothing's been archived? All data since 2016?
 
 41:37
-Yeah. Every record, every completion, every enrolment, every certificate record. All still in the active database.
+Yeah. Every record, every completion, every enrolment, every certificate record. All still in the active database. You can see the lot of it on the Training Records page.
 
 41:45
 Is there a data retention policy?
@@ -2437,7 +2437,7 @@ Yeah.
 Can you walk us through how that works?
 
 47:31
-OK so when someone completes a course, the system creates a certificate record in the database.
+OK so when someone completes a course, the system creates a certificate record in the database. That shows up on the Training Records page I showed you earlier.
 
 47:38
 That's the metadata. Certificate number, employee name, course name, completion date, expiry date.
@@ -2881,7 +2881,7 @@ How do you handle subject access requests?
 Manually. If someone submits a subject access request, I have to go into their record, screen by screen, and pull together all the data we hold on them.
 
 54:31
-And that includes the notes, the training history, the certificate records.
+And that includes the notes, the training history, the certificate records. Basically everything you'd find on the Training Records page and the employee profile.
 
 54:36
 There's no "export all data for this person" button?
