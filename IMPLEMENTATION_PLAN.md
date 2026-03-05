@@ -675,7 +675,7 @@ Ensure these numbers are consistent across all artefacts:
 
 Check that no step accidentally changed these figures.
 
-- [ ] **9c.** Verify new models are referenced in existing code
+- [x] **9c.** Verify new models are referenced in existing code
 
 Ensure that:
 - `CourseModule` is referenced in `Course.vb` (Modules property)

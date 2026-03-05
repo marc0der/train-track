@@ -44,6 +44,7 @@ Namespace Defra.TrainTrack.Models
         Private _primaryInstructor As Employee
         Private _secondaryInstructor As Employee
         Private _participants As List(Of Employee)
+        Private _waitingList As List(Of WaitingListEntry)
 
         Public Property SessionId() As Integer
             Get
@@ -452,6 +453,18 @@ Namespace Defra.TrainTrack.Models
             End Get
             Set(ByVal value As List(Of Employee))
                 _participants = value
+            End Set
+        End Property
+
+        Public Property WaitingList() As List(Of WaitingListEntry)
+            Get
+                If _waitingList Is Nothing Then
+                    _waitingList = New List(Of WaitingListEntry)()
+                End If
+                Return _waitingList
+            End Get
+            Set(ByVal value As List(Of WaitingListEntry))
+                _waitingList = value
             End Set
         End Property
 
