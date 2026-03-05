@@ -132,9 +132,9 @@ Namespace Defra.TrainTrack
             Try
                 ' Check user roles in order of precedence
                 If User.IsInRole("DEFRA\TrainTrack_Admins") Then
-                    Return "Administrator"
+                    Return "System Administrator"
                 ElseIf User.IsInRole("DEFRA\TrainTrack_Managers") Then
-                    Return "Manager"
+                    Return "Training Manager"
                 ElseIf User.IsInRole("DEFRA\TrainTrack_Instructors") Then
                     Return "Instructor"
                 ElseIf User.IsInRole("DEFRA\TrainTrack_Reports") Then

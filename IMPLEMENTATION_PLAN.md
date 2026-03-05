@@ -229,7 +229,7 @@ as AD groups. They should be removed from the HTML or added to the code. Since t
 says there are only 4 roles and the code has 5 AD groups, the simplest fix is to update the
 HTML to match the 5 code roles.
 
-- [ ] **3a.** Update `Default.aspx.vb` role display names
+- [x] **3a.** Update `Default.aspx.vb` role display names
 
 In `src/Default.aspx.vb`, lines 134-146, update the `GetUserRole()` return values:
 
