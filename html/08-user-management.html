@@ -42,9 +42,9 @@
                         <select>
                             <option value="">All Roles</option>
                             <option value="ADMIN">System Administrator</option>
-                            <option value="TRAINER">Training Administrator</option>
-                            <option value="HR">HR Manager</option>
-                            <option value="MANAGER">Department Manager</option>
+                            <option value="MANAGER">Training Manager</option>
+                            <option value="INSTRUCTOR">Instructor</option>
+                            <option value="REPORTS">Reports User</option>
                             <option value="USER">Standard User</option>
                         </select>
                     </div>
@@ -103,7 +103,7 @@
                         <tr>
                             <td>mbrown</td>
                             <td>Brown, Michael</td>
-                            <td>Training Administrator</td>
+                            <td>Training Manager</td>
                             <td>Human Resources</td>
                             <td>michael.brown@defra.gov.uk</td>
                             <td>15/03/2019 08:45</td>
@@ -117,7 +117,7 @@
                         <tr>
                             <td>ewilliams</td>
                             <td>Williams, Emma</td>
-                            <td>HR Manager</td>
+                            <td>Instructor</td>
                             <td>Human Resources</td>
                             <td>emma.williams@defra.gov.uk</td>
                             <td>14/03/2019 16:30</td>
@@ -131,7 +131,7 @@
                         <tr>
                             <td>ddavis</td>
                             <td>Davis, David</td>
-                            <td>Department Manager</td>
+                            <td>Reports User</td>
                             <td>Finance</td>
                             <td>david.davis@defra.gov.uk</td>
                             <td>13/03/2019 14:22</td>
@@ -145,7 +145,7 @@
                         <tr>
                             <td>lwilson</td>
                             <td>Wilson, Lisa</td>
-                            <td>Training Administrator</td>
+                            <td>Training Manager</td>
                             <td>Human Resources</td>
                             <td>lisa.wilson@defra.gov.uk</td>
                             <td>11/03/2019 11:15</td>
@@ -159,7 +159,7 @@
                         <tr>
                             <td>jthomas</td>
                             <td>Thomas, James</td>
-                            <td>Department Manager</td>
+                            <td>Standard User</td>
                             <td>Operations</td>
                             <td>james.thomas@defra.gov.uk</td>
                             <td>28/02/2019 09:45</td>
@@ -187,7 +187,7 @@
                         <tr>
                             <td>agarcia</td>
                             <td>Garcia, Anna</td>
-                            <td>Training Administrator</td>
+                            <td>Training Manager</td>
                             <td>Human Resources</td>
                             <td>anna.garcia@defra.gov.uk</td>
                             <td>Never logged in</td>
@@ -209,11 +209,11 @@
                     <thead>
                         <tr>
                             <th>Permission</th>
-                            <th>System Admin</th>
-                            <th>Training Admin</th>
-                            <th>HR Manager</th>
-                            <th>Dept Manager</th>
-                            <th>Standard User</th>
+                            <th>Sys Admin</th>
+                            <th>Training Mgr</th>
+                            <th>Instructor</th>
+                            <th>Reports</th>
+                            <th>Std User</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -229,8 +229,8 @@
                             <td>Search All Employees</td>
                             <td class="status-complete text-center">✓</td>
                             <td class="status-complete text-center">✓</td>
-                            <td class="status-complete text-center">✓</td>
                             <td class="status-pending text-center">Dept Only</td>
+                            <td class="status-complete text-center">✓</td>
                             <td class="text-center">-</td>
                         </tr>
                         <tr>
@@ -246,15 +246,15 @@
                             <td class="status-complete text-center">✓</td>
                             <td class="status-complete text-center">✓</td>
                             <td class="status-complete text-center">✓</td>
-                            <td class="status-pending text-center">Dept Only</td>
+                            <td class="text-center">-</td>
                             <td class="text-center">-</td>
                         </tr>
                         <tr>
                             <td>Generate Reports</td>
                             <td class="status-complete text-center">✓</td>
                             <td class="status-complete text-center">✓</td>
+                            <td class="text-center">-</td>
                             <td class="status-complete text-center">✓</td>
-                            <td class="status-pending text-center">Dept Only</td>
                             <td class="text-center">-</td>
                         </tr>
                         <tr>
@@ -416,20 +416,20 @@
                                 <td>2</td>
                             </tr>
                             <tr>
-                                <td>Training Administrator</td>
+                                <td>Training Manager</td>
                                 <td>5</td>
                             </tr>
                             <tr>
-                                <td>HR Manager</td>
+                                <td>Instructor</td>
                                 <td>3</td>
                             </tr>
                             <tr>
-                                <td>Department Manager</td>
-                                <td>8</td>
+                                <td>Reports User</td>
+                                <td>5</td>
                             </tr>
                             <tr>
                                 <td>Standard User</td>
-                                <td>5</td>
+                                <td>8</td>
                             </tr>
                         </tbody>
                     </table>

@@ -241,7 +241,7 @@ In `src/Default.aspx.vb`, lines 134-146, update the `GetUserRole()` return value
 | 141 | "Reports User" | "Reports User" (no change) |
 | 143 | "Standard User" | "Standard User" (no change) |
 
-- [ ] **3b.** Update `08-user-management.html` role names
+- [x] **3b.** Update `08-user-management.html` role names
 
 In `html/08-user-management.html`:
 
