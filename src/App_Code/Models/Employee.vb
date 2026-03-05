@@ -26,6 +26,7 @@ Namespace Defra.TrainTrack.Models
         Private _createdBy As String
         Private _modifiedDate As DateTime?
         Private _modifiedBy As String
+        Private _notes As List(Of EmployeeNote)
 
         Public Property EmployeeId() As Integer
             Get
@@ -255,10 +256,34 @@ Namespace Defra.TrainTrack.Models
             End Set
         End Property
 
+        Public Property Notes() As List(Of EmployeeNote)
+            Get
+                Return _notes
+            End Get
+            Set(ByVal value As List(Of EmployeeNote))
+                _notes = value
+            End Set
+        End Property
+
         ' Calculated properties
         Public ReadOnly Property YearsOfService() As Integer
             Get
                 Return DateTime.Now.Year - _hireDate.Year
+            End Get
+        End Property
+
+        Public ReadOnly Property UnresolvedNoteCount() As Integer
+            Get
+                If _notes Is Nothing OrElse _notes.Count = 0 Then
+                    Return 0
+                End If
+                Dim count As Integer = 0
+                For Each n As EmployeeNote In _notes
+                    If Not n.IsResolved Then
+                        count += 1
+                    End If
+                Next
+                Return count
             End Get
         End Property
 
@@ -284,6 +309,7 @@ Namespace Defra.TrainTrack.Models
             _createdDate = DateTime.Now
             _hireDate = DateTime.Now
             _lastLoginDate = DateTime.MinValue
+            _notes = New List(Of EmployeeNote)()
         End Sub
 
         Public Sub New(employeeNumber As String, firstName As String, lastName As String, email As String)

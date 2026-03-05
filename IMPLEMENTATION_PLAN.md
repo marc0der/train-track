@@ -416,7 +416,7 @@ In `src/App_Code/BusinessLogic/EmployeeManager.vb`, add:
 - `ResolveEmployeeNote(noteId As Integer, resolvedBy As String) As Boolean`
 - `GetAllUnresolvedNotes() As List(Of EmployeeNote)` -- cross-employee view
 
-- [ ] **5e.** Add a `Notes` property to the `Employee` model
+- [x] **5e.** Add a `Notes` property to the `Employee` model
 
 In `src/App_Code/Models/Employee.vb`:
 - Add `Private _notes As List(Of EmployeeNote)` field
