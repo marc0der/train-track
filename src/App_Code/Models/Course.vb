@@ -16,6 +16,7 @@ Namespace Defra.TrainTrack.Models
         Private _prerequisites As String
         Private _learningObjectives As String
         Private _courseContent As String
+        Private _modules As List(Of CourseModule)
         Private _assessmentMethod As String
         Private _certificateTemplate As String
         Private _validityPeriodMonths As Integer
@@ -168,6 +169,15 @@ Namespace Defra.TrainTrack.Models
             End Get
             Set(ByVal value As String)
                 _courseContent = value
+            End Set
+        End Property
+
+        Public Property Modules() As List(Of CourseModule)
+            Get
+                Return _modules
+            End Get
+            Set(ByVal value As List(Of CourseModule))
+                _modules = value
             End Set
         End Property
 
@@ -342,6 +352,19 @@ Namespace Defra.TrainTrack.Models
         End Property
 
         ' Calculated properties
+        Public ReadOnly Property TotalModuleDuration() As Integer
+            Get
+                If _modules Is Nothing OrElse _modules.Count = 0 Then
+                    Return 0
+                End If
+                Dim total As Integer = 0
+                For Each m As CourseModule In _modules
+                    total += m.DurationMinutes
+                Next
+                Return total
+            End Get
+        End Property
+
         Public ReadOnly Property IsExternal() As Boolean
             Get
                 Return Not String.IsNullOrEmpty(_externalProvider)
@@ -376,6 +399,7 @@ Namespace Defra.TrainTrack.Models
             _validityPeriodMonths = 12
             _createdDate = DateTime.Now
             _version = "1.0"
+            _modules = New List(Of CourseModule)()
         End Sub
 
         Public Sub New(courseCode As String, title As String, category As String)

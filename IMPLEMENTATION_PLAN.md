@@ -40,7 +40,7 @@ Include:
 - Follow the same VB.NET patterns used in the existing models (private backing fields,
   Public Property with Get/Set, constructor overloads)
 
-- [ ] **1b.** Add a `Modules` navigation property to `Course.vb`
+- [x] **1b.** Add a `Modules` navigation property to `Course.vb`
 
 In `src/App_Code/Models/Course.vb`:
 - Add a `Private _modules As List(Of CourseModule)` field (after line 18)
