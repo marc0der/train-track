@@ -128,7 +128,7 @@ Fields:
 
 Include a read-only `IsSuccess` property (True if Errors.Count = 0).
 
-- [ ] **2b.** Create an `EmployeeImportService.vb` business logic class
+- [x] **2b.** Create an `EmployeeImportService.vb` business logic class
 
 Create file: `src/App_Code/BusinessLogic/EmployeeImportService.vb`
 
