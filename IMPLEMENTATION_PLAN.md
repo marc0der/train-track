@@ -161,7 +161,7 @@ This is the core import logic. Methods:
 - `GenerateImportReport(result As EmployeeImportResult) As String`
   - Format a human-readable summary of the import
 
-- [ ] **2c.** Add CSV parsing utility
+- [x] **2c.** Add CSV parsing utility
 
 Create file: `src/App_Code/Utilities/CsvParser.vb`
 
