@@ -552,7 +552,7 @@ Fields:
 | StartTime | DateTime | When sync started |
 | EndTime | DateTime (nullable) | When sync finished |
 
-- [ ] **7b.** Create `ELearningSyncService.vb`
+- [x] **7b.** Create `ELearningSyncService.vb`
 
 Create file: `src/App_Code/BusinessLogic/ELearningSyncService.vb`
 
