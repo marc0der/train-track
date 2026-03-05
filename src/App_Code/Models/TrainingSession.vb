@@ -16,9 +16,12 @@ Namespace Defra.TrainTrack.Models
         Private _registrationDeadline As DateTime
         Private _sessionNotes As String
         Private _instructorNotes As String
+        ' NOTE: Field exists but feature not implemented. Equipment/catering/rooms managed manually outside system.
         Private _equipmentRequired As String
+        ' NOTE: Field exists but feature not implemented. Equipment/catering/rooms managed manually outside system.
         Private _cateringRequired As Boolean
         Private _materialsPrepared As Boolean
+        ' NOTE: Field exists but feature not implemented. Equipment/catering/rooms managed manually outside system.
         Private _roomBooked As Boolean
         Private _notificationsSent As Boolean
         Private _waitingListEnabled As Boolean

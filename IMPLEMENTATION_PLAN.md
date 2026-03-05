@@ -304,7 +304,7 @@ In `src/App_Code/Models/TrainingSession.vb`:
 - Add comments to `CostPerParticipant` (line 30) and `TotalCost` (line 31):
   `' NOTE: Not used in current system. Costs tracked externally by Finance.`
 
-- [ ] **4b.** Neutralise equipment/catering/room fields in the code
+- [x] **4b.** Neutralise equipment/catering/room fields in the code
 
 In `src/App_Code/Models/TrainingSession.vb`:
 - Add comments to `EquipmentRequired` (line 19), `CateringRequired` (line 20),
