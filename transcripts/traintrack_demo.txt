@@ -2544,7 +2544,94 @@ Yeah. It is.
 50:33
 Right.
 
-49:53
+50:36
+Actually Sarah, before we move on, can you show us the Training Records page? Where all the completion records live?
+
+50:42
+Yeah, of course. Let me click into Training Records from the menu.
+
+50:47
+So this is the Training Records Management page. This is where I can see every single training completion record in the system.
+
+50:54
+You can see at the top there are filters. I can search by employee name or employee ID, filter by course, filter by completion status, and narrow it down by date range.
+
+51:03
+So if I wanted to see everyone who completed Health and Safety Fundamentals in the last quarter, I'd select the course, set my dates, and hit Search.
+
+51:12
+How many records are we looking at in total?
+
+51:15
+There are 1,456 records in the system at the moment. That covers all training completions, in-progress enrolments, and any failed or expired records.
+
+51:24
+That's quite a lot.
+
+51:26
+It is. And it grows every week as people complete their training. But the filters make it manageable. I can drill down pretty quickly to find what I need.
+
+51:35
+Can you show us what a record looks like when you click into it?
+
+51:38
+Yeah. So if I click on this one, TR190001, Sarah Anderson's Health and Safety completion.
+
+51:45
+You get a detail panel that shows two sections. On the left is the employee information -- their ID, name, department, email.
+
+51:53
+On the right is the training details -- the course code, instructor, training method, session ID.
+
+51:59
+And then below that there's the assessment results table. It breaks down each assessment component with the score, the pass mark, and whether they passed or failed.
+
+52:08
+So for this one, Sarah got 92% on the online quiz and 96% on the practical assessment, for an overall score of 94%.
+
+52:16
+The pass mark is 80%, so she's well above that.
+
+52:20
+And then underneath the assessment results there's the certification information. Certificate number, issue date, valid until date, and whether the certificate is still active or expired.
+
+52:30
+That's useful for audits, I'd imagine.
+
+52:33
+It is. When an auditor asks about a specific person's training, this is where I come. I can see the full history and the assessment breakdown all in one place.
+
+52:42
+What about those buttons along the top of the records list? I can see Generate Certificates and Send Completion Emails.
+
+52:49
+Yeah, those are the bulk operations. So if I've got a batch of people who've just completed a course, I can select their records and generate all the certificates at once. Or send completion notification emails in bulk rather than one at a time.
+
+53:01
+There's also a Bulk Import button for when we need to add records manually, for example if someone completed training externally and we need to log it.
+
+53:10
+And at the bottom of the page?
+
+53:12
+That's the statistics section. It shows completion rates by status -- so I can see at a glance that 88.5% of records are completed, about 6% are in progress, and so on.
+
+53:23
+And there's an average scores table broken down by course. Emergency Procedures has the highest average at 96.1%, and Customer Service is lowest at 88.9%.
+
+53:33
+That's quite handy for spotting trends.
+
+53:35
+It is. If a course suddenly has a drop in pass rates, it might mean the content needs updating. Or the instructor isn't covering something properly.
+
+53:44
+Good. That's really helpful, thanks Sarah.
+
+53:47
+No problem.
+
+53:49
 Sarah, I want to ask about e-learning. You mentioned some courses are fully online.
 
 49:59

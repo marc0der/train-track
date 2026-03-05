@@ -621,7 +621,7 @@ specifically walk through or mention this page during the demo.
 
 ### What to Do
 
-- [ ] **8a.** Add a section to the transcript
+- [x] **8a.** Add a section to the transcript
 
 In `transcripts/traintrack_demo.txt`, find an appropriate location after the course
 management discussion (around the section where training completion and certificates are
