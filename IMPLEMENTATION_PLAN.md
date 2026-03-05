@@ -311,7 +311,7 @@ In `src/App_Code/Models/TrainingSession.vb`:
   `RoomBooked` (line 22):
   `' NOTE: Field exists but feature not implemented. Equipment/catering/rooms managed manually outside system.`
 
-- [ ] **4c.** Remove Resource Requirements section from HTML
+- [x] **4c.** Remove Resource Requirements section from HTML
 
 In `html/09-schedule-training.html`:
 - Remove or comment out the entire Resource Requirements section (lines 291-342)
